@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -38,12 +39,10 @@ public class SplashScreen extends Activity {
             @Override
             public void run() {
 
-                SharedPreferences pref = PreferenceManager
-                        .getDefaultSharedPreferences(SplashScreen.this);
                 PrefManager prefs = new PrefManager(SplashScreen.this);
 
                 if (prefs.loggedInAndVerfified()) {
-                    startActivity(new Intent(SplashScreen.this, Base.class));
+                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
                     finish();
                 } else if (prefs.loggedInNotVerfified()) {
                     Intent i = new Intent(SplashScreen.this, SmsActivity.class);

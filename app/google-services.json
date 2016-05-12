@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "912963731072",
+    "project_id": "wayfoo-123"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912963731072:android:dff7e529bfd51d5b",
+        "android_client_info": {
+          "package_name": "com.wayfoo.wayfoo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912963731072-1s3g6u57dorpf9ocmseba9i20rqt27j6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wayfoo.wayfoo",
+            "certificate_hash": "DC13EAD135C9341B2BB46BE2EC59DD91F1A32145"
+          }
+        },
+        {
+          "client_id": "912963731072-3731u9l0fbqrabga9687l46kt4276t9b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wayfoo.wayfoo",
+            "certificate_hash": "67422B6562927F46835CA3029FA7D9FF1C18D125"
+          }
+        },
+        {
+          "client_id": "912963731072-jfmo0i98sf6jpu0f4e3auis2sonhub2n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWCJTCXF33P4OOs5zri4IvEHc6Zz5f9l8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

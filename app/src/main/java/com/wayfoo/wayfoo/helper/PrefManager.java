@@ -29,6 +29,14 @@ public class PrefManager {
     private static final String KEY_NAME = "name";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_MOBILE = "mobile";
+    private static final String KEY_IMAGE = "image";
+    private static final String KEY_LOC = "loc";
+    private static final String KEY_FIRST = "first";
+    private static final String KEY_REGID = "regid";
+    private static final String KEY_HOTEL = "hotel";
+    private static final String KEY_TITLE = "title";
+    private static final String KEY_PRICE_SUM = "priceSum";
+    private static final String KEY_TABLE = "table";
 
     public PrefManager(Context context) {
         this._context = context;
@@ -59,6 +67,12 @@ public class PrefManager {
         editor.putString(KEY_EMAIL, email);
         editor.putString(KEY_MOBILE, mobile);
         editor.putBoolean(KEY_IS_LOGGED_IN, true);
+        editor.commit();
+    }
+
+    public void createUnverifiedLogin(String name, String email) {
+        editor.putString(KEY_NAME, name);
+        editor.putString(KEY_EMAIL, email);
         editor.commit();
     }
 
@@ -93,5 +107,90 @@ public class PrefManager {
         } else {
             return false;
         }
+    }
+
+    public void putProfImage(String image) {
+        editor.putString(KEY_IMAGE, image);
+        editor.commit();
+    }
+
+    public void putLocation(String loc) {
+        editor.putString(KEY_LOC, loc);
+        editor.commit();
+    }
+
+    public Boolean isFirstTime() {
+        return pref.getBoolean(KEY_FIRST, true);
+    }
+
+    public void setFirstTime() {
+        editor.putBoolean(KEY_FIRST, false);
+        editor.commit();
+    }
+
+    public String getName() {
+        return pref.getString(KEY_NAME, null);
+    }
+
+    public String getEmail() {
+        return pref.getString(KEY_EMAIL, null);
+    }
+
+    public String getLocation() {
+        return pref.getString(KEY_LOC, null);
+    }
+
+    public String getRegId() {
+        return pref.getString(KEY_REGID, null);
+    }
+
+    public String getHotelName() {
+        return pref.getString(KEY_HOTEL, null);
+    }
+
+    public String getTitle() {
+        return pref.getString(KEY_TITLE, null);
+    }
+
+    public int getPriceSum() {
+        return pref.getInt(KEY_PRICE_SUM, 0);
+    }
+
+    public String getTable() {
+        return pref.getString(KEY_TABLE, null);
+    }
+
+    public String getImage() {
+        return pref.getString(KEY_IMAGE, null);
+    }
+
+    public void setPriceSum(int priceSum) {
+        editor.putInt(KEY_PRICE_SUM, priceSum);
+        editor.commit();
+    }
+
+    public void setLocation(String loc) {
+        editor.putString(KEY_LOC, loc);
+        editor.commit();
+    }
+
+    public void setTitle(String title) {
+        editor.putString(KEY_LOC, title);
+        editor.commit();
+    }
+
+    public void setTable(String table) {
+        editor.putString(KEY_LOC, table);
+        editor.commit();
+    }
+
+    public void setHotelName(String hotelname) {
+        editor.putString(KEY_LOC, hotelname);
+        editor.commit();
+    }
+
+    public void setRegid(String regid) {
+        editor.putString(KEY_REGID, regid);
+        editor.commit();
     }
 }

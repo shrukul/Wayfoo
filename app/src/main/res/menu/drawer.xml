@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" android:id="@+id/one">
+
+        <item
+            android:id="@+id/home"
+            android:checked="true"
+            android:icon="@drawable/construction"
+            android:title="@string/home_string" />
+        <item
+            android:id="@+id/orderHistory"
+            android:checked="false"
+            android:icon="@drawable/square"
+            android:title="@string/order_history" />
+        <item
+            android:id="@+id/about"
+            android:checked="false"
+            android:icon="@drawable/menu_cart"
+            android:title="@string/about_string" />
+         <item
+            android:id="@+id/signout"
+            android:checked="false"
+            android:icon="@drawable/arrow"
+            android:title="@string/signout" />
+    </group>
+</menu>
