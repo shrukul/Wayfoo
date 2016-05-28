@@ -5,12 +5,9 @@ package com.wayfoo.wayfoo;
  */
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.preference.PreferenceManager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -27,7 +24,6 @@ import android.widget.TextView;
 
 import com.wayfoo.wayfoo.helper.PrefManager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CartAdapter extends
@@ -79,7 +75,7 @@ public class CartAdapter extends
     public void onBindViewHolder(final CustomViewHolder customViewHolder, final int i) {
         final FeedItemHotel feedItem = feedItemList.get(i);
         Typeface font1 = Typeface.createFromAsset(mContext.getAssets(),
-                "font/RobotoCondensed-Regular.ttf");
+                "fonts/pt-sans.regular.ttf");
         SpannableStringBuilder SS = new SpannableStringBuilder(
                 Html.fromHtml(feedItem.getTitle()));
         SS.setSpan(new CustomTypeFace("", font1), 0, SS.length(),

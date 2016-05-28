@@ -23,7 +23,7 @@ public class Fragment_start extends Fragment {
     private List<FeedItemHotel> persons;
     private DatabaseHandler db;
     private Cursor c;
-    private MyRecyclerAdapterHotel adapter_start;
+    private MyRecyclerAdapterHotel adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,8 +38,8 @@ public class Fragment_start extends Fragment {
 
         db = new DatabaseHandler(getActivity());
         initializeData();
-        adapter_start = new MyRecyclerAdapterHotel(getActivity(), persons);
-        rv_start.setAdapter(adapter_start);
+        adapter = new MyRecyclerAdapterHotel(getActivity(), persons);
+        rv_start.setAdapter(adapter);
         db.close();
         return rootView;
     }
@@ -62,6 +62,4 @@ public class Fragment_start extends Fragment {
             }
         }
     }
-
-
 }

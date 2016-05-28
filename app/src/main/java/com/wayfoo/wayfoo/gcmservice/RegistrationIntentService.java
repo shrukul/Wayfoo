@@ -1,22 +1,16 @@
 package com.wayfoo.wayfoo.gcmservice;
 
 import android.app.IntentService;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.preference.PreferenceManager;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
-
-import java.io.IOException;
-
 import com.wayfoo.wayfoo.R;
 import com.wayfoo.wayfoo.helper.PrefManager;
+
+import java.io.IOException;
 
 /**
  * Created by shrukul on 27/1/16.

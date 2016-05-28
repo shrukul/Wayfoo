@@ -27,7 +27,7 @@
         android:id="@+id/rate"
         android:text="Rate"
         android:background="@color/colorPrimary"
-        android:textColor="@color/wallet_dim_foreground_inverse_disabled_holo_dark"
+        android:textColor="#000000"
         android:layout_below="@id/getRating"
         android:layout_centerHorizontal="true"/>
 

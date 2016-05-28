@@ -3,8 +3,6 @@ package com.wayfoo.wayfoo;
 /**
  * Created by Axle on 26/03/2016.
  */
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -13,9 +11,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import static com.wayfoo.wayfoo.Constants.FIRST_COLUMN;
-import static com.wayfoo.wayfoo.Constants.THIRD_COLUMN;
 import static com.wayfoo.wayfoo.Constants.SECOND_COLUMN;
+import static com.wayfoo.wayfoo.Constants.THIRD_COLUMN;
 
 public class PerOrderAdapter extends BaseAdapter{
 

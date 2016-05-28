@@ -4,8 +4,6 @@ package com.wayfoo.wayfoo.gcmservice;
  * Created by shrukul on 18/3/16.
  */
 
-import com.google.android.gms.gcm.GcmListenerService;
-
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -15,6 +13,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 
+import com.google.android.gms.gcm.GcmListenerService;
 import com.wayfoo.wayfoo.R;
 import com.wayfoo.wayfoo.Rate_Hotel;
 

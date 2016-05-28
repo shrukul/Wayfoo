@@ -3,12 +3,6 @@ package com.wayfoo.wayfoo;
 /**
  * Created by Axle on 26/03/2016.
  */
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -16,7 +10,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -29,9 +22,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import static com.wayfoo.wayfoo.Constants.FIRST_COLUMN;
-import static com.wayfoo.wayfoo.Constants.THIRD_COLUMN;
 import static com.wayfoo.wayfoo.Constants.SECOND_COLUMN;
+import static com.wayfoo.wayfoo.Constants.THIRD_COLUMN;
 
 public class PerOrder extends AppCompatActivity {
 

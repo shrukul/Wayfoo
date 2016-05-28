@@ -13,19 +13,16 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.wayfoo.wayfoo.Config;
+import com.wayfoo.wayfoo.MainActivity;
+import com.wayfoo.wayfoo.MyApplication;
+import com.wayfoo.wayfoo.helper.PrefManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import com.wayfoo.wayfoo.MainActivity;
-import com.wayfoo.wayfoo.Baseactivity;
-import com.wayfoo.wayfoo.Config;
-import com.wayfoo.wayfoo.MainActivity;
-import com.wayfoo.wayfoo.MyApplication;
-import com.wayfoo.wayfoo.helper.PrefManager;
 
 /**
  * Created by Ravi on 04/04/15.

@@ -1,12 +1,8 @@
 package com.wayfoo.wayfoo;
 
-import java.util.List;
-
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.preference.PreferenceManager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -22,6 +18,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.wayfoo.wayfoo.helper.PrefManager;
+
+import java.util.List;
 
 public class LocationAdapter extends
         RecyclerView.Adapter<LocationAdapter.CustomViewHolder> {
@@ -85,7 +83,7 @@ public class LocationAdapter extends
                 .into(customViewHolder.imageView);
 
         Typeface font1 = Typeface.createFromAsset(mContext.getAssets(),
-                "font/RobotoCondensed-Regular.ttf");
+                "fonts/pt-sans.regular.ttf");
         SpannableStringBuilder SS = new SpannableStringBuilder(
                 Html.fromHtml(feedItem.getTitle()));
         SS.setSpan(new CustomTypeFace("", font1), 0, SS.length(),

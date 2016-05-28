@@ -1,19 +1,9 @@
 package com.wayfoo.wayfoo;
 
-import android.*;
-import android.Manifest;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
-import com.wayfoo.wayfoo.helper.PrefManager;
 
 /**
  * Created by shrukul on 12/5/16.

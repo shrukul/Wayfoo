@@ -8,13 +8,11 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,7 +81,7 @@ public class MyRecyclerAdapterHotel extends
     public void onBindViewHolder(final CustomViewHolder customViewHolder,final int i) {
         final FeedItemHotel feedItem = feedItemList.get(i);
         Typeface font1 = Typeface.createFromAsset(mContext.getAssets(),
-                "font/pt-sans.regular.ttf");
+                "fonts/pt-sans.regular.ttf");
         SpannableStringBuilder SS = new SpannableStringBuilder(
                 Html.fromHtml(feedItem.getTitle()));
         SS.setSpan(new CustomTypeFace("", font1), 0, SS.length(),

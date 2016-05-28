@@ -3,16 +3,11 @@ package com.wayfoo.wayfoo;
 /**
  * Created by Axle on 19/03/2016.
  */
-import android.*;
-import android.Manifest;
+
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -30,15 +25,14 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.wayfoo.wayfoo.helper.PrefManager;
+import com.wayfoo.wayfoo.service.HttpService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import com.wayfoo.wayfoo.helper.PrefManager;
-import com.wayfoo.wayfoo.service.HttpService;
 
 public class SmsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -91,7 +85,7 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
         // Checking for user session
         // if user is already logged in, take him to main activity
         if (pref.isLoggedIn()) {
-            Intent intent = new Intent(SmsActivity.this, Baseactivity.class);
+            Intent intent = new Intent(SmsActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
 

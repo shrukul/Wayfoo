@@ -1,17 +1,8 @@
 package com.wayfoo.wayfoo;
 
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
-import android.preference.PreferenceManager;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -26,18 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.squareup.picasso.Picasso;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
+import java.util.List;
 
 public class MyRecyclerAdapter extends
 		RecyclerView.Adapter<MyRecyclerAdapter.CustomViewHolder> {
@@ -118,7 +100,7 @@ public class MyRecyclerAdapter extends
 				.into(customViewHolder.imageView);
 
 		Typeface font1 = Typeface.createFromAsset(mContext.getAssets(),
-				"font/RobotoCondensed-Regular.ttf");
+				"fonts/pt-sans.regular.ttf");
 		SpannableStringBuilder SS = new SpannableStringBuilder(
 				Html.fromHtml(feedItem.getDisName()));
 		SS.setSpan(new CustomTypeFace("", font1), 0, SS.length(),
@@ -126,7 +108,7 @@ public class MyRecyclerAdapter extends
 		customViewHolder.textView.setText(SS);
 
 		Typeface font = Typeface.createFromAsset(mContext.getAssets(),
-				"font/RobotoCondensed-Regular.ttf");
+				"fonts/pt-sans.regular.ttf");
 		SS = new SpannableStringBuilder(Html.fromHtml(feedItem.getPlace()));
 		SS.setSpan(new CustomTypeFace("", font), 0, SS.length(),
 				Spanned.SPAN_EXCLUSIVE_INCLUSIVE);

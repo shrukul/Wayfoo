@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Display;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 /**
  * Created by Axle on 02/02/2016.

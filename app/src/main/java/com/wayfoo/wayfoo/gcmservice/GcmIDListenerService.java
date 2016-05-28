@@ -2,8 +2,6 @@ package com.wayfoo.wayfoo.gcmservice;
 
 import android.content.Intent;
 
-import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.google.android.gms.iid.InstanceID;
 import com.google.android.gms.iid.InstanceIDListenerService;
 
 /**

@@ -6,23 +6,16 @@ package com.wayfoo.wayfoo;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -92,7 +85,7 @@ public class OrderListAdapter extends
     public void onBindViewHolder(final CustomViewHolder customViewHolder,int i) {
         final OrderListModel feedItem = feedItemList.get(i);
         Typeface font1 = Typeface.createFromAsset(mContext.getAssets(),
-                "font/pt-sans.regular.ttf");
+                "fonts/pt-sans.regular.ttf");
         SpannableStringBuilder SS = new SpannableStringBuilder(
                 Html.fromHtml(feedItem.getTitle()));
         SS.setSpan(new CustomTypeFace("", font1), 0, SS.length(),

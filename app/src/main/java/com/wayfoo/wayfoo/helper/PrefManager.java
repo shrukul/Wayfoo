@@ -1,7 +1,6 @@
 package com.wayfoo.wayfoo.helper;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
@@ -94,7 +93,7 @@ public class PrefManager {
     }
 
     public Boolean loggedInAndVerfified() {
-        if (pref.contains("KEY_E") && isLoggedIn()) {
+        if (pref.contains(KEY_EMAIL) && isLoggedIn()) {
             return true;
         } else {
             return false;
@@ -102,7 +101,7 @@ public class PrefManager {
     }
 
     public Boolean loggedInNotVerfified() {
-        if (!isLoggedIn() && pref.contains("KEY_E")) {
+        if (!isLoggedIn() && pref.contains(KEY_EMAIL)) {
             return true;
         } else {
             return false;
