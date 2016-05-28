@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        Fragment_main fragment_main = new Fragment_main();
+        Home fragment_main = new Home();
         fragmentTransaction.replace(R.id.frame, fragment_main);
         fragmentTransaction.commit();
     }

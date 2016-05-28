@@ -94,6 +94,7 @@ public class Home extends Fragment {
                 container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setHasFixedSize(true);
         progressBar = (ProgressBar) rootView.findViewById(R.id.progress_bar);
         getActivity().setTitle("Wayfoo");
         PrefManager pref = new PrefManager(getContext());

@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 /**
  * Created by Axle on 21/03/2016.
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class Baseactivity extends AppCompatActivity {
 
     public FrameLayout container;
     public android.support.v7.widget.Toolbar toolbar;

@@ -16,7 +16,6 @@ public class SplashScreen extends Activity {
         super.onCreate(savedInstanceState);
 
         // refer this link - https://www.bignerdranch.com/blog/splash-screens-the-right-way/
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

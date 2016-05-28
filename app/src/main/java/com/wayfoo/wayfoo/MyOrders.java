@@ -47,8 +47,10 @@ public class MyOrders extends Fragment {
 
         getActivity().setTitle("Order History");
 
+
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setHasFixedSize(true);
         progressBar = (ProgressBar) rootView.findViewById(R.id.progress_bar);
         PrefManager pref = new PrefManager(getContext());
         String email = pref.getEmail();

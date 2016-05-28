@@ -66,13 +66,9 @@ public class MyRecyclerAdapterHotel extends
 
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        //View view = LayoutInflater.from(viewGroup.getContext()).inflate(
-        //        R.layout.card_view_row_hotel, null);
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_view_row_hotel, null, true);
-        WindowManager windowManager = (WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE);
-        int width = windowManager.getDefaultDisplay().getWidth();
-        int height=windowManager.getDefaultDisplay().getHeight();
-        view.setLayoutParams(new RecyclerView.LayoutParams(width, RecyclerView.LayoutParams.MATCH_PARENT));
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(
+                R.layout.card_view_row_hotel, null,false);
+
         CustomViewHolder viewHolder = new CustomViewHolder(view);
         return viewHolder;
     }

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -80,7 +81,7 @@ public class MyRecyclerAdapter extends
 	@Override
 	public CustomViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
 		View view = LayoutInflater.from(viewGroup.getContext()).inflate(
-				R.layout.card_view_row, viewGroup,false);
+				R.layout.card_view_row, null,false);
 
 		CustomViewHolder viewHolder = new CustomViewHolder(view);
 		return viewHolder;
