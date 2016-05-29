@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wayfoo.wayfoo.helper.PrefManager;
+import com.wayfoo.wayfoo.instamojo.Payment;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -95,6 +96,16 @@ public class MainActivity extends AppCompatActivity {
                         it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(it);
+                        return true;
+                    case R.id.payment:
+                        Intent iit = new Intent(MainActivity.this, Payment.class);
+                        PrefManager prefss = new PrefManager(MainActivity.this);
+
+                        prefss.clearSession();
+
+                        iit.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        iit.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(iit);
                         return true;
                     default:
                         Toast.makeText(getApplicationContext(), "Somethings Wrong", Toast.LENGTH_SHORT).show();

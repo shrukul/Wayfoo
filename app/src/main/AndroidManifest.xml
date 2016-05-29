@@ -84,6 +84,20 @@
 
         </activity>
         <activity
+            android:name=".instamojo.Payment"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".instamojo.Web"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
             android:name=".Login"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name"

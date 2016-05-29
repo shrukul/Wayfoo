@@ -23,5 +23,10 @@
             android:checked="false"
             android:icon="@drawable/arrow"
             android:title="@string/signout" />
+        <item
+            android:id="@+id/payment"
+            android:checked="false"
+            android:icon="@drawable/multimedia"
+            android:title="@string/signout" />
     </group>
 </menu>
