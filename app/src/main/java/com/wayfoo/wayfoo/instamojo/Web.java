@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.wayfoo.wayfoo.R;
 
@@ -22,6 +23,7 @@ public class Web extends AppCompatActivity {
 
         browser = (WebView) findViewById(R.id.webView);
         browser.setFocusable(true);
+        browser.setWebViewClient(new WebViewClient());
         browser.setFocusableInTouchMode(true);
         browser.getSettings().setJavaScriptEnabled(true);
         browser.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
