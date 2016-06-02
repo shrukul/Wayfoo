@@ -8,8 +8,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Looper;
+import android.preference.PreferenceActivity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -17,9 +20,20 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -31,8 +45,20 @@ import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListe
 import com.wayfoo.wayfoo.gcmservice.RegistrationIntentService;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
+import org.apache.http.Header;
+import org.apache.http.HttpMessage;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
 
 public class Login extends AppCompatActivity implements OnClickListener,
         ConnectionCallbacks, OnConnectionFailedListener {
@@ -47,18 +73,25 @@ public class Login extends AppCompatActivity implements OnClickListener,
     private SignInButton btnSignIn;
     private ImageView imgProfilePic;
     PrefManager prefs;
+    private LoginButton loginButton;
+    private CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
         setContentView(R.layout.login);
+
+        callbackManager = CallbackManager.Factory.create();
+        loginButton = (LoginButton) findViewById(R.id.login_button);
 
         prefs = new PrefManager(getApplicationContext());
 
         if (prefs.isFirstTime()) {
-            Intent i = new Intent(Login.this,Intro.class);
+            Intent i = new Intent(Login.this, Intro.class);
 
-            Log.d("Splash","Splash screen");
+            Log.d("Splash", "Splash screen");
 
             startActivity(i);
 
@@ -84,13 +117,95 @@ public class Login extends AppCompatActivity implements OnClickListener,
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-/*        if (ContextCompat.checkSelfPermission(this, Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(Login.this, Manifest.permission.GET_ACCOUNTS)) {
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(),
+                        new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(JSONObject object, GraphResponse response) {
+                                try {
+                                    PrefManager prefs = new PrefManager(getApplicationContext());
+                                    prefs.createUnverifiedLogin(object.getString("name"), object.getString("email"));
+                                    prefs = new PrefManager(getApplicationContext());
+                                    prefs.putLocation("Mangalore");
+//                                    URL image_value= null;
+//                                    try {
+//                                        image_value = new URL("https://graph.facebook.com/"
+//                                                + object.getString("id") + "/picture?type=large");
+//                                    } catch (MalformedURLException e) {
+//                                        e.printStackTrace();
+//                                    }
+//                                    Bitmap bmp = null;
+//                                    try {
+//                                        bmp = BitmapFactory.decodeStream(image_value.openConnection().getInputStream());
+//                                    } catch (IOException e) {
+//                                        e.printStackTrace();
+//                                    }
+                                    final String userFacebookId = object.getString("id");
+                                    new AsyncTask<Void, Void, Bitmap>()
+                                    {
+                                        @Override
+                                        protected Bitmap doInBackground(Void... params)
+                                        {
+                                            if (userFacebookId == null)
+                                                return null;
 
-            } else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.GET_ACCOUNTS}, REQUEST_CODE);
+                                            String url = String.format(
+                                                    "https://graph.facebook.com/%s/picture",
+                                                    userFacebookId);
+                                            InputStream inputStream = null;
+                                            try {
+                                                inputStream = new URL(url).openStream();
+                                            } catch (IOException e) {
+                                                e.printStackTrace();
+                                            }
+                                            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+                                            return bitmap;
+                                        }
+
+                                        @Override
+                                        protected void onPostExecute(Bitmap bitmap)
+                                        {
+                                            if (bitmap != null
+                                                    && !isChangingConfigurations()
+                                                    && !isFinishing()){
+                                                PrefManager prefs = new PrefManager(getApplicationContext());
+                                                prefs.putProfImage(encodeTobase64(bitmap));
+                                                Log.d("img", String.valueOf(bitmap));
+                                                Toast.makeText(getApplicationContext(), "User is connected!", Toast.LENGTH_LONG).show();
+                                                Intent i = new Intent(Login.this, SmsActivity.class);
+
+                                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                                                startActivity(i);
+                                                finish();
+                                            }
+                                        }
+                                    }.execute();
+                                    Looper.loop();
+                                } catch (JSONException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        });
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id,name,email,gender, birthday");
+                request.setParameters(parameters);
+                request.executeAsync();
             }
-        }*/
+
+            @Override
+            public void onCancel() {
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+            }
+        });
+
 
     }
 
@@ -101,6 +216,8 @@ public class Login extends AppCompatActivity implements OnClickListener,
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(intent);
             handleSignInResult(result);
+        } else {
+            callbackManager.onActivityResult(requestCode, responseCode, intent);
         }
     }
 

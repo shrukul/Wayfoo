@@ -31,4 +31,6 @@
     <string name="order_history">Order History</string>
     <string name="closeDrawer">Navigation View</string>
     <string name="openDrawer">Navigation View Closed</string>
+
+    <string name="facebook_app_id">1033702933344549</string>
 </resources>
