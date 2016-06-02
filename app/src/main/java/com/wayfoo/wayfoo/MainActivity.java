@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
 import com.wayfoo.wayfoo.helper.PrefManager;
 import com.wayfoo.wayfoo.instamojo.Payment;
 
@@ -31,7 +32,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  */
 public class MainActivity extends AppCompatActivity {
 
-    //Defining Variables
     private Toolbar toolbar;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                         PrefManager prefs = new PrefManager(MainActivity.this);
 
                         prefs.clearSession();
+                        LoginManager.getInstance().logOut();
 
                         it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
