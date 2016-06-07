@@ -74,7 +74,7 @@ public class HttpService extends IntentService {
                         String mobile = profileObj.getString("mobile");
 
                         PrefManager pref = new PrefManager(getApplicationContext());
-                        pref.createLogin(name, email, mobile);
+                        pref.createLogin(mobile);
 
                         Intent intent = new Intent(HttpService.this, MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

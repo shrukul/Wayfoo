@@ -4,6 +4,7 @@ package com.wayfoo.wayfoo;
  * Created by Axle on 19/03/2016.
  */
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -34,7 +35,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SmsActivity extends AppCompatActivity implements View.OnClickListener {
+public class SmsActivity extends Activity implements View.OnClickListener {
 
     private static String TAG = SmsActivity.class.getSimpleName();
 
