@@ -85,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.commit();
                         return true;
                     case R.id.about:
+                        Intent i = new Intent(MainActivity.this, Settings.class);
+                        startActivity(i);
                         return true;
                     case R.id.signout:
                         Intent it = new Intent(MainActivity.this, Login.class);

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:text="Website Disclaimer"
+                android:textSize="30dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="The information is provided by wayfoo.com, a property of [Wayfoo Pvt Ltd]. While we endeavour to keep the information up to date and correct, we make norepresentations or warranties of any
+ kind, express or implied, about the completeness,accuracy, reliability, suitability or availability with respect to the website or theinformation, products, services, or related
+ graphics contained on the website for anypurpose. Any reliance you place on such information is therefore strictly at your ownrisk.In no event will we be liable for any loss or damage
+ including without limitation,indirect or consequential loss or damage, or any loss or damage whatsoever arisingfrom loss of data or profits arising out of, or in connection with, the
+ use of thiswebsite.Through this website you are able to link to other websites which are not under thecontrol of Wayfoo Pvt Ltd. We have no control over the nature, content
+ andavailability of those sites. The inclusion of any links does not necessarily imply arecommendation or endorse the views expressed within them.Every effort is made to keep the
+ website up and running smoothly. However,[Wayfoo Pvt Ltd] takes no responsibility for, and will not be liable for, the websitebeing temporarily unavailable due to technical issues
+ beyond our control."
+                android:textSize="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

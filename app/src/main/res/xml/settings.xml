@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditTextPreference
+        android:key="username"
+        android:summary="Please provide your username"
+        android:title="Your Name"></EditTextPreference>
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="applicationUpdates"
+        android:summary="Receive Email For Every Transaction."
+        android:title="Email" />
+
+    <Preference android:title="Privacy">
+        <intent android:action="com.wayfoo.wayfoo.settings.Privacy" />
+    </Preference>
+
+    <Preference android:title="Terms and Conditions">
+        <intent android:action="com.wayfoo.wayfoo.settings.Terms" />
+    </Preference>
+</PreferenceScreen>
