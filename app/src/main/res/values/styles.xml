@@ -39,5 +39,18 @@
         <item name="android:windowBackground">@drawable/background_splash</item>
     </style>
 
+    <style name="NavDrawerTextStyle" parent="Base.TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:layout_marginLeft">10sp</item>
+        <item name="android:paddingLeft">10sp</item>
+    </style>
 
+    <style name="MyMaterialTheme.Toolbar" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

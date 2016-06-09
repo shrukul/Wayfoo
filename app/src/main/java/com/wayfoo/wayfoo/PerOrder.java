@@ -46,6 +46,7 @@ public class PerOrder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.perorder);
+
         phone = (TextView) findViewById(R.id.phone);
         addr = (TextView) findViewById(R.id.addr);
         price = (TextView) findViewById(R.id.price);
@@ -59,6 +60,10 @@ public class PerOrder extends AppCompatActivity {
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         listView=(ListView)findViewById(R.id.listView1);
         String oid=b.getString("oid");

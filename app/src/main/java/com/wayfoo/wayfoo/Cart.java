@@ -64,6 +64,9 @@ public class Cart extends AppCompatActivity {
 
         PrefManager prefs = new PrefManager(getApplicationContext());
 
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+
         hotel=prefs.getTitle();
         addr = getIntent().getExtras().getString("addr");
         amount = (TextView) findViewById(R.id.amount);
@@ -73,6 +76,11 @@ public class Cart extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         checkout = (Button) findViewById(R.id.checkout);
         setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Cart");
+
         pref = new PrefManager(this);
         phone = pref.getMobileNumber();
         rv = (RecyclerView)findViewById(R.id.my_recycler_view);

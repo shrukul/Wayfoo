@@ -36,7 +36,7 @@ public class MyRecyclerAdapterHotel extends
 
         protected ImageView imageView;
         protected TextView textView, price, amt;
-        Button plus,edit,minus;
+        Button plus, edit, minus;
         CardView card;
         LinearLayout ll;
         EditText note;
@@ -49,7 +49,7 @@ public class MyRecyclerAdapterHotel extends
             this.textView = (TextView) view.findViewById(R.id.title1);
             this.price = (TextView) view.findViewById(R.id.price);
             this.plus = (Button) view.findViewById(R.id.add);
-            this.minus= (Button) view.findViewById(R.id.minus);
+            this.minus = (Button) view.findViewById(R.id.minus);
             this.amt = (TextView) view.findViewById(R.id.amt);
             mc = view.getContext();
             card = (CardView) view.findViewById(R.id.YogaCard);
@@ -67,14 +67,14 @@ public class MyRecyclerAdapterHotel extends
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(
-                R.layout.card_view_row_hotel, null,false);
+                R.layout.card_view_row_hotel, null, false);
 
         CustomViewHolder viewHolder = new CustomViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(final CustomViewHolder customViewHolder,final int i) {
+    public void onBindViewHolder(final CustomViewHolder customViewHolder, final int i) {
         final FeedItemHotel feedItem = feedItemList.get(i);
         Typeface font1 = Typeface.createFromAsset(mContext.getAssets(),
                 "fonts/pt-sans.regular.ttf");
@@ -88,13 +88,13 @@ public class MyRecyclerAdapterHotel extends
                 Html.fromHtml(feedItem.getPrice()));
         SS.setSpan(new CustomTypeFace("", font1), 0, SS.length(),
                 Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-        String finalPrice = "₹"+SS;
+        String finalPrice = "₹" + SS;
         customViewHolder.price.setText(finalPrice);
         Bitmap b = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.veg);
         Bitmap b2 = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.non_veg);
-        if(feedItem.getVeg().toString().equals("0")){
+        if (feedItem.getVeg().toString().equals("0")) {
             customViewHolder.imageView.setImageBitmap(b);
-        }else{
+        } else {
             customViewHolder.imageView.setImageBitmap(b2);
         }
         customViewHolder.amt.setText(feedItem.getAmt());
@@ -105,11 +105,11 @@ public class MyRecyclerAdapterHotel extends
                 c++;
                 customViewHolder.amt.setText(String.valueOf(c));
                 DatabaseHandler db = new DatabaseHandler(mContext);
-                int x=0;
+                int x = 0;
                 List<FeedItemHotel> contacts = db.getAllContacts();
                 for (FeedItemHotel cn : contacts) {
-                    if(cn.getTitle().equals(customViewHolder.textView.getText().toString().trim())){
-                        x=cn.getID();
+                    if (cn.getTitle().equals(customViewHolder.textView.getText().toString().trim())) {
+                        x = cn.getID();
                     }
                 }
                 db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),

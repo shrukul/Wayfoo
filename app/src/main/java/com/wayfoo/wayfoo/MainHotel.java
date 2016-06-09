@@ -116,11 +116,6 @@ public class MainHotel extends AppCompatActivity {
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
-//
-//        @Override
-//        public void destroyItem(ViewGroup container, int position, Object object) {
-//
-//        }
 
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
@@ -129,20 +124,17 @@ public class MainHotel extends AppCompatActivity {
             super(manager);
         }
 
-        /*@Override
         public Fragment getItem(int position) {
+
             return mFragmentList.get(position);
-        }*/
-
-        public Fragment getItem(int position) {
-            switch(position) {
-
-                case 0: return  new Fragment_start();
-                case 1: return  new Fragment_main();
-                case 2: return  new Fragment_deserts();
-                case 3: return  new Fragments_drinks();
-            }
-            return new Fragment_start();
+//            switch(position) {
+//
+//                case 0: return  new Fragment_start();
+//                case 1: return  new Fragment_main();
+//                case 2: return  new Fragment_deserts();
+//                case 3: return  new Fragments_drinks();
+//            }
+//            return new Fragment_start();
         }
 
         @Override
