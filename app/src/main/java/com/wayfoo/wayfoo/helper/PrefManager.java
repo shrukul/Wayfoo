@@ -174,17 +174,17 @@ public class PrefManager {
     }
 
     public void setTitle(String title) {
-        editor.putString(KEY_LOC, title);
+        editor.putString(KEY_TITLE, title);
         editor.commit();
     }
 
     public void setTable(String table) {
-        editor.putString(KEY_LOC, table);
+        editor.putString(KEY_TABLE, table);
         editor.commit();
     }
 
     public void setHotelName(String hotelname) {
-        editor.putString(KEY_LOC, hotelname);
+        editor.putString(KEY_HOTEL, hotelname);
         editor.commit();
     }
 
