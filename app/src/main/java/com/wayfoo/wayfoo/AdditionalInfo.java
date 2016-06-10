@@ -16,6 +16,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.wayfoo.wayfoo.helper.PrefManager;
+
 import java.util.ArrayList;
 import java.util.List;
 

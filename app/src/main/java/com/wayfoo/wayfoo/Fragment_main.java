@@ -38,6 +38,7 @@ public class Fragment_main extends Fragment {
         db=new DatabaseHandler(getActivity());
         initializeData();
         adapter = new MyRecyclerAdapterHotel(getActivity(),persons);
+        adapter.notifyDataSetChanged();
         rv.setAdapter(adapter);
         db.close();
         return rootView;

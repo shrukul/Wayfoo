@@ -41,6 +41,7 @@ public class MainHotel extends AppCompatActivity {
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -57,10 +58,6 @@ public class MainHotel extends AppCompatActivity {
         });
         AlertDialog a = builder.create();
         a.show();
-        Button bq = a.getButton(DialogInterface.BUTTON_NEGATIVE);
-        Button bq2 = a.getButton(DialogInterface.BUTTON_POSITIVE);
-        bq.setTextColor(ContextCompat.getColor(MainHotel.this, R.color.colorPrimary));
-        bq2.setTextColor(ContextCompat.getColor(MainHotel.this, R.color.colorPrimary));
     }
 
     public void func(View v) {
@@ -83,8 +80,14 @@ public class MainHotel extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.search) {
-            startActivity(new Intent(MainHotel.this, Search.class));
+        switch (id) {
+            case R.id.search:
+                startActivity(new Intent(MainHotel.this, Search.class));
+                this.finish();
+                break;
+            case android.R.id.home:
+                this.onBackPressed();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -93,16 +96,22 @@ public class MainHotel extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_card);
+
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
+
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
         PrefManager prefs = new PrefManager(getApplicationContext());
         prefs.setPriceSum(0);
-        System.out.println("Initial Sum is "+prefs.getPriceSum());
+        System.out.println("Initial Sum is " + prefs.getPriceSum());
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -112,7 +121,7 @@ public class MainHotel extends AppCompatActivity {
         adapter.addFragment(new Fragment_deserts(), "Desserts");
         adapter.addFragment(new Fragments_drinks(), "Drinks");
         viewPager.setAdapter(adapter);
-        //viewPager.setOffscreenPageLimit(1);
+        viewPager.setOffscreenPageLimit(3);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -125,16 +134,11 @@ public class MainHotel extends AppCompatActivity {
         }
 
         public Fragment getItem(int position) {
-
             return mFragmentList.get(position);
-//            switch(position) {
-//
-//                case 0: return  new Fragment_start();
-//                case 1: return  new Fragment_main();
-//                case 2: return  new Fragment_deserts();
-//                case 3: return  new Fragments_drinks();
-//            }
-//            return new Fragment_start();
+        }
+
+        public int getItemPosition(Object object) {
+            return POSITION_NONE;
         }
 
         @Override

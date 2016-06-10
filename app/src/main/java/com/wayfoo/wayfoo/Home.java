@@ -98,7 +98,6 @@ public class Home extends Fragment {
         progressBar = (ProgressBar) rootView.findViewById(R.id.progress_bar);
         getActivity().setTitle("Wayfoo");
         PrefManager pref = new PrefManager(getContext());
-        String email = pref.getEmail();
         String loc = pref.getLocation();
         final String url = "http://wayfoo.com/hotellist.php?Location="+loc;
         a = new AsyncHttpTask();
@@ -177,8 +176,8 @@ public class Home extends Fragment {
                 a.show();
                 Button bq = a.getButton(DialogInterface.BUTTON_NEGATIVE);
                 Button bq2 = a.getButton(DialogInterface.BUTTON_POSITIVE);
-                bq.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
-                bq2.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
+//                bq.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
+//                bq2.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
             }
         }
     }

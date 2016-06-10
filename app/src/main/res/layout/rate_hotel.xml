@@ -26,8 +26,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/rate"
         android:text="Rate"
-        android:background="@color/colorPrimary"
-        android:textColor="#000000"
+        style="@style/MyMaterialTheme.Button"
         android:layout_below="@id/getRating"
         android:layout_centerHorizontal="true"/>
 
