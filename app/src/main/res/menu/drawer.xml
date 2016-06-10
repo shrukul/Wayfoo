@@ -12,7 +12,7 @@
             android:checked="false"
             android:title="@string/order_history" />
         <item
-            android:id="@+id/about"
+            android:id="@+id/settings"
             android:checked="false"
             android:title="@string/about_string" />
          <item

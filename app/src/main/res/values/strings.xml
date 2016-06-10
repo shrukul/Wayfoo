@@ -33,4 +33,6 @@
     <string name="openDrawer">Navigation View Closed</string>
 
     <string name="facebook_app_id">1033702933344549</string>
+    <string name="privacy">Privacy</string>
+    <string name="terms">Terms and Conditions</string>
 </resources>

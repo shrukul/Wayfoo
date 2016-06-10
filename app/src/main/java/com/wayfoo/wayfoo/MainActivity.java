@@ -84,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
                         return true;
-                    case R.id.about:
+                    case R.id.settings:
+                        startActivity(new Intent(MainActivity.this,Settings.class));
                         return true;
                     case R.id.signout:
                         Intent it = new Intent(MainActivity.this, Login.class);
