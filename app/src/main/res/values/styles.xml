@@ -19,7 +19,7 @@
     </style>
 
     <style name="MyMaterialTheme.SettingsButton" parent="android:Widget.Button">
-        <item name="android:textColor">#f229303f</item>
+        <item name="android:textColor">@color/black_light</item>
         <item name="android:background">@android:color/white</item>
         <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginRight">10dp</item>
@@ -28,7 +28,7 @@
         <item name="android:paddingBottom">10dp</item>
         <item name="android:textSize">17dp</item>
         <item name="android:gravity">left</item>
-        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:fontFamily">sans-serif-normal</item>
         <item name="android:layout_marginBottom">1dp</item>
         <item name="android:drawableRight">@drawable/ic_keyboard_arrow_right_black_24dp</item>
     </style>
@@ -69,6 +69,10 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MyMaterialTheme.Toolbar.Dark">
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <style name="MyMaterialTheme.AlertDialogTheme">

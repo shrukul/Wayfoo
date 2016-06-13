@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -29,6 +31,18 @@ public class Intermediate extends AppCompatActivity {
     AsyncHttpTask a;
     String name,table,hotelName;
     protected ProgressBar progressBar;
+    Toolbar mToolbar;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +52,15 @@ public class Intermediate extends AppCompatActivity {
         name = getIntent().getExtras().getString("title");
         table = getIntent().getExtras().getString("table");
         hotelName = getIntent().getExtras().getString("hotelName");
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        getSupportActionBar().setTitle("Loading ...");
+
         System.out.println(name + " " + table);
         final String url = "http://wayfoo.com/hotel.php?name="+name;
         a=new AsyncHttpTask();
@@ -90,7 +113,7 @@ public class Intermediate extends AppCompatActivity {
                 i.putExtra("table",table);
                 i.putExtra("hotelName",hotelName);
                 startActivity(i);
-                Toast.makeText(Intermediate.this,"Success",Toast.LENGTH_LONG).show();
+                finish();
             } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Intermediate.this);
                 builder.setCancelable(true);
