@@ -82,7 +82,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="25dp"
                 android:layout_marginTop="100dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/logo" />
 
             <TextView
                 android:layout_width="fill_parent"
@@ -162,7 +162,7 @@
             android:id="@+id/txt_edit_mobile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="16dp" />
 
         <ImageButton
@@ -170,7 +170,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
             android:background="@null"
-            android:src="@drawable/construction"
+            android:src="@drawable/smartphone"
             android:id="@+id/btn_edit_mobile"/>
     </LinearLayout>
 

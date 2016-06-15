@@ -178,7 +178,8 @@ public class MainActivity extends AppCompatActivity {
             while (getSupportFragmentManager().getBackStackEntryCount() > 0)
                 getSupportFragmentManager().popBackStackImmediate();
         } else {
-            super.onBackPressed();
+            finish();
+            System.exit(0);
         }
     }
 
