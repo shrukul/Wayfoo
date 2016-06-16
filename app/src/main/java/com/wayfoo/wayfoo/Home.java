@@ -57,8 +57,8 @@ public class Home extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(final Menu menu, MenuInflater inflater) {
+        menu.clear();
         inflater.inflate(R.menu.menu_hotel, menu);
-
         final MenuItem searchItem = menu.findItem(R.id.action_search);
 
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
@@ -168,7 +168,7 @@ public class Home extends Fragment {
                     result = 0;
                 }
             } catch (Exception e) {
-                Log.d(TAG, e.getLocalizedMessage());
+//                Log.d(TAG, e.getLocalizedMessage());
             }
             return result;
         }

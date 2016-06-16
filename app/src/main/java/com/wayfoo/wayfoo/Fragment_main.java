@@ -24,33 +24,41 @@ public class Fragment_main extends Fragment {
     private DatabaseHandler db;
     private Cursor c;
     private MyRecyclerAdapterHotel adapter;
-    private static final String SELECT_SQL = "SELECT * FROM persons";
+
+    @Override
+    public void onResume() {
+        initializeData();
+        adapter.notifyDataSetChanged();
+        super.onResume();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.activity_card_view_hotel,
                 container, false);
-        rv = (RecyclerView)rootView.findViewById(R.id.my_recycler_view);
+        rv = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         rv.setHasFixedSize(true);
         rv.setItemAnimator(new DefaultItemAnimator());
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        db=new DatabaseHandler(getActivity());
+        db = new DatabaseHandler(getActivity());
         initializeData();
-        adapter = new MyRecyclerAdapterHotel(getActivity(),persons);
+        adapter = new MyRecyclerAdapterHotel(getActivity(), persons);
         adapter.notifyDataSetChanged();
         rv.setAdapter(adapter);
         db.close();
         return rootView;
     }
+
     private void initializeData() {
 
         persons = new ArrayList<FeedItemHotel>();
-        FeedItemHotel feed=new FeedItemHotel();
+        FeedItemHotel feed = new FeedItemHotel();
         List<FeedItemHotel> contacts = db.getAllContacts();
 
         for (FeedItemHotel cn : contacts) {
-            if(cn.getType().toString().trim().equals("Main")) {
+            if (cn.getType().toString().trim().equals("Main")) {
                 FeedItemHotel item = new FeedItemHotel();
                 item.setTitle(cn.getTitle());
                 item.setType(cn.getType());

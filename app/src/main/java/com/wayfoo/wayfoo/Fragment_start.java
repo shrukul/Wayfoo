@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,13 @@ public class Fragment_start extends Fragment {
     private DatabaseHandler db;
     private Cursor c;
     private MyRecyclerAdapterHotel adapter;
+
+    @Override
+    public void onResume() {
+        initializeData();
+        adapter.notifyDataSetChanged();
+        super.onResume();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,7 +59,9 @@ public class Fragment_start extends Fragment {
         FeedItemHotel feed = new FeedItemHotel();
         List<FeedItemHotel> contacts = db.getAllContacts();
 
+        int i=0;
         for (FeedItemHotel cn : contacts) {
+            i++;
             if (cn.getType().equals("Snacks")) {
                 FeedItemHotel item = new FeedItemHotel();
                 item.setTitle(cn.getTitle());
@@ -62,5 +72,6 @@ public class Fragment_start extends Fragment {
                 persons.add(item);
             }
         }
+        Log.d("start", String.valueOf(i));
     }
 }

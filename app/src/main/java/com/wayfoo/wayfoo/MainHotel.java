@@ -73,6 +73,7 @@ public class MainHotel extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        menu.clear();
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -121,7 +122,7 @@ public class MainHotel extends AppCompatActivity {
         adapter.addFragment(new Fragment_deserts(), "Desserts");
         adapter.addFragment(new Fragments_drinks(), "Drinks");
         viewPager.setAdapter(adapter);
-        viewPager.setOffscreenPageLimit(3);
+        //viewPager.setOffscreenPageLimit(3);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

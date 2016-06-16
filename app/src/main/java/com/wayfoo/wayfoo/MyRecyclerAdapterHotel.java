@@ -23,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.wayfoo.wayfoo.helper.PrefManager;
+
 import java.util.List;
 
 public class MyRecyclerAdapterHotel extends
@@ -115,6 +117,10 @@ public class MyRecyclerAdapterHotel extends
                 db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),
                         String.valueOf(c), feedItem.getType()));
                 System.out.println(contacts);
+                PrefManager prefs = new PrefManager(mContext);
+                int temp = prefs.getPriceSum();
+                int sum = temp + Integer.parseInt(customViewHolder.price.getText().toString().substring(1));
+                prefs.setPriceSum(sum);
             }
         });
 
@@ -135,6 +141,10 @@ public class MyRecyclerAdapterHotel extends
                     }
                     db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),
                             String.valueOf(c), feedItem.getType()));
+                    PrefManager prefs = new PrefManager(mContext);
+                    int temp = prefs.getPriceSum();
+                    int sum = temp - Integer.parseInt(customViewHolder.price.getText().toString().substring(1));
+                    prefs.setPriceSum(sum);
                 }
             }
         });

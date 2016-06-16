@@ -92,7 +92,7 @@
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp"
                 android:text="@string/msg_sit_back"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="16dp" />
 
             <TextView
@@ -103,7 +103,7 @@
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp"
                 android:text="@string/msg_manual_otp"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="12dp" />
 
             <EditText
@@ -171,6 +171,7 @@
             android:layout_marginLeft="10dp"
             android:background="@null"
             android:src="@drawable/smartphone"
+            android:scaleType="fitXY"
             android:id="@+id/btn_edit_mobile"/>
     </LinearLayout>
 

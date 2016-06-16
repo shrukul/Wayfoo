@@ -24,6 +24,8 @@ import android.widget.TextView;
 
 import com.wayfoo.wayfoo.helper.PrefManager;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class CartAdapter extends
@@ -54,9 +56,11 @@ public class CartAdapter extends
     }
 
     private static List<FeedItemHotel> feedItemList;
+    private  static TextView amo;
 
-    public CartAdapter(Context context, List<FeedItemHotel> feedItemList) {
+    public CartAdapter(Context context, List<FeedItemHotel> feedItemList, TextView amount) {
         CartAdapter.feedItemList = feedItemList;
+        CartAdapter.amo = amount;
         this.mContext = context;
     }
 
@@ -128,7 +132,7 @@ public class CartAdapter extends
                 int temp = prefs.getPriceSum();
                 int sum = temp - Integer.parseInt(customViewHolder.price.getText().toString());
                 prefs.setPriceSum(sum);
-
+                amo.setText("₹ "+prefs.getPriceSum());
 /*                Intent it = new Intent(mc,Cart.class);
                 it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mc.startActivity(it);*/

@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -108,6 +109,7 @@ public class Intermediate extends AppCompatActivity {
 
             if (result == 1) {
                 //startActivity(new Intent(Intermediate.this,Main.class));
+
                 Intent i=new Intent(Intermediate.this,MainHotel.class);
                 i.putExtra("title",name);
                 i.putExtra("table",table);
@@ -160,6 +162,7 @@ public class Intermediate extends AppCompatActivity {
                 db.addContact(new FeedItemHotel(post.optString("Name"), post.optString("Price"),post.optString("NonVeg"),"0",
                         post.optString("Type")));
             }
+            Log.d("intermediate", String.valueOf(posts.length()));
             db.close();
         } catch (JSONException e) {
             e.printStackTrace();

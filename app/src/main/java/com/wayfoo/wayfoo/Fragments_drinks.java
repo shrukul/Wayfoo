@@ -27,6 +27,13 @@ public class Fragments_drinks extends Fragment {
     private MyRecyclerAdapterHotel adapter;
 
     @Override
+    public void onResume() {
+        initializeData();
+        adapter.notifyDataSetChanged();
+        super.onResume();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 

@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
@@ -92,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
                         PrefManager prefs = new PrefManager(MainActivity.this);
 
                         prefs.clearSession();
+                        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+                        if(accessToken!=null)
                         LoginManager.getInstance().logOut();
 
                         it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -178,8 +181,9 @@ public class MainActivity extends AppCompatActivity {
             while (getSupportFragmentManager().getBackStackEntryCount() > 0)
                 getSupportFragmentManager().popBackStackImmediate();
         } else {
+            Intent intent = new Intent();
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             finish();
-            System.exit(0);
         }
     }
 

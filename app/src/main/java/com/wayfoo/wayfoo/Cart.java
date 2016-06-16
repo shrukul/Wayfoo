@@ -47,7 +47,7 @@ public class Cart extends AppCompatActivity {
     private RecyclerView rv;
 
     private static final String TAG = "RecyclerViewExample";
-    private List<FeedItemHotel> persons,mm;
+    private List<FeedItemHotel> persons,mm,finalItems;
     private DatabaseHandler db;
     private Cursor c;
     private CartAdapter adapter;
@@ -99,36 +99,42 @@ public class Cart extends AppCompatActivity {
         rv.setItemAnimator(new DefaultItemAnimator());
         rv.setLayoutManager(new LinearLayoutManager(this));
 
+        finalItems= new ArrayList<FeedItemHotel>();
         db=new DatabaseHandler(this);
         initializeData();
-        adapter = new CartAdapter(this,persons);
+        adapter = new CartAdapter(this,persons,amount);
         rv.setAdapter(adapter);
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 List<FeedItemHotel> contacts = db.getAllContacts();
-
+                int ij = 0;
+                finalItems.clear();
+                amt = 0;
                 for (FeedItemHotel cn : contacts) {
                     FeedItemHotel item=new FeedItemHotel();
                     if(cn.getAmt().toString().equals("0"))
                     {}else {
+                        Log.d("carti", String.valueOf(ij));
                         item.setTitle(cn.getTitle());
                         item.setType(cn.getType());
                         item.setPrice(cn.getPrice());
                         item.setVeg(cn.getVeg());
                         item.setAmt(cn.getAmt());
-                        persons.add(item);
+                        finalItems.add(item);
                         //amt += (Float.parseFloat(cn.getAmt())*Float.parseFloat(cn.getPrice()));
                     }
+                    ij++;
                 }
+                Log.d("cart", String.valueOf(ij));
                 int k = 1;
                 mm = new ArrayList<FeedItemHotel>();
 
-                for(k = 0 ; k < persons.size() ; k++){
-                    if(k<persons.size()/2){
-                        mm.add(persons.get(k));
-                        amt += (Float.parseFloat(persons.get(k).getAmt())*Float.parseFloat(persons.get(k).getPrice()));
-                    }
+                for(k = 0 ; k < finalItems.size() ; k++){
+                    //if(k<persons.size()/2){
+                        mm.add(finalItems.get(k));
+                        amt += (Float.parseFloat(finalItems.get(k).getAmt())*Float.parseFloat(finalItems.get(k).getPrice()));
+                    //}
                 }
                 String text = String.format("%.2f", amt);
                 Toast.makeText(Cart.this,"Total " + text, Toast.LENGTH_LONG).show();
@@ -136,8 +142,8 @@ public class Cart extends AppCompatActivity {
                 Type type = new TypeToken<List<FeedItemHotel>>() {}.getType();
                 json = gson.toJson(mm, type);
                 Log.d("Json",json);
-                if(amt > 0)
-                    insertToDatabase();
+                if(amt > 0){}
+                    //insertToDatabase();
                 else
                     Toast.makeText(getApplicationContext(),"Select at least one item",Toast.LENGTH_SHORT).show();
             }
