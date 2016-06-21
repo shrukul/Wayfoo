@@ -34,6 +34,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Home extends Fragment {
@@ -178,9 +179,8 @@ public class Home extends Fragment {
             progressBar.setVisibility(View.GONE);
 
             if (result == 1) {
-                favList = new ArrayList<String>();
                 if(fav!=null) {
-                    favList = Arrays.asList(fav.split(","));
+                    favList = new LinkedList(Arrays.asList(fav.split(",")));
                 }
                 adapter = new MyRecyclerAdapter(getActivity(), feedsList,favList);
                 mRecyclerView.setAdapter(adapter);

@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -241,10 +242,7 @@ public class MyRecyclerAdapter extends
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
                 progressDialog.dismiss();
-                Intent i = new Intent(mc, MainActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mc.startActivity(i);
+                favList.add(k);
             }
         }
         SendPostReqAsyncTask sendPostReqAsyncTask = new SendPostReqAsyncTask();
@@ -319,10 +317,15 @@ public class MyRecyclerAdapter extends
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
                 progressDialog.dismiss();
-                Intent i = new Intent(mc, MainActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mc.startActivity(i);
+                int i = 0;
+                for(String x:favList){
+                    if(x.equals(k)){
+                        break;
+                    }
+                    i++;
+                }
+                favList.remove(i);
+                Log.d("fav", String.valueOf(favList));
             }
         }
         SendPostReqAsyncTask sendPostReqAsyncTask = new SendPostReqAsyncTask();
