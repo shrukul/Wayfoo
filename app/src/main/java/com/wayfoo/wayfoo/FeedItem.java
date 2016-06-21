@@ -8,7 +8,7 @@ public class FeedItem {
     private String Ratings;
     private String thumbnail;
     private String b;
-    private String b2,RSum,RNum;
+    private String b2,RSum,RNum,tabs,time;
 
     public int getAvail() {
         return avail;
@@ -81,5 +81,21 @@ public class FeedItem {
 
     public void setRNum(String RNum) {
         this.RNum = RNum;
+    }
+
+    public void setTabs(String tabs) {
+        this.tabs = tabs;
+    }
+
+    public String getTabs() {
+        return tabs;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getTime() {
+        return time;
     }
 }

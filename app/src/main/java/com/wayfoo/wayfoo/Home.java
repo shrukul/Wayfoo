@@ -60,7 +60,6 @@ public class Home extends Fragment {
         menu.clear();
         inflater.inflate(R.menu.menu_hotel, menu);
         final MenuItem searchItem = menu.findItem(R.id.action_search);
-
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
         SearchManager searchManager = (SearchManager) getActivity().getSystemService(getActivity().SEARCH_SERVICE);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
@@ -168,7 +167,7 @@ public class Home extends Fragment {
                     result = 0;
                 }
             } catch (Exception e) {
-//                Log.d(TAG, e.getLocalizedMessage());
+                Log.d(TAG,"error" +  String.valueOf(e));
             }
             return result;
         }
@@ -231,6 +230,8 @@ public class Home extends Fragment {
                 item.setRSum(post.optString("Rate_Sum"));
                 item.setRNum(post.optString("Rate_Num"));
                 item.setAvail(post.optInt("Avail"));
+                item.setTabs(post.optString("Tabs"));
+                item.setTime(post.optString("Time"));
                 feedsList.add(item);
             }
         } catch (JSONException e) {

@@ -33,7 +33,7 @@ public class MyRecyclerAdapter extends
 			implements OnClickListener {
 
 		protected ImageView imageView;
-		protected TextView textView, place, rating;
+		protected TextView textView, place, rating,time;
 		protected ToggleButton fav;
 		CardView card;
 
@@ -44,6 +44,7 @@ public class MyRecyclerAdapter extends
 				this.textView = (TextView) view.findViewById(R.id.title1);
 				this.rating = (TextView) view.findViewById(R.id.rating);
 				this.place = (TextView) view.findViewById(R.id.Place);
+				this.time = (TextView) view.findViewById(R.id.time);
 			} catch (Exception E){
 				E.printStackTrace();
 			}
@@ -66,6 +67,7 @@ public class MyRecyclerAdapter extends
 				intent.putExtra("title", pagenext);
 				intent.putExtra("hotelName", feedItem.getDisName().toString());
 				intent.putExtra("table", "1");
+				intent.putExtra("tabs", feedItem.getTabs());
 				mc.startActivity(intent);
 			}
 		}
@@ -124,6 +126,8 @@ public class MyRecyclerAdapter extends
 			customViewHolder.card.setCardBackgroundColor(R.color.colorAccent);
 		}
 		customViewHolder.rating.setText((""+res).substring(0,3));
+
+		customViewHolder.time.setText(feedItem.getTime());
 
 	}
 	@Override

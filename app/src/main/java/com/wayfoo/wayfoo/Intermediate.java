@@ -30,7 +30,7 @@ import java.util.List;
 public class Intermediate extends AppCompatActivity {
 
     AsyncHttpTask a;
-    String name,table,hotelName;
+    String name,table,hotelName,tabs;
     protected ProgressBar progressBar;
     Toolbar mToolbar;
 
@@ -53,6 +53,7 @@ public class Intermediate extends AppCompatActivity {
         name = getIntent().getExtras().getString("title");
         table = getIntent().getExtras().getString("table");
         hotelName = getIntent().getExtras().getString("hotelName");
+        tabs = getIntent().getExtras().getString("tabs");
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
@@ -114,6 +115,7 @@ public class Intermediate extends AppCompatActivity {
                 i.putExtra("title",name);
                 i.putExtra("table",table);
                 i.putExtra("hotelName",hotelName);
+                i.putExtra("tabs",tabs);
                 startActivity(i);
                 finish();
             } else {

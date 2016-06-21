@@ -20,6 +20,7 @@ import android.widget.Button;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainHotel extends AppCompatActivity {
@@ -28,6 +29,7 @@ public class MainHotel extends AppCompatActivity {
     private static final String TAG = "Menu Card";
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    List<String> tabsTitle;
 
     @Override
     public void onBackPressed() {
@@ -116,13 +118,17 @@ public class MainHotel extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Fragment_start(), "Snacks");
-        adapter.addFragment(new Fragment_main(), "Main Course");
-        adapter.addFragment(new Fragment_deserts(), "Desserts");
-        adapter.addFragment(new Fragments_drinks(), "Drinks");
+        final ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        String tabsList = getIntent().getExtras().getString("tabs");
+        tabsTitle = Arrays.asList(tabsList.split(","));
+        for (int i = 0; i < tabsTitle.size(); i++) {
+            Fragment_menu mi = new Fragment_menu();
+            Bundle b = new Bundle();
+            b.putString("key", tabsTitle.get(i));
+            mi.setArguments(b);
+            adapter.addFragment(mi, tabsTitle.get(i));
+        }
         viewPager.setAdapter(adapter);
-        //viewPager.setOffscreenPageLimit(3);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
