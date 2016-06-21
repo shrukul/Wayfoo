@@ -4,11 +4,9 @@ import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,7 +20,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.wayfoo.wayfoo.helper.PrefManager;
@@ -36,6 +33,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Home extends Fragment {
@@ -47,7 +45,9 @@ public class Home extends Fragment {
     private MyRecyclerAdapter adapter;
     private ProgressBar progressBar;
     AsyncHttpTask a;
+    String fav;
     ImageView b;
+    List<String> favList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -102,7 +102,7 @@ public class Home extends Fragment {
                 }
 
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-                adapter = new MyRecyclerAdapter(getActivity().getApplicationContext(),filteredList);
+                adapter = new MyRecyclerAdapter(getActivity().getApplicationContext(),filteredList, favList);
                 mRecyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 return true;
@@ -123,7 +123,8 @@ public class Home extends Fragment {
         getActivity().setTitle("Wayfoo");
         PrefManager pref = new PrefManager(getContext());
         String loc = pref.getLocation();
-        final String url = "http://wayfoo.com/hotellist.php?Location="+loc;
+        Log.d("fav",pref.getEmail());
+        final String url = "http://wayfoo.com/hotellist.php?Location="+loc+"&email="+pref.getEmail();
         a = new AsyncHttpTask();
         a.execute(url);
         return rootView;
@@ -177,8 +178,13 @@ public class Home extends Fragment {
             progressBar.setVisibility(View.GONE);
 
             if (result == 1) {
-                adapter = new MyRecyclerAdapter(getActivity(), feedsList);
+                favList = new ArrayList<String>();
+                if(fav!=null) {
+                    favList = Arrays.asList(fav.split(","));
+                }
+                adapter = new MyRecyclerAdapter(getActivity(), feedsList,favList);
                 mRecyclerView.setAdapter(adapter);
+                Log.d("fav","ff"+fav);
             } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setCancelable(true);
@@ -216,7 +222,8 @@ public class Home extends Fragment {
     private void parseResult(String result) {
         try {
             JSONObject response = new JSONObject(result);
-            JSONArray posts = response.optJSONArray("output");
+            JSONObject obj = response.optJSONObject("output");
+            JSONArray posts = obj.optJSONArray("output");
             feedsList = new ArrayList<FeedItem>();
 
             for (int i = 0; i < posts.length(); i++) {
@@ -233,6 +240,17 @@ public class Home extends Fragment {
                 item.setTabs(post.optString("Tabs"));
                 item.setTime(post.optString("Time"));
                 feedsList.add(item);
+            }
+            try {
+                JSONObject obj2 = response.optJSONObject("fav");
+                JSONArray posts2 = obj2.optJSONArray("fav");
+                Log.d("le", String.valueOf(posts2.length()));
+                for (int i = 0; i < posts2.length(); i++) {
+                    JSONObject post = posts2.optJSONObject(i);
+                    fav = post.optString("CID");
+                }
+            } catch (NullPointerException e){
+
             }
         } catch (JSONException e) {
             e.printStackTrace();

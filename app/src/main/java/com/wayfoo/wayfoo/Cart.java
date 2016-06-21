@@ -142,8 +142,8 @@ public class Cart extends AppCompatActivity {
                 Type type = new TypeToken<List<FeedItemHotel>>() {}.getType();
                 json = gson.toJson(mm, type);
                 Log.d("Json",json);
-                if(amt > 0){}
-                    //insertToDatabase();
+                if(amt > 0)
+                    insertToDatabase();
                 else
                     Toast.makeText(getApplicationContext(),"Select at least one item",Toast.LENGTH_SHORT).show();
             }
