@@ -19,7 +19,7 @@ public abstract class Baseactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         System.out.println("Base Activity");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base);
+        setContentView(R.layout.activity_base_app);
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         container = (FrameLayout) findViewById(R.id.container);
         mainlayout = (CoordinatorLayout) findViewById(R.id.fulllayout);

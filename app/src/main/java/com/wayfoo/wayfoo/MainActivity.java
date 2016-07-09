@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 import com.wayfoo.wayfoo.helper.PrefManager;
+import com.wayfoo.wayfoo.payu.PayuInterface;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -87,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.settings:
                         startActivity(new Intent(MainActivity.this,Settings.class));
+                        return true;
+                    case R.id.payu:
+                        startActivity(new Intent(MainActivity.this, PayuInterface.class));
                         return true;
                     case R.id.signout:
                         Intent it = new Intent(MainActivity.this, Login.class);
