@@ -20,6 +20,10 @@
         "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/drawable-hdpi/abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
+        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/release/drawable-hdpi-v4/ic_keyboard_arrow_right_black_24dp.png",
+        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/drawable-hdpi/ic_keyboard_arrow_right_black_24dp.png"
+    },
+    {
         "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/release/drawable-hdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
         "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/drawable-hdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
     },

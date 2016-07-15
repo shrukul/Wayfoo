@@ -57,12 +57,18 @@ public class PayUCreditDebitCardActivity extends AppCompatActivity implements Vi
     private PayuConfig payuConfig;
 
     private PayuUtils payuUtils;
+    Toolbar mToolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card);
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // todo lets set the toolbar
         /*toolbar = (Toolbar) findViewById(R.id.app_bar);

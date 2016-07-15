@@ -43,6 +43,7 @@ public class PayUBaseActivity extends AppCompatActivity implements View.OnClickL
 //    PaymentDefaultParams mPaymentDefaultParams;
     PaymentParams mPaymentParams;
     PayuHashes mPayUHashes;
+    Toolbar mToolbar;
 
     Bundle bundle;
 
@@ -56,6 +57,11 @@ public class PayUBaseActivity extends AppCompatActivity implements View.OnClickL
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);*/
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // leets register the buttons
         (netBankingButton = (Button) findViewById(R.id.button_netbanking)).setOnClickListener(this);

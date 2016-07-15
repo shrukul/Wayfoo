@@ -24,12 +24,12 @@
         "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/anim/cb_fade_in.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/release/anim/cb_tranlateup.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/anim/cb_tranlateup.xml"
-    },
-    {
         "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",
         "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/release/anim/cb_tranlateup.xml",
+        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/anim/cb_tranlateup.xml"
     },
     {
         "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/release/anim/abc_fade_out.xml",

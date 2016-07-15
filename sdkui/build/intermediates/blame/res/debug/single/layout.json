@@ -44,6 +44,10 @@
         "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/activity_user_cards.xml"
     },
     {
+        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/toolbar.xml",
+        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/toolbar.xml"
+    },
+    {
         "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/emi_list_item.xml",
         "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/emi_list_item.xml"
     },
@@ -128,12 +132,12 @@
         "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_store_user_cards.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/layout_store_user_cards.xml"
-    },
-    {
         "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
         "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_store_user_cards.xml",
+        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/layout_store_user_cards.xml"
     },
     {
         "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/choose_action.xml",
@@ -164,12 +168,12 @@
         "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/activity_base.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_list_menu_item_checkbox.xml"
-    },
-    {
         "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_get_transaction_information.xml",
         "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/layout_get_transaction_information.xml"
+    },
+    {
+        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
+        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_list_menu_item_checkbox.xml"
     },
     {
         "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",

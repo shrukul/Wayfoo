@@ -8,12 +8,12 @@
         "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/anim/abc_fade_in.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/anim/fade_in.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/anim/fade_in.xml"
-    },
-    {
         "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
         "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/anim/fade_in.xml",
+        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/anim/fade_in.xml"
     },
     {
         "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",

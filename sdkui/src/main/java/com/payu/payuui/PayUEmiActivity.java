@@ -60,11 +60,16 @@ public class PayUEmiActivity extends AppCompatActivity implements View.OnClickLi
     private TextView transactionIdTextView;
 
     private PayuConfig payuConfig;
-
+    Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emi);
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Todo lets set the toolbar
         /*toolbar = (Toolbar) findViewById(R.id.app_bar);

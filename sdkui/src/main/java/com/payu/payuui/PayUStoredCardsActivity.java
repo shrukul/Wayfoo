@@ -60,11 +60,17 @@ public class PayUStoredCardsActivity extends AppCompatActivity implements Delete
     private TextView transactionIdTextView;
 
     private PayuConfig payuConfig;
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_cards);
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // TODO lets set the toolbar
         /*toolbar = (Toolbar) findViewById(R.id.app_bar);

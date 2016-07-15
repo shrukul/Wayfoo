@@ -49,11 +49,17 @@ public class PayUNetBankingActivity extends AppCompatActivity implements View.On
 
     private TextView amountTextView;
     private TextView transactionIdTextView;
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_net_banking);
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // todo lets set the toolbar
         /*toolbar = (Toolbar) findViewById(R.id.app_bar);

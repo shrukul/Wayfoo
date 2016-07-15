@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,6 +42,7 @@ public class PaymentsActivity extends AppCompatActivity{
     private String UTF = "UTF-8";
     private  boolean viewPortWide = false;
     private WebView mWebView;
+    Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         /**
@@ -54,6 +56,10 @@ public class PaymentsActivity extends AppCompatActivity{
             super.onCreate(savedInstanceState);
         }
         setContentView(R.layout.activity_payments);
+//        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(mToolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mWebView = (WebView) findViewById(R.id.webview);
 
         //region Replace the whole code by the commented code if you are NOT using custombrowser

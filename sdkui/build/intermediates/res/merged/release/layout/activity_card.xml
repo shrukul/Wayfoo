@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffe0e1e3"
     tools:context="com.payuResponse.testapp.CardActivity">
 
     <LinearLayout
@@ -10,6 +11,10 @@
         android:layout_below="@+id/app_bar"
         android:orientation="vertical"
         android:weightSum="1">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
 
         <LinearLayout
             android:layout_width="match_parent"
