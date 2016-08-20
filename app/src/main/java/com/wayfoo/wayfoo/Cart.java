@@ -121,6 +121,8 @@ public class Cart extends AppCompatActivity {
                         item.setPrice(cn.getPrice());
                         item.setVeg(cn.getVeg());
                         item.setAmt(cn.getAmt());
+                        item.setItemID(cn.getItemID());
+                        Log.d("id",cn.getItemID());
                         finalItems.add(item);
                         //amt += (Float.parseFloat(cn.getAmt())*Float.parseFloat(cn.getPrice()));
                     }
@@ -172,6 +174,7 @@ public class Cart extends AppCompatActivity {
                 item.setPrice(cn.getPrice());
                 item.setVeg(cn.getVeg());
                 item.setAmt(cn.getAmt());
+                item.setItemID(cn.getItemID());
                 persons.add(item);
             }
         }
@@ -190,6 +193,7 @@ public class Cart extends AppCompatActivity {
                 progressDialog.setIndeterminate(true);
                 progressDialog.setMessage("Placing your order...");
                 progressDialog.show();
+                System.out.println("jsondata"+json);
             }
 
             @Override

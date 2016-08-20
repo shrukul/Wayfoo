@@ -116,14 +116,14 @@ public class CartAdapter extends
                 if (c == 0) {
                     feedItemList.remove(i);
                     db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),
-                            String.valueOf(c), feedItem.getType()));
+                            String.valueOf(c), feedItem.getType(), feedItem.getItemID()));
                     Log.d("Delete", String.valueOf(i) + " " + x);
                     notifyItemRemoved(i);
                     notifyItemRangeChanged(i, feedItemList.size());
                 } else {
                     customViewHolder.amt.setText(String.valueOf(c));
                     db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),
-                            String.valueOf(c), feedItem.getType()));
+                            String.valueOf(c), feedItem.getType(), feedItem.getItemID()));
                     Log.d("Changed", String.valueOf(i) + "  " + x);
 
                 }

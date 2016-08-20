@@ -65,6 +65,7 @@ public class Fragment_main extends Fragment {
                 item.setPrice(cn.getPrice());
                 item.setVeg(cn.getVeg());
                 item.setAmt(cn.getAmt());
+                item.setItemID(cn.getItemID());
                 persons.add(item);
             }
         }

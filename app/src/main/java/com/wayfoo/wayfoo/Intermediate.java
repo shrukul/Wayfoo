@@ -154,6 +154,7 @@ public class Intermediate extends AppCompatActivity {
         try {
             JSONObject response = new JSONObject(result);
             JSONArray posts = response.optJSONArray("output");
+            System.out.println(posts);
             DatabaseHandler db = new DatabaseHandler(Intermediate.this);
             List<FeedItemHotel> c = db.getAllContacts();
             for (FeedItemHotel cn : c) {
@@ -162,7 +163,7 @@ public class Intermediate extends AppCompatActivity {
             for (int i = 0; i < posts.length(); i++) {
                 JSONObject post = posts.optJSONObject(i);
                 db.addContact(new FeedItemHotel(post.optString("Name"), post.optString("Price"),post.optString("NonVeg"),"0",
-                        post.optString("Type")));
+                        post.optString("Type"), post.optString("ItemID")));
             }
             Log.d("intermediate", String.valueOf(posts.length()));
             db.close();

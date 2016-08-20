@@ -22,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -48,6 +49,8 @@ public class SmsActivity extends Activity implements View.OnClickListener {
     private ImageButton btnEditMobile;
     private TextView txtEditMobile;
     private LinearLayout layoutEditMobile;
+
+    int cnt=0;
 
 
     @Override
@@ -248,12 +251,18 @@ public class SmsActivity extends Activity implements View.OnClickListener {
                 params.put("email", email);
                 params.put("mobile", mobile);
 
-                Log.e(TAG, "Posting params: " + params.toString());
+                Log.e(TAG, "Posting params: " + params.toString()+cnt);
+                cnt++;
 
                 return params;
             }
 
         };
+
+        strReq.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         // Adding request to request queue
         MyApplication.getInstance().addToRequestQueue(strReq);

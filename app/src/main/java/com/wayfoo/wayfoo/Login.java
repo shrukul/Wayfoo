@@ -67,8 +67,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 
-public class Login extends Activity implements OnClickListener,
-        ConnectionCallbacks, OnConnectionFailedListener {
+public class Login extends AppCompatActivity implements OnClickListener,
+        OnConnectionFailedListener {
 
     private static final int RC_SIGN_IN = 0, REQUEST_CODE = 0;
     private static final int PROFILE_PIC_SIZE = 400;
@@ -123,7 +123,9 @@ public class Login extends Activity implements OnClickListener,
 
         //Initializing google api client
         mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+//                .addConnectionCallbacks(this)
                 .build();
 
         fb_btn = (LinearLayout) findViewById(R.id.fb_btn);
@@ -322,6 +324,18 @@ public class Login extends Activity implements OnClickListener,
 
     }
 
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        mGoogleApiClient.connect();
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        mGoogleApiClient.disconnect();
+//    }
+
     @Override
     protected void onActivityResult(int requestCode, int responseCode,
                                     Intent intent) {
@@ -422,13 +436,13 @@ public class Login extends Activity implements OnClickListener,
         }
     }
 
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-    }
+//    @Override
+//    public void onConnected(@Nullable Bundle bundle) {
+//    }
+//
+//    @Override
+//    public void onConnectionSuspended(int i) {
+//    }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {

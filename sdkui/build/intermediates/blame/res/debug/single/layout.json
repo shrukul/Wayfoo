@@ -1,290 +1,290 @@
 [
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/register_pin.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/register_pin.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_part_time.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_get_card_information.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/layout_get_card_information.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_emi.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/activity_emi.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/user_card_item.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/user_card_item.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/footer_image.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/footer_image.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/emi_list_item.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/emi_list_item.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/support_simple_spinner_dropdown_item.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/select_dialog_item_material.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/mainprogress.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/mainprogress.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_net_banking.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/activity_net_banking.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/user_card_item.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/user_card_item.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_expanded_menu_layout.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_big_media.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_activity_chooser_view.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_screen_simple.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_get_transaction_information.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/layout_get_transaction_information.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_menu_item_layout.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/bank.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/bank.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_user_cards.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/activity_user_cards.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_alert_dialog_material.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/toolbar.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/toolbar.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_emi.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/activity_emi.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/emi_list_item.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/emi_list_item.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/select_dialog_multichoice_material.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/loading.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/loading.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_card.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/activity_card.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/bank.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/bank.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_verify_api.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/activity_verify_api.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/nb_layout.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/nb_layout.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_list_menu_item_checkbox.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_screen_toolbar.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_user_cards.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/activity_user_cards.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/cash_card_list_item.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/cash_card_list_item.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_bar_up_container.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_dialog_title_material.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_list_menu_item_layout.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_list_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_mode_close_item_material.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_part_chronometer.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_verify_api.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/activity_verify_api.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_screen_toolbar.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_menu_layout.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_bar_title_item.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_media_action.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_get_offer_status.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/layout_get_offer_status.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/register.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/register.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_activity_chooser_view.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/nb_layout.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/nb_layout.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_screen_simple_overlay_action_mode.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/cb_progressdialog.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/cb_progressdialog.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_part_chronometer.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/retry_otp.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/retry_otp.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/netbanking_list_item.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/netbanking_list_item.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/cash_card_list_item.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/cash_card_list_item.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_expanded_menu_layout.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_big_media.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/register.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/register.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_part_time.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/select_dialog_multichoice_material.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/cb_prog_dialog.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/cb_prog_dialog.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_activity_chooser_view_list_item.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_base.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/activity_base.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_search_dropdown_item_icons_2line.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/register_pin.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/register_pin.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_list_menu_item_radio.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_media.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_store_user_cards.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/layout_store_user_cards.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_get_offer_status.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/layout_get_offer_status.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/choose_action.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/choose_action.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/wait_for_otp.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/wait_for_otp.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_popup_menu_item_layout.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/choose_action.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/choose_action.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_cash_card.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/activity_cash_card.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_activity_chooser_view_list_item.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/select_dialog_item_material.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_big_media_narrow.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_alert_dialog_material.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/loading.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/loading.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_list_menu_item_icon.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_select_dialog_material.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_base.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/activity_base.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_media_cancel_action.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_get_transaction_information.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/layout_get_transaction_information.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_store_user_cards.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/layout_store_user_cards.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_list_menu_item_checkbox.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_lines.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_cash_card.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/activity_cash_card.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_card.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/activity_card.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_bar_view_list_nav_layout.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_user_cards.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/layout_user_cards.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_edit_user_cards.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/layout_edit_user_cards.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/select_dialog_singlechoice_material.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/netbanking_list_item.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/netbanking_list_item.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_get_user_cards.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/layout_get_user_cards.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_mode_close_item_material.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_media.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_mode_bar.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_select_dialog_material.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_user_cards.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/layout_user_cards.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/dialog_cvv.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/dialog_cvv.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/error_page.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/error_page.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_mode_bar.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/cb_prog_dialog.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/cb_prog_dialog.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_menu_layout.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_media_cancel_action.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/mainprogress.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/mainprogress.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_get_card_information.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/layout_get_card_information.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_delete_user_cards.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/layout_delete_user_cards.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_net_banking.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/activity_net_banking.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_list_menu_item_icon.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_edit_user_cards.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/layout_edit_user_cards.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_get_user_cards.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/layout_get_user_cards.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/retry_otp.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/retry_otp.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_verify_payment.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/layout_verify_payment.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_delete_user_cards.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/layout_delete_user_cards.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/dialog_cvv.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/dialog_cvv.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/error_page.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/error_page.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/footer_image.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/footer_image.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_bar_up_container.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/toolbar.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/toolbar.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_big_media_narrow.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_bar_title_item.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/cb_progressdialog.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/cb_progressdialog.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/layout_verify_payment.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/layout_verify_payment.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_screen_simple.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_screen_content_include.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_search_view.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_list_menu_item_layout.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_list_menu_item_layout.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_payments.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/activity_payments.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_media_action.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_search_view.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_dialog_title_material.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_payments.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/res/layout/activity_payments.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_screen_content_include.xml"
     },
     {
-        "merged": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/wait_for_otp.xml",
-        "source": "/Users/mi0184/Documents/apps/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/wait_for_otp.xml"
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_lines.xml"
     }
 ]

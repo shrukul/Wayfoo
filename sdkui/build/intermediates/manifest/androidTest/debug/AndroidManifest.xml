@@ -33,20 +33,32 @@
         <activity
             android:name="com.payu.payuui.PaymentsActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/MyPayUTheme"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
-        <activity android:name="com.payu.payuui.PayUEmiActivity" >
+        <activity
+            android:name="com.payu.payuui.PayUEmiActivity"
+            android:theme="@style/MyPayUTheme" >
         </activity>
-        <activity android:name="com.payu.payuui.PayUCreditDebitCardActivity" >
+        <activity
+            android:name="com.payu.payuui.PayUCreditDebitCardActivity"
+            android:theme="@style/MyPayUTheme" >
         </activity>
-        <activity android:name="com.payu.payuui.PayUCashCardActivity" >
+        <activity
+            android:name="com.payu.payuui.PayUCashCardActivity"
+            android:theme="@style/MyPayUTheme" >
         </activity>
-        <activity android:name="com.payu.payuui.PayUNetBankingActivity" >
+        <activity
+            android:name="com.payu.payuui.PayUNetBankingActivity"
+            android:theme="@style/MyPayUTheme" >
         </activity>
-        <activity android:name="com.payu.payuui.PayUVerifyApiActivity" >
+        <activity
+            android:name="com.payu.payuui.PayUVerifyApiActivity"
+            android:theme="@style/MyPayUTheme" >
         </activity>
         <activity
             android:name="com.payu.payuui.PayUStoredCardsActivity"
+            android:theme="@style/MyPayUTheme"
             android:windowSoftInputMode="adjustPan" >
         </activity>
     </application>

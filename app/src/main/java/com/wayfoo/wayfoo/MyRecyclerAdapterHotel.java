@@ -115,7 +115,7 @@ public class MyRecyclerAdapterHotel extends
                     }
                 }
                 db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),
-                        String.valueOf(c), feedItem.getType()));
+                        String.valueOf(c), feedItem.getType(), feedItem.getItemID()));
                 System.out.println(contacts);
                 PrefManager prefs = new PrefManager(mContext);
                 int temp = prefs.getPriceSum();
@@ -140,7 +140,7 @@ public class MyRecyclerAdapterHotel extends
                         }
                     }
                     db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),
-                            String.valueOf(c), feedItem.getType()));
+                            String.valueOf(c), feedItem.getType(), feedItem.getItemID()));
                     PrefManager prefs = new PrefManager(mContext);
                     int temp = prefs.getPriceSum();
                     int sum = temp - Integer.parseInt(customViewHolder.price.getText().toString().substring(1));

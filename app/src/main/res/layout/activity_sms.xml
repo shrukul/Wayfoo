@@ -33,7 +33,7 @@
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp"
                 android:text="@string/msg_enter_mobile"
-                android:textColor="@android:color/white"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="14dp" />
 
             <LinearLayout
@@ -61,7 +61,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="25dp"
                     android:text="@string/lbl_next"
-                    style="@style/MyMaterialTheme.Button"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:textSize="14dp"
                     android:padding="5dp"/>
             </LinearLayout>

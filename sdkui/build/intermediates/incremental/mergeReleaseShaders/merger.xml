@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/main/shaders"/></dataSet><dataSet config="release"><source path="/Users/mi0184/Documents/apps/Wayfoo/sdkui/src/release/shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/shaders"/></dataSet><dataSet config="release"><source path="/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/release/shaders"/></dataSet></merger>
