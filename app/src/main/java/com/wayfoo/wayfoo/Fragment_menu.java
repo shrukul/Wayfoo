@@ -30,8 +30,9 @@ public class Fragment_menu extends Fragment {
     @Override
     public void onResume() {
       //  initializeData();
-//        adapter.notifyDataSetChanged();
         super.onResume();
+        initializeData();
+        adapter.notifyDataSetChanged();
         //adapter.notifyDataSetChanged();
     }
 
@@ -50,16 +51,14 @@ public class Fragment_menu extends Fragment {
         key = getArguments().getString("key");
         Log.d("created",key);
         rv_start = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
-//        rv_start.setHasFixedSize(true);
+        rv_start.setHasFixedSize(true);
 //        rv_start.setItemAnimator(new DefaultItemAnimator());
-        rv_start.setLayoutManager(new MyLinearLayoutManager(getActivity()));
+        rv_start.setLayoutManager(new LinearLayoutManager(getActivity().getBaseContext()));
 
         db = new DatabaseHandler(getActivity());
         rv_start.clearOnScrollListeners();
         initializeData();
         adapter = new MyRecyclerAdapterHotel(getActivity(), persons);
-        rv_start.getRecycledViewPool().clear();
-        adapter.notifyDataSetChanged();
 //        adapter.notifyDataSetChanged();
         rv_start.setAdapter(adapter);
         db.close();

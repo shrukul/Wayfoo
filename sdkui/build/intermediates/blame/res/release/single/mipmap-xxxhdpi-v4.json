@@ -1,35 +1,11 @@
 [
     {
-        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/diner.png",
-        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/diner.png"
-    },
-    {
-        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/ic_launcher.png",
-        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/jcb.png",
-        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/jcb.png"
-    },
-    {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/trash.png",
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/trash.png"
     },
     {
-        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/amex.png",
-        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/amex.png"
-    },
-    {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/master.png",
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/master.png"
-    },
-    {
-        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/app_bar_next.png",
-        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/app_bar_next.png"
-    },
-    {
-        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/laser.png",
-        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/laser.png"
     },
     {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/visa.png",
@@ -40,11 +16,35 @@
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/card.png"
     },
     {
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/jcb.png",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/jcb.png"
+    },
+    {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/maestro.png",
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/maestro.png"
     },
     {
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/diner.png",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/diner.png"
+    },
+    {
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/amex.png",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/amex.png"
+    },
+    {
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/laser.png",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/laser.png"
+    },
+    {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/discover.png",
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/discover.png"
+    },
+    {
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/ic_launcher.png",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/mipmap-xxxhdpi-v4/app_bar_next.png",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/mipmap-xxxhdpi/app_bar_next.png"
     }
 ]

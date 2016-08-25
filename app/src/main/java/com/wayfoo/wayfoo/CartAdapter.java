@@ -128,6 +128,9 @@ public class CartAdapter extends
 
                 }
 
+                feedItem.setAmt(""+c);
+                notifyDataSetChanged();
+                db.close();
                 PrefManager prefs = new PrefManager(mContext);
                 int temp = prefs.getPriceSum();
                 int sum = temp - Integer.parseInt(customViewHolder.price.getText().toString());

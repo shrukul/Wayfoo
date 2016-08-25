@@ -34,7 +34,7 @@ public class MyRecyclerAdapterHotel extends
     private static Context mc;
     static String tag = "Menu";
 
-    public static class CustomViewHolder extends RecyclerView.ViewHolder {
+    public class CustomViewHolder extends RecyclerView.ViewHolder {
 
         protected ImageView imageView;
         protected TextView textView, price, amt;
@@ -59,10 +59,10 @@ public class MyRecyclerAdapterHotel extends
 
     }
 
-    private static List<FeedItemHotel> feedItemList;
+    private List<FeedItemHotel> feedItemList;
 
     public MyRecyclerAdapterHotel(Context context, List<FeedItemHotel> feedItemList) {
-        MyRecyclerAdapterHotel.feedItemList = feedItemList;
+        this.feedItemList = feedItemList;
         this.mContext = context;
     }
 
@@ -106,17 +106,20 @@ public class MyRecyclerAdapterHotel extends
                 int c = Integer.parseInt(customViewHolder.amt.getText().toString());
                 c++;
                 customViewHolder.amt.setText(String.valueOf(c));
+                feedItem.setAmt("" + c);
                 DatabaseHandler db = new DatabaseHandler(mContext);
-                int x = 0;
+                int x = -1;
                 List<FeedItemHotel> contacts = db.getAllContacts();
                 for (FeedItemHotel cn : contacts) {
-                    if (cn.getTitle().equals(customViewHolder.textView.getText().toString().trim())) {
+                    if (cn.getTitle().trim().equals(customViewHolder.textView.getText().toString().trim())) {
                         x = cn.getID();
                     }
                 }
-                db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),
-                        String.valueOf(c), feedItem.getType(), feedItem.getItemID()));
-                System.out.println(contacts);
+                if (x != -1)
+                    db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),
+                            String.valueOf(c), feedItem.getType(), feedItem.getItemID()));
+                db.close();
+                notifyDataSetChanged();
                 PrefManager prefs = new PrefManager(mContext);
                 int temp = prefs.getPriceSum();
                 int sum = temp + Integer.parseInt(customViewHolder.price.getText().toString().substring(1));
@@ -131,18 +134,22 @@ public class MyRecyclerAdapterHotel extends
                 if (c > 0) {
                     c--;
                     customViewHolder.amt.setText(String.valueOf(c));
+                    feedItem.setAmt("" + c);
                     DatabaseHandler db = new DatabaseHandler(mContext);
-                    int x = 0;
+                    int x = -1;
                     List<FeedItemHotel> contacts = db.getAllContacts();
                     for (FeedItemHotel cn : contacts) {
-                        if (cn.getTitle().equals(customViewHolder.textView.getText().toString().trim())) {
+                        if (cn.getTitle().trim().equals(customViewHolder.textView.getText().toString().trim())) {
                             x = cn.getID();
                         }
                     }
-                    db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),
-                            String.valueOf(c), feedItem.getType(), feedItem.getItemID()));
+                    if (x != -1)
+                        db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),
+                                String.valueOf(c), feedItem.getType(), feedItem.getItemID()));
+                    db.close();
                     PrefManager prefs = new PrefManager(mContext);
                     int temp = prefs.getPriceSum();
+                    notifyDataSetChanged();
                     int sum = temp - Integer.parseInt(customViewHolder.price.getText().toString().substring(1));
                     prefs.setPriceSum(sum);
                 }

@@ -33,6 +33,7 @@ public class MainHotel extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     List<String> tabsTitle;
+    String tabsList;
 
     @Override
     public void onBackPressed() {
@@ -64,6 +65,7 @@ public class MainHotel extends AppCompatActivity {
         AlertDialog a = builder.create();
         a.show();
     }
+
 
     public void func(View v) {
         Intent it = new Intent(MainHotel.this, AdditionalInfo.class);
@@ -115,6 +117,38 @@ public class MainHotel extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+                viewPager.setCurrentItem(tab.getPosition());
+
+                switch (tab.getPosition()) {
+                    case 0:
+                        System.out.println(("One"));
+                        break;
+                    case 1:
+                        System.out.println(("Two"));
+
+                        break;
+                    case 2:
+                        System.out.println(("Three"));
+
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
         PrefManager prefs = new PrefManager(getApplicationContext());
         prefs.setPriceSum(0);
         System.out.println("Initial Sum is " + prefs.getPriceSum());
@@ -122,8 +156,8 @@ public class MainHotel extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
 //        viewPager.setOffscreenPageLimit(3);
-        final ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        String tabsList = getIntent().getExtras().getString("tabs");
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        tabsList = getIntent().getExtras().getString("tabs");
         tabsTitle = Arrays.asList(tabsList.split(","));
         for (int i = 0; i < tabsTitle.size(); i++) {
             Fragment_menu mi = new Fragment_menu();
@@ -147,10 +181,10 @@ public class MainHotel extends AppCompatActivity {
         }
 
         public Fragment getItem(int position) {
-            Fragment fm =  mFragmentList.get(position);
+            Fragment fm = mFragmentList.get(position);
             Bundle b = new Bundle();
             b.putString("key", mFragmentTitleList.get(position));
-            Log.d("title",mFragmentTitleList.get(position));
+            Log.d("title", mFragmentTitleList.get(position));
             fm.setArguments(b);
             return fm;
         }
