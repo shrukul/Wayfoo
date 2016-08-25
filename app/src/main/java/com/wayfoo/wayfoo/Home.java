@@ -41,7 +41,7 @@ public class Home extends Fragment {
 
     private RecyclerView mRecyclerView;
 
-    private static final String TAG = "RecyclerViewExample";
+    private static final String TAG = "Home";
     private List<FeedItem> feedsList;
     private MyRecyclerAdapter adapter;
     private ProgressBar progressBar;

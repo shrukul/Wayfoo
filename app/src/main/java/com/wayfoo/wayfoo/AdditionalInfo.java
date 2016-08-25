@@ -80,12 +80,12 @@ public class AdditionalInfo extends AppCompatActivity implements AdapterView.OnI
         rest.add("3rd Block");
         rest.add("4th Block");
         rest.add("5th Block");
-        rest.add("6th Block");
         rest.add("7th Block");
         rest.add("8th Block");
         rest.add("Mega Tower 1");
         rest.add("Mega Tower 2");
         rest.add("Mega Tower 3");
+        rest.add("Girls Block");
 
         ArrayAdapter<String> data = new ArrayAdapter<String>(this, R.layout.custom_spinner, rest);
 

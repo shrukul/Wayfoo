@@ -382,22 +382,37 @@ public class Login extends AppCompatActivity implements OnClickListener,
     private void getProfileInformation(GoogleSignInResult result) {
         if (result.isSuccess()) {
             String personName = result.getSignInAccount().getDisplayName();
-            String personPhotoUrl = result.getSignInAccount().getPhotoUrl().toString();
+            String personPhotoUrl = null;
+            try {
+                personPhotoUrl = result.getSignInAccount().getPhotoUrl().toString();
+            }catch(NullPointerException e){
+
+            }
             String email = result.getSignInAccount().getEmail();
 
-            Log.e(L_TAG, "Name: " + personName + ", email: " + email
-                    + ", Image: " + personPhotoUrl);
+            //Log.e(L_TAG, "Name: " + personName + ", email: " + email
+             //       + ", Image: " + personPhotoUrl);
 
             PrefManager prefs = new PrefManager(this);
             prefs.createUnverifiedLogin(personName, email);
 
             RegGCM();
 
-            personPhotoUrl = personPhotoUrl.substring(0,
-                    personPhotoUrl.length() - 2)
-                    + PROFILE_PIC_SIZE;
+            try{
+                if(!personPhotoUrl.equals(null)){
+                    personPhotoUrl = personPhotoUrl.substring(0,
+                            personPhotoUrl.length() - 2)
+                            + PROFILE_PIC_SIZE;
+                    new LoadProfileImage(imgProfilePic).execute(personPhotoUrl);
+                } else {
+                    prefs = new PrefManager(getApplicationContext());
+                    prefs.putLocation("Mangalore");
+                }
+            }catch(NullPointerException e) {
+                prefs = new PrefManager(getApplicationContext());
+                prefs.putLocation("Mangalore");
+            }
 
-            new LoadProfileImage(imgProfilePic).execute(personPhotoUrl);
 
         } else {
             Toast.makeText(getApplicationContext(),

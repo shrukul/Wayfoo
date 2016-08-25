@@ -40,12 +40,12 @@
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/netbanking_list_item.xml"
     },
     {
-        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/layout/user_card_item.xml",
-        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/user_card_item.xml"
-    },
-    {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/layout/abc_list_menu_item_radio.xml",
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/layout/user_card_item.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/user_card_item.xml"
     },
     {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/layout/abc_action_mode_bar.xml",

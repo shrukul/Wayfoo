@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,9 +29,16 @@ public class Fragment_menu extends Fragment {
 
     @Override
     public void onResume() {
-        initializeData();
-        adapter.notifyDataSetChanged();
+      //  initializeData();
+//        adapter.notifyDataSetChanged();
         super.onResume();
+        //adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.d("destroyed",key);
+        super.onDestroy();
     }
 
     @Override
@@ -39,18 +47,27 @@ public class Fragment_menu extends Fragment {
 
         View rootView = inflater.inflate(R.layout.activity_card_view_hotel,
                 container, false);
+        key = getArguments().getString("key");
+        Log.d("created",key);
         rv_start = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
-        rv_start.setHasFixedSize(true);
-        rv_start.setItemAnimator(new DefaultItemAnimator());
-        rv_start.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        rv_start.setHasFixedSize(true);
+//        rv_start.setItemAnimator(new DefaultItemAnimator());
+        rv_start.setLayoutManager(new MyLinearLayoutManager(getActivity()));
 
         db = new DatabaseHandler(getActivity());
+        rv_start.clearOnScrollListeners();
         initializeData();
         adapter = new MyRecyclerAdapterHotel(getActivity(), persons);
+        rv_start.getRecycledViewPool().clear();
         adapter.notifyDataSetChanged();
+//        adapter.notifyDataSetChanged();
         rv_start.setAdapter(adapter);
         db.close();
         return rootView;
+    }
+
+    public static Fragment_menu newInstance() {
+        return new Fragment_menu();
     }
 
     private void initializeData() {

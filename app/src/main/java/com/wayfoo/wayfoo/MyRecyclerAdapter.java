@@ -68,6 +68,7 @@ public class MyRecyclerAdapter extends
                 this.place = (TextView) view.findViewById(R.id.Place);
                 this.time = (TextView) view.findViewById(R.id.time);
                 this.fav = (ToggleButton) view.findViewById(R.id.fav);
+                //this.fav.setWidth(this.fav.getHeight());
             } catch (Exception E) {
                 E.printStackTrace();
             }
@@ -148,7 +149,7 @@ public class MyRecyclerAdapter extends
         } catch (ArithmeticException E) {
         }
         if (Html.fromHtml(String.valueOf(feedItem.getAvail())).equals("0")) {
-            customViewHolder.card.setCardBackgroundColor(R.color.colorAccent);
+            customViewHolder.card.setCardBackgroundColor(mc.getResources().getColor(R.color.colorAccent));
         }
         customViewHolder.rating.setText(("" + res).substring(0, 3));
 
@@ -158,6 +159,7 @@ public class MyRecyclerAdapter extends
                 customViewHolder.fav.setChecked(true);
             }
         }
+        //customViewHolder.fav.setWidth(customViewHolder.fav.getHeight());
         customViewHolder.fav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

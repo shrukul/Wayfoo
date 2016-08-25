@@ -9,10 +9,12 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -119,36 +121,51 @@ public class MainHotel extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
+//        viewPager.setOffscreenPageLimit(3);
         final ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         String tabsList = getIntent().getExtras().getString("tabs");
         tabsTitle = Arrays.asList(tabsList.split(","));
         for (int i = 0; i < tabsTitle.size(); i++) {
             Fragment_menu mi = new Fragment_menu();
-            Bundle b = new Bundle();
-            b.putString("key", tabsTitle.get(i));
-            mi.setArguments(b);
+//            Bundle b = new Bundle();
+//            b.putString("key", tabsTitle.get(i));
+//            mi.setArguments(b);
             adapter.addFragment(mi, tabsTitle.get(i));
         }
         viewPager.setAdapter(adapter);
     }
 
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+    class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
+        private final List<Bundle> mFragmentBundle = new ArrayList<>();
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
         }
 
         public Fragment getItem(int position) {
-            return mFragmentList.get(position);
+            Fragment fm =  mFragmentList.get(position);
+            Bundle b = new Bundle();
+            b.putString("key", mFragmentTitleList.get(position));
+            Log.d("title",mFragmentTitleList.get(position));
+            fm.setArguments(b);
+            return fm;
         }
 
-        public int getItemPosition(Object object) {
+/*        public Fragment getItem(int position) {
+            Fragment_menu fm = Fragment_menu.newInstance();
+            Bundle b = new Bundle();
+            b.putString("key", mFragmentTitleList.get(position));
+            fm.setArguments(b);
+            return fm;
+        }*/
+
+/*        public int getItemPosition(Object object) {
             return POSITION_NONE;
-        }
+        }*/
 
         @Override
         public int getCount() {
@@ -160,11 +177,11 @@ public class MainHotel extends AppCompatActivity {
             mFragmentTitleList.add(title);
         }
 
-        @Override
+/*        @Override
         public Parcelable saveState() {
             // Do Nothing
             return null;
-        }
+        }*/
 
         @Override
         public CharSequence getPageTitle(int position) {
