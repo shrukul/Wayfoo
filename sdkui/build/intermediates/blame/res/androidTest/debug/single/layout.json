@@ -20,12 +20,12 @@
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/register_pin.xml"
     },
     {
-        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/androidTest/debug/layout/abc_dialog_title_material.xml",
-        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_dialog_title_material.xml"
-    },
-    {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/androidTest/debug/layout/abc_action_bar_up_container.xml",
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/androidTest/debug/layout/abc_dialog_title_material.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_dialog_title_material.xml"
     },
     {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/androidTest/debug/layout/emi_list_item.xml",

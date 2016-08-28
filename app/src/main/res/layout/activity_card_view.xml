@@ -7,15 +7,15 @@
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:visibility="gone"
         android:background="@drawable/progressbar"
-        android:layout_centerInParent="true"/>
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_below="@+id/container_toolbar"
         android:layout_height="match_parent"
+        android:layout_below="@+id/container_toolbar"
         android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView
@@ -24,6 +24,33 @@
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:scrollbars="vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/errLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:maxLines="3"
+            android:text="Something seems wrong. '\n' Please try again later." />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/retry"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Try Again"
+            style="@style/Widget.AppCompat.Button.Colored" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -4,13 +4,17 @@ import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,7 +24,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.wayfoo.wayfoo.helper.PrefManager;
 
@@ -39,9 +45,13 @@ import java.util.List;
 
 public class Home extends Fragment {
 
+    private View rootView;
     private RecyclerView mRecyclerView;
 
     private static final String TAG = "Home";
+    String url;
+    Snackbar snackbar;
+    LinearLayout lyt;
     private List<FeedItem> feedsList;
     private MyRecyclerAdapter adapter;
     private ProgressBar progressBar;
@@ -49,6 +59,7 @@ public class Home extends Fragment {
     String fav;
     ImageView b;
     List<String> favList;
+    Button retry;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,7 +77,7 @@ public class Home extends Fragment {
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
         searchView.setQueryHint("Search...");
 
-        searchView.setOnSearchClickListener(new View.OnClickListener(){
+        searchView.setOnSearchClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -103,7 +114,7 @@ public class Home extends Fragment {
                 }
 
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-                adapter = new MyRecyclerAdapter(getActivity().getApplicationContext(),filteredList, favList);
+                adapter = new MyRecyclerAdapter(getActivity().getApplicationContext(), filteredList, favList);
                 mRecyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 return true;
@@ -115,24 +126,35 @@ public class Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.activity_card_view,
+        rootView = inflater.inflate(R.layout.activity_card_view,
                 container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
         progressBar = (ProgressBar) rootView.findViewById(R.id.progress_bar);
+        retry = (Button) rootView.findViewById(R.id.retry);
+        retry.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                lyt.setVisibility(View.INVISIBLE);
+                snackbar.dismiss();
+                a = new AsyncHttpTask();
+                a.execute(url);
+            }
+        });
         getActivity().setTitle("Wayfoo");
         PrefManager pref = new PrefManager(getContext());
         String loc = pref.getLocation();
-        Log.d("fav",pref.getEmail());
-        final String url = "http://wayfoo.com/hotellist.php?Location="+loc+"&email="+pref.getEmail();
+        url = "http://wayfoo.com/hotellist.php?Location=" + loc + "&email=" + pref.getEmail();
+        Log.d("fav", pref.getEmail());
         a = new AsyncHttpTask();
         a.execute(url);
         return rootView;
     }
 
     void setItemsVisibility(Menu menu, MenuItem exception, boolean visible) {
-        for (int i=0; i<menu.size(); ++i) {
+        for (int i = 0; i < menu.size(); ++i) {
             MenuItem item = menu.getItem(i);
             if (item != exception) item.setVisible(visible);
         }
@@ -169,7 +191,7 @@ public class Home extends Fragment {
                     result = 0;
                 }
             } catch (Exception e) {
-                Log.d(TAG,"error" +  String.valueOf(e));
+                Log.d(TAG, "error" + String.valueOf(e));
             }
             return result;
         }
@@ -179,14 +201,30 @@ public class Home extends Fragment {
             progressBar.setVisibility(View.GONE);
 
             if (result == 1) {
-                if(fav!=null) {
+                if (fav != null) {
                     favList = new LinkedList(Arrays.asList(fav.split(",")));
                 }
-                adapter = new MyRecyclerAdapter(getActivity(), feedsList,favList);
+                adapter = new MyRecyclerAdapter(getActivity(), feedsList, favList);
                 mRecyclerView.setAdapter(adapter);
-                Log.d("fav","ff"+fav);
+                Log.d("fav", "ff" + fav);
             } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                lyt = (LinearLayout) rootView.findViewById(R.id.errLayout);
+                lyt.setVisibility(View.VISIBLE);
+
+                snackbar = Snackbar
+                        .make(rootView, "No Internet Connection", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Dismiss", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                snackbar.dismiss();
+                            }
+                        })
+                .setActionTextColor(Color.YELLOW);
+
+                snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                snackbar.show();
+                return;
+/*                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setCancelable(true);
                 builder.setMessage("Something seems to be wrong with the internet.");
                 builder.setTitle("Oops!!");
@@ -212,7 +250,7 @@ public class Home extends Fragment {
                 AlertDialog a=builder.create();
                 a.show();
                 Button bq = a.getButton(DialogInterface.BUTTON_NEGATIVE);
-                Button bq2 = a.getButton(DialogInterface.BUTTON_POSITIVE);
+                Button bq2 = a.getButton(DialogInterface.BUTTON_POSITIVE);*/
 //                bq.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
 //                bq2.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
             }
@@ -249,7 +287,7 @@ public class Home extends Fragment {
                     JSONObject post = posts2.optJSONObject(i);
                     fav = post.optString("CID");
                 }
-            } catch (NullPointerException e){
+            } catch (NullPointerException e) {
 
             }
         } catch (JSONException e) {
@@ -269,8 +307,8 @@ public class Home extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.loc){
-            Intent it = new Intent(getActivity(),Location.class);
+        if (item.getItemId() == R.id.loc) {
+            Intent it = new Intent(getActivity(), Location.class);
             startActivity(it);
         }
         return super.onOptionsItemSelected(item);

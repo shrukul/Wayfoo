@@ -25,6 +25,7 @@
             android:background="@android:color/white"
             app:tabSelectedTextColor="@color/colorAccent"
             app:tabTextColor="@color/black_light"
+            app:tabGravity="center"
             app:tabMode="scrollable" />
 <!--        app:tabGravity="fill"-->
 
