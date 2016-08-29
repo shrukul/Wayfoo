@@ -70,8 +70,6 @@ public class MyRecyclerAdapter extends
                 this.place = (TextView) view.findViewById(R.id.Place);
                 this.time = (TextView) view.findViewById(R.id.time);
                 this.fav = (ToggleButton) view.findViewById(R.id.fav);
-                //this.fav.setWidth(this.rating.getHeight());
-                this.fav.setLayoutParams(new ViewGroup.LayoutParams(this.rating.getHeight(), ViewGroup.LayoutParams.WRAP_CONTENT));
             } catch (Exception E) {
                 E.printStackTrace();
             }
@@ -166,7 +164,7 @@ public class MyRecyclerAdapter extends
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 k = feedItem.getID();
-                if(isChecked)
+                if (isChecked)
                     insertToDatabase();
                 else
                     insertToDatabase2();
@@ -322,8 +320,8 @@ public class MyRecyclerAdapter extends
                 super.onPostExecute(result);
                 progressDialog.dismiss();
                 int i = 0;
-                for(String x:favList){
-                    if(x.equals(k)){
+                for (String x : favList) {
+                    if (x.equals(k)) {
                         break;
                     }
                     i++;
