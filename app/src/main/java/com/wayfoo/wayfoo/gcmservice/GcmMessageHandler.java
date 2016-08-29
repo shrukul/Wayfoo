@@ -39,13 +39,13 @@ public class GcmMessageHandler extends GcmListenerService {
                 myIntent,
                 PendingIntent.FLAG_CANCEL_CURRENT);
         System.out.println("Type"+typeInt);
-        if (typeInt == 0) {
+        if (typeInt == 2) {
             message = "Your Order will be delivered. The amount payable is ₹"+message+" Click here to rate your experience";
             typ = "Done";
         } else if(typeInt == 1){
             message = "Your Order has been confirmed. The amount payable is ₹"+message;
             typ = "Confirmed";
-        } else if(typeInt == 2){
+        } else if(typeInt == 0){
             message = "Oops! your Order has been cancelled. Thanks for using our services";
             typ = "Cancelled";
         }
