@@ -12,9 +12,9 @@
             android:checked="false"
             android:title="@string/order_history" />
         <item
-            android:id="@+id/payu"
+            android:id="@+id/fav"
             android:checked="false"
-            android:title="PayU" />
+            android:title="@string/fav" />
         <item
             android:id="@+id/settings"
             android:checked="false"

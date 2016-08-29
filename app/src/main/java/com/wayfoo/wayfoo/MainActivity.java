@@ -86,11 +86,14 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
                         return true;
+                    case R.id.fav:
+                        Fav f = new Fav();
+                        fragmentTransaction.replace(R.id.frame, f);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+                        return true;
                     case R.id.settings:
                         startActivity(new Intent(MainActivity.this,Settings.class));
-                        return true;
-                    case R.id.payu:
-                        startActivity(new Intent(MainActivity.this, PayuInterface.class));
                         return true;
                     case R.id.signout:
                         Intent it = new Intent(MainActivity.this, Login.class);
