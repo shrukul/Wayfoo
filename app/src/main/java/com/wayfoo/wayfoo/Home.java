@@ -22,7 +22,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-
 import com.wayfoo.wayfoo.helper.PrefManager;
 
 import org.json.JSONArray;

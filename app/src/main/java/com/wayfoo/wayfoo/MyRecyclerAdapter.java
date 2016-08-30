@@ -17,6 +17,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -67,7 +69,6 @@ public class MyRecyclerAdapter extends
                 this.place = (TextView) view.findViewById(R.id.Place);
                 this.time = (TextView) view.findViewById(R.id.time);
                 this.fav = (ToggleButton) view.findViewById(R.id.fav);
-                //this.fav.setWidth(this.fav.getHeight());
             } catch (Exception E) {
                 E.printStackTrace();
             }
@@ -158,7 +159,6 @@ public class MyRecyclerAdapter extends
                 customViewHolder.fav.setChecked(true);
             }
         }
-        //customViewHolder.fav.setWidth(customViewHolder.fav.getHeight());
         customViewHolder.fav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
