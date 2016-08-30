@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.commit();
                         return true;
                     case R.id.settings:
-                        startActivity(new Intent(MainActivity.this,Settings.class));
+                        startActivity(new Intent(MainActivity.this, Settings.class));
                         return true;
                     case R.id.payu:
                         startActivity(new Intent(MainActivity.this, PayuInterface.class));
@@ -98,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
 
                         prefs.clearSession();
                         AccessToken accessToken = AccessToken.getCurrentAccessToken();
-                        if(accessToken!=null)
-                        LoginManager.getInstance().logOut();
+                        if (accessToken != null)
+                            LoginManager.getInstance().logOut();
 
                         it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -149,14 +149,14 @@ public class MainActivity extends AppCompatActivity {
 
         CircleImageView profile = (CircleImageView) (navigationView.getHeaderView(0).findViewById(R.id.profile_image));
 
-        Bitmap profilepic= null;
+        Bitmap profilepic = null;
         if (personPhoto != null) {
             byte[] decodedByte = Base64.decode(personPhoto, 0);
             profilepic = BitmapFactory
                     .decodeByteArray(decodedByte, 0, decodedByte.length);
 
         } else {
-            profilepic = BitmapFactory.decodeResource(getResources(),R.drawable.profile);
+            profilepic = BitmapFactory.decodeResource(getResources(), R.drawable.profile);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             profile.setImageDrawable(new BitmapDrawable(profilepic));

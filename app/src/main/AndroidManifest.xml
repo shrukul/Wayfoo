@@ -60,9 +60,9 @@
             </intent-filter>
         </service>
 
-        <activity android:name="com.facebook.FacebookActivity"
-            android:configChanges=
-                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:label="@string/app_name" />
 
@@ -202,7 +202,7 @@
 
         <activity
             android:name=".SmsActivity"
-            android:label="@string/title_activity_sms"/>
+            android:label="@string/title_activity_sms" />
 
         <receiver android:name=".receiver.SmsReceiver">
             <intent-filter android:priority="99999">

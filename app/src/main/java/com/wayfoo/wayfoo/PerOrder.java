@@ -68,7 +68,7 @@ public class PerOrder extends AppCompatActivity {
         String a3 = b.getString("total");
         phone.setText(a1);
         addr.setText(a2);
-        price.setText("₹"+a3+"/-");
+        price.setText("₹" + a3 + "/-");
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
@@ -77,9 +77,9 @@ public class PerOrder extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        listView=(ListView)findViewById(R.id.listView1);
-        String oid=b.getString("oid");
-        final String url = "http://wayfoo.com/perOrder.php?OID="+oid;
+        listView = (ListView) findViewById(R.id.listView1);
+        String oid = b.getString("oid");
+        final String url = "http://wayfoo.com/perOrder.php?OID=" + oid;
         a = new AsyncHttpTask();
         a.execute(url);
     }
@@ -124,7 +124,7 @@ public class PerOrder extends AppCompatActivity {
             progressBar.setVisibility(View.GONE);
 
             if (result == 1) {
-                PerOrderAdapter adapter=new PerOrderAdapter(PerOrder.this, list);
+                PerOrderAdapter adapter = new PerOrderAdapter(PerOrder.this, list);
                 listView.setAdapter(adapter);
             } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(PerOrder.this);
@@ -150,7 +150,7 @@ public class PerOrder extends AppCompatActivity {
                         finish();
                     }
                 });
-                AlertDialog a=builder.create();
+                AlertDialog a = builder.create();
                 a.show();
                 Button bq = a.getButton(DialogInterface.BUTTON_NEGATIVE);
                 Button bq2 = a.getButton(DialogInterface.BUTTON_POSITIVE);
@@ -164,14 +164,14 @@ public class PerOrder extends AppCompatActivity {
         try {
             JSONObject response = new JSONObject(result);
             JSONArray posts = response.optJSONArray("output");
-            list=new ArrayList<HashMap<String,String>>();
+            list = new ArrayList<HashMap<String, String>>();
 
             for (int i = 0; i < posts.length(); i++) {
                 JSONObject post = posts.optJSONObject(i);
-                HashMap<String,String> temp=new HashMap<String, String>();
+                HashMap<String, String> temp = new HashMap<String, String>();
                 temp.put(FIRST_COLUMN, post.optString("Name"));
-                temp.put(SECOND_COLUMN,post.optString("Quantity"));
-                temp.put(THIRD_COLUMN, String.valueOf(Float.parseFloat(post.optString("Amount"))*Float.parseFloat(post.optString("Quantity"))));
+                temp.put(SECOND_COLUMN, post.optString("Quantity"));
+                temp.put(THIRD_COLUMN, String.valueOf(Float.parseFloat(post.optString("Amount")) * Float.parseFloat(post.optString("Quantity"))));
                 list.add(temp);
             }
         } catch (JSONException e) {

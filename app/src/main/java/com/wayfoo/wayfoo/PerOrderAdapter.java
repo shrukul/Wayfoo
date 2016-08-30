@@ -18,7 +18,7 @@ import static com.wayfoo.wayfoo.Constants.FIRST_COLUMN;
 import static com.wayfoo.wayfoo.Constants.SECOND_COLUMN;
 import static com.wayfoo.wayfoo.Constants.THIRD_COLUMN;
 
-public class PerOrderAdapter extends BaseAdapter{
+public class PerOrderAdapter extends BaseAdapter {
 
     public ArrayList<HashMap<String, String>> list;
     Activity activity;
@@ -26,10 +26,11 @@ public class PerOrderAdapter extends BaseAdapter{
     TextView txtSecond;
     TextView txtThird;
     TextView txtFourth;
-    public PerOrderAdapter(Activity activity,ArrayList<HashMap<String, String>> list){
+
+    public PerOrderAdapter(Activity activity, ArrayList<HashMap<String, String>> list) {
         super();
-        this.activity=activity;
-        this.list=list;
+        this.activity = activity;
+        this.list = list;
     }
 
     @Override
@@ -51,25 +52,23 @@ public class PerOrderAdapter extends BaseAdapter{
     }
 
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
 
 
+        LayoutInflater inflater = activity.getLayoutInflater();
 
-        LayoutInflater inflater=activity.getLayoutInflater();
+        if (convertView == null) {
 
-        if(convertView == null){
+            convertView = inflater.inflate(R.layout.column_row, null);
 
-            convertView=inflater.inflate(R.layout.column_row, null);
-
-            txtFirst=(TextView) convertView.findViewById(R.id.name);
-            txtSecond=(TextView) convertView.findViewById(R.id.quantity);
-            txtThird=(TextView) convertView.findViewById(R.id.amt);
+            txtFirst = (TextView) convertView.findViewById(R.id.name);
+            txtSecond = (TextView) convertView.findViewById(R.id.quantity);
+            txtThird = (TextView) convertView.findViewById(R.id.amt);
         }
 
-        HashMap<String, String> map=list.get(position);
+        HashMap<String, String> map = list.get(position);
         txtFirst.setText(map.get(FIRST_COLUMN));
         txtSecond.setText(map.get(SECOND_COLUMN));
         txtThird.setText(map.get(THIRD_COLUMN));

@@ -57,7 +57,7 @@
                 android:layout_marginTop="7.0dip"
                 android:paddingTop="0.0dip"
                 android:textColor="#BDBDBD"
-                android:text="Inclusive of all taxes"/>
+                android:text="Inclusive of all taxes" />
 
             <Button
                 android:id="@+id/add"

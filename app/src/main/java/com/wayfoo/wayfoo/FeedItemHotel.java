@@ -4,30 +4,31 @@ package com.wayfoo.wayfoo;
  * Created by Axle on 04/02/2016.
  */
 public class FeedItemHotel {
-    private String title,amt;
+    private String title, amt;
     private int b2;
-    private String type,veg,price;
+    private String type, veg, price;
     private String itemID;
 
-    FeedItemHotel(){}
-
-    FeedItemHotel(int b2,String title,String price,String veg,String amt,String type, String itemID) {
-        this.title=title;
-        this.b2=b2;
-        this.veg=veg;
-        this.type=type;
-        this.price=price;
-        this.amt=amt;
-        this.itemID=itemID;
+    FeedItemHotel() {
     }
 
-    FeedItemHotel(String title,String price,String veg,String amt,String type, String itemID) {
-        this.title=title;
-        this.veg=veg;
-        this.type=type;
-        this.price=price;
-        this.amt=amt;
-        this.itemID=itemID;
+    FeedItemHotel(int b2, String title, String price, String veg, String amt, String type, String itemID) {
+        this.title = title;
+        this.b2 = b2;
+        this.veg = veg;
+        this.type = type;
+        this.price = price;
+        this.amt = amt;
+        this.itemID = itemID;
+    }
+
+    FeedItemHotel(String title, String price, String veg, String amt, String type, String itemID) {
+        this.title = title;
+        this.veg = veg;
+        this.type = type;
+        this.price = price;
+        this.amt = amt;
+        this.itemID = itemID;
     }
 
     public String getTitle() {
@@ -83,6 +84,6 @@ public class FeedItemHotel {
     }
 
     public void setItemID(String itemID) {
-        this.itemID= itemID;
+        this.itemID = itemID;
     }
 }

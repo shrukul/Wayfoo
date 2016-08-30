@@ -6,7 +6,7 @@
             android:shape="oval"
             android:useLevel="false"
             android:thicknessRatio="2.0">
-            <solid android:color="@color/white"/>
+            <solid android:color="@color/white" />
         </shape>
     </item>
     <item android:id="@android:id/progress">
@@ -14,7 +14,7 @@
             android:innerRadiusRatio="1"
             android:shape="ring"
             android:thicknessRatio="3.0">
-            <solid android:color="@color/black_light"/>
+            <solid android:color="@color/black_light" />
         </shape>
     </item>
 </layer-list>

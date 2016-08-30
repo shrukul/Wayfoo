@@ -50,7 +50,7 @@
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">#ffffff</item>
         <item name="android:textColorPrimary">#ffffff</item>
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:background">@color/colorAccent</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
@@ -123,7 +123,7 @@
 
     <style name="MyAlertTextAppearance">
         <!-- Set text size and color of title and message here -->
-        <item name="android:textSize"> 14dp </item>
+        <item name="android:textSize">14dp</item>
         <item name="android:textColor">@color/black_light</item>
     </style>
 </resources>

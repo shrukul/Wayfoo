@@ -276,12 +276,12 @@
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/bundles/debug/res/layout/activity_cash_card.xml"
     },
     {
-        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/androidTest/debug/layout/footer_image.xml",
-        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/bundles/debug/res/layout/footer_image.xml"
-    },
-    {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/androidTest/debug/layout/notification_media_action.xml",
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_media_action.xml"
+    },
+    {
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/androidTest/debug/layout/footer_image.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/bundles/debug/res/layout/footer_image.xml"
     },
     {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/androidTest/debug/layout/abc_select_dialog_material.xml",

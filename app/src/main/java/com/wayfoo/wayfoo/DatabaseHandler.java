@@ -49,7 +49,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_AMT + " TEXT,"
                 + KEY_TYPE + " TEXT,"
                 + KEY_ITEM_ID + " TEXT"
-                +")";
+                + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
 
@@ -81,21 +81,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(TABLE_CONTACTS, null, values);
         db.close(); // Closing database connection
-        System.out.println("add "+contact);
+        System.out.println("add " + contact);
     }
 
     // Getting single contact
     FeedItemHotel getContact(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
-                        KEY_NAME, KEY_PRICE, KEY_VEG , KEY_AMT ,KEY_TYPE, KEY_ITEM_ID }, KEY_ID + "=?",
-                new String[] { String.valueOf(id) }, null, null, null ,null);
+        Cursor cursor = db.query(TABLE_CONTACTS, new String[]{KEY_ID,
+                        KEY_NAME, KEY_PRICE, KEY_VEG, KEY_AMT, KEY_TYPE, KEY_ITEM_ID}, KEY_ID + "=?",
+                new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
         FeedItemHotel contact = new FeedItemHotel(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5), cursor.getString(6));
+                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
         // return contact
         return contact;
     }
@@ -140,17 +140,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_AMT, contact.getAmt());
         values.put(KEY_TYPE, contact.getType());
         values.put(KEY_ITEM_ID, contact.getItemID());
-        System.out.println("update "+contact);
+        System.out.println("update " + contact);
         // updating row
         return db.update(TABLE_CONTACTS, values, KEY_ID + " = ?",
-                new String[] { String.valueOf(contact.getID()) });
+                new String[]{String.valueOf(contact.getID())});
     }
 
     // Deleting single contact
     public void deleteContact(FeedItemHotel contact) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_CONTACTS, KEY_ID + " = ?",
-                new String[] { String.valueOf(contact.getID()) });
+                new String[]{String.valueOf(contact.getID())});
         db.close();
     }
 

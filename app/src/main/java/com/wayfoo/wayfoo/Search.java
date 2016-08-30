@@ -29,7 +29,7 @@ public class Search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search);
-        search1 = (SearchView) findViewById( R.id.search);
+        search1 = (SearchView) findViewById(R.id.search);
         rv = (RecyclerView) findViewById(R.id.recycler_view);
         rv.setHasFixedSize(true);
         rv.setItemAnimator(new DefaultItemAnimator());
@@ -75,12 +75,13 @@ public class Search extends AppCompatActivity {
             }
 
             rv.setLayoutManager(new LinearLayoutManager(Search.this));
-            adapter = new MyRecyclerAdapterHotel(Search.this,filteredList);
+            adapter = new MyRecyclerAdapterHotel(Search.this, filteredList);
             rv.setAdapter(adapter);
             adapter.notifyDataSetChanged();
             return true;
 
         }
+
         public boolean onQueryTextSubmit(String query) {
             return false;
         }

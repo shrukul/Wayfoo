@@ -17,12 +17,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.wayfoo.wayfoo.helper.PrefManager;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdditionalInfo extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class AdditionalInfo extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Button btn;
     View parentLayout;
@@ -41,7 +39,7 @@ public class AdditionalInfo extends AppCompatActivity implements AdapterView.OnI
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        btn = (Button)findViewById(R.id.btn_setup);
+        btn = (Button) findViewById(R.id.btn_setup);
         // Spinner element
         spinner = (Spinner) findViewById(R.id.spinner);
 
@@ -102,9 +100,9 @@ public class AdditionalInfo extends AppCompatActivity implements AdapterView.OnI
 
     private void setup() {
 
-        Intent it = new Intent(AdditionalInfo.this,Cart.class);
-        it.putExtra("addr",hotel);
-        System.out.println("Hotel name - "+hotel);
+        Intent it = new Intent(AdditionalInfo.this, Cart.class);
+        it.putExtra("addr", hotel);
+        System.out.println("Hotel name - " + hotel);
         startActivity(it);
         finish();
     }
@@ -114,10 +112,11 @@ public class AdditionalInfo extends AppCompatActivity implements AdapterView.OnI
         hotel = parent.getItemAtPosition(position).toString();
     }
 
-    public void showdrop(View v){
+    public void showdrop(View v) {
         spinner.performClick();
 
     }
+
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }

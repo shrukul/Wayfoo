@@ -188,12 +188,12 @@
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/notification_template_lines.xml"
     },
     {
-        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
-        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_alert_dialog_material.xml"
-    },
-    {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_cash_card.xml",
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/activity_cash_card.xml"
+    },
+    {
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/layout/abc_alert_dialog_material.xml"
     },
     {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/layout/activity_emi.xml",

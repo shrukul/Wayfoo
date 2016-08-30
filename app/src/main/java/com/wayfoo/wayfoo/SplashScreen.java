@@ -4,9 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
 
 import com.wayfoo.wayfoo.helper.PrefManager;
 
@@ -45,7 +42,7 @@ public class SplashScreen extends Activity {
                     System.out.println("this activity");
 
                     startActivity(i);
-                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                 }
             }

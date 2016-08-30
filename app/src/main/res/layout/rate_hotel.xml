@@ -9,8 +9,7 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:id="@+id/face"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_centerHorizontal="true" />
 
     <RatingBar
         android:id="@+id/getRating"
@@ -29,6 +28,6 @@
         android:textSize="16dp"
         style="@style/MyMaterialTheme.Button"
         android:layout_below="@id/getRating"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

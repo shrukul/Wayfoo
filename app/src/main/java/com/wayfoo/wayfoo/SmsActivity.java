@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -50,7 +49,7 @@ public class SmsActivity extends Activity implements View.OnClickListener {
     private TextView txtEditMobile;
     private LinearLayout layoutEditMobile;
 
-    int cnt=0;
+    int cnt = 0;
 
 
     @Override
@@ -251,7 +250,7 @@ public class SmsActivity extends Activity implements View.OnClickListener {
                 params.put("email", email);
                 params.put("mobile", mobile);
 
-                Log.e(TAG, "Posting params: " + params.toString()+cnt);
+                Log.e(TAG, "Posting params: " + params.toString() + cnt);
                 cnt++;
 
                 return params;

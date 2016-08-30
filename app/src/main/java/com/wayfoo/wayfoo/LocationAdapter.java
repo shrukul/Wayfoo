@@ -26,7 +26,7 @@ public class LocationAdapter extends
 
     private final Context mContext;
     private static Context mc;
-    static String tag="locations List";
+    static String tag = "locations List";
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder
             implements OnClickListener {
@@ -51,7 +51,7 @@ public class LocationAdapter extends
             LocationModel feedItem = feedItemList.get(i);
             PrefManager prefs = new PrefManager(mc);
             prefs.setLocation(feedItem.getTitle().trim());
-            Intent newIntent = new Intent(mc,MainActivity.class);
+            Intent newIntent = new Intent(mc, MainActivity.class);
             mc.startActivity(newIntent);
         }
     }
@@ -66,9 +66,9 @@ public class LocationAdapter extends
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_view_row_location, null, true);
-        WindowManager windowManager = (WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE);
+        WindowManager windowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         int width = windowManager.getDefaultDisplay().getWidth();
-        int height=windowManager.getDefaultDisplay().getHeight();
+        int height = windowManager.getDefaultDisplay().getHeight();
         view.setLayoutParams(new RecyclerView.LayoutParams(width, RecyclerView.LayoutParams.MATCH_PARENT));
         CustomViewHolder viewHolder = new CustomViewHolder(view);
         return viewHolder;

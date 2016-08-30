@@ -4,28 +4,19 @@ package com.wayfoo.wayfoo;
  * Created by Axle on 02/02/2016.
  */
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
-import android.preference.PreferenceActivity;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -47,23 +38,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.wayfoo.wayfoo.gcmservice.RegistrationIntentService;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
-import org.apache.http.Header;
-import org.apache.http.HttpMessage;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 
@@ -119,7 +103,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
         btnSignIn.setSize(SignInButton.SIZE_WIDE);
         btnSignIn.setScopes(gso.getScopeArray());
 
-        setGoogleButtonText(btnSignIn,"SIGN IN WITH GOOGLE");
+        setGoogleButtonText(btnSignIn, "SIGN IN WITH GOOGLE");
 
         //Initializing google api client
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -130,7 +114,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
 
         fb_btn = (LinearLayout) findViewById(R.id.fb_btn);
 
-        fb_btn.setOnClickListener(new View.OnClickListener(){
+        fb_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LoginManager.getInstance().logInWithReadPermissions(Login.this, Arrays.asList("public_profile"));
@@ -169,11 +153,9 @@ public class Login extends AppCompatActivity implements OnClickListener,
 //                                        e.printStackTrace();
 //                                    }
                                     final String userFacebookId = object.getString("id");
-                                    new AsyncTask<Void, Void, Bitmap>()
-                                    {
+                                    new AsyncTask<Void, Void, Bitmap>() {
                                         @Override
-                                        protected Bitmap doInBackground(Void... params)
-                                        {
+                                        protected Bitmap doInBackground(Void... params) {
                                             if (userFacebookId == null)
                                                 return null;
 
@@ -192,11 +174,10 @@ public class Login extends AppCompatActivity implements OnClickListener,
                                         }
 
                                         @Override
-                                        protected void onPostExecute(Bitmap bitmap)
-                                        {
+                                        protected void onPostExecute(Bitmap bitmap) {
                                             if (bitmap != null
                                                     && !isChangingConfigurations()
-                                                    && !isFinishing()){
+                                                    && !isFinishing()) {
                                                 PrefManager prefs = new PrefManager(getApplicationContext());
                                                 prefs.putProfImage(encodeTobase64(bitmap));
                                                 Log.d("img", String.valueOf(bitmap));
@@ -385,21 +366,21 @@ public class Login extends AppCompatActivity implements OnClickListener,
             String personPhotoUrl = null;
             try {
                 personPhotoUrl = result.getSignInAccount().getPhotoUrl().toString();
-            }catch(NullPointerException e){
+            } catch (NullPointerException e) {
 
             }
             String email = result.getSignInAccount().getEmail();
 
             //Log.e(L_TAG, "Name: " + personName + ", email: " + email
-             //       + ", Image: " + personPhotoUrl);
+            //       + ", Image: " + personPhotoUrl);
 
             PrefManager prefs = new PrefManager(this);
             prefs.createUnverifiedLogin(personName, email);
 
             RegGCM();
 
-            try{
-                if(!personPhotoUrl.equals(null)){
+            try {
+                if (!personPhotoUrl.equals(null)) {
                     personPhotoUrl = personPhotoUrl.substring(0,
                             personPhotoUrl.length() - 2)
                             + PROFILE_PIC_SIZE;
@@ -408,7 +389,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
                     prefs = new PrefManager(getApplicationContext());
                     prefs.putLocation("Mangalore");
                 }
-            }catch(NullPointerException e) {
+            } catch (NullPointerException e) {
                 prefs = new PrefManager(getApplicationContext());
                 prefs.putLocation("Mangalore");
             }

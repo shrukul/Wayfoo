@@ -3,6 +3,7 @@ package com.wayfoo.wayfoo;
 /**
  * Created by Axle on 19/03/2016.
  */
+
 import android.app.Application;
 import android.text.TextUtils;
 

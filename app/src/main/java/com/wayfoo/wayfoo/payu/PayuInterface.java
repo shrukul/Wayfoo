@@ -4,18 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.provider.Settings;
 import android.util.Log;
 
-import com.payu.india.Extras.PayUSdkDetails;
+import com.payu.india.Extras.PayUChecksum;
 import com.payu.india.Model.PaymentParams;
 import com.payu.india.Model.PayuConfig;
 import com.payu.india.Model.PayuHashes;
-import com.payu.india.Payu.PayuConstants;
 import com.payu.india.Model.PostData;
-import com.payu.india.Payu.PayuErrors;
-import com.payu.india.Extras.PayUChecksum;
+import com.payu.india.Payu.PayuConstants;
 import com.payu.payuui.PayUBaseActivity;
 
 import org.json.JSONException;
@@ -23,7 +19,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -86,7 +81,7 @@ public class PayuInterface extends Activity {
         generateHashFromServer(mPaymentParams);
     }
 
-    public void generateHashFromServer(PaymentParams mPaymentParams){
+    public void generateHashFromServer(PaymentParams mPaymentParams) {
         // lets create the post params
 
         StringBuffer postParamsBuffer = new StringBuffer();
@@ -104,7 +99,7 @@ public class PayuInterface extends Activity {
         postParamsBuffer.append(concatParams(PayuConstants.USER_CREDENTIALS, mPaymentParams.getUserCredentials() == null ? PayuConstants.DEFAULT : mPaymentParams.getUserCredentials()));
 
         // for offer_key
-        if(null != mPaymentParams.getOfferKey())
+        if (null != mPaymentParams.getOfferKey())
             postParamsBuffer.append(concatParams(PayuConstants.OFFER_KEY, mPaymentParams.getOfferKey()));
         // for check_isDomestic
 
@@ -121,7 +116,7 @@ public class PayuInterface extends Activity {
     class GetHashesFromServerTask extends AsyncTask<String, String, PayuHashes> {
 
         @Override
-        protected PayuHashes doInBackground(String ... postParams) {
+        protected PayuHashes doInBackground(String... postParams) {
             PayuHashes payuHashes = new PayuHashes();
             try {
 //                URL url = new URL(PayuConstants.MOBILE_TEST_FETCH_DATA_URL);
@@ -151,9 +146,9 @@ public class PayuInterface extends Activity {
                 JSONObject response = new JSONObject(responseStringBuffer.toString());
 
                 Iterator<String> payuHashIterator = response.keys();
-                while(payuHashIterator.hasNext()){
+                while (payuHashIterator.hasNext()) {
                     String key = payuHashIterator.next();
-                    switch (key){
+                    switch (key) {
                         case "payment_hash":
                             payuHashes.setPaymentHash(response.getString(key));
                             break;
@@ -228,7 +223,7 @@ public class PayuInterface extends Activity {
         intent.putExtra(PayuConstants.PAYMENT_PARAMS, mPaymentParams);
         intent.putExtra(PayuConstants.PAYU_HASHES, payuHashes);
 
-        Log.d("PayuInterface",payuHashes.getPaymentHash());
+        Log.d("PayuInterface", payuHashes.getPaymentHash());
 
 
         /**

@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,7 +29,7 @@ import java.util.List;
 public class Intermediate extends AppCompatActivity {
 
     AsyncHttpTask a;
-    String name,table,hotelName,tabs;
+    String name, table, hotelName, tabs;
     protected ProgressBar progressBar;
     Toolbar mToolbar;
 
@@ -64,8 +63,8 @@ public class Intermediate extends AppCompatActivity {
         getSupportActionBar().setTitle("Loading ...");
 
         System.out.println(name + " " + table);
-        final String url = "http://wayfoo.com/hotel.php?name="+name;
-        a=new AsyncHttpTask();
+        final String url = "http://wayfoo.com/hotel.php?name=" + name;
+        a = new AsyncHttpTask();
         a.execute(url);
     }
 
@@ -111,11 +110,11 @@ public class Intermediate extends AppCompatActivity {
             if (result == 1) {
                 //startActivity(new Intent(Intermediate.this,Main.class));
 
-                Intent i=new Intent(Intermediate.this,MainHotel.class);
-                i.putExtra("title",name);
-                i.putExtra("table",table);
-                i.putExtra("hotelName",hotelName);
-                i.putExtra("tabs",tabs);
+                Intent i = new Intent(Intermediate.this, MainHotel.class);
+                i.putExtra("title", name);
+                i.putExtra("table", table);
+                i.putExtra("hotelName", hotelName);
+                i.putExtra("tabs", tabs);
                 startActivity(i);
                 finish();
             } else {
@@ -142,7 +141,7 @@ public class Intermediate extends AppCompatActivity {
                         finish();
                     }
                 });
-                AlertDialog a=builder.create();
+                AlertDialog a = builder.create();
                 a.show();
                 Button bq = a.getButton(DialogInterface.BUTTON_NEGATIVE);
                 Button bq2 = a.getButton(DialogInterface.BUTTON_POSITIVE);
@@ -162,7 +161,7 @@ public class Intermediate extends AppCompatActivity {
             }
             for (int i = 0; i < posts.length(); i++) {
                 JSONObject post = posts.optJSONObject(i);
-                db.addContact(new FeedItemHotel(post.optString("Name"), post.optString("Price"),post.optString("NonVeg"),"0",
+                db.addContact(new FeedItemHotel(post.optString("Name"), post.optString("Price"), post.optString("NonVeg"), "0",
                         post.optString("Type"), post.optString("ItemID")));
             }
             Log.d("intermediate", String.valueOf(posts.length()));

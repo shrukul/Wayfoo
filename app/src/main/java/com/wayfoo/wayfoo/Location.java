@@ -41,6 +41,7 @@ public class Location extends AppCompatActivity {
     private ProgressBar progressBar;
     AsyncHttpTask a;
     ImageView b;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,7 +125,7 @@ public class Location extends AppCompatActivity {
                         finish();
                     }
                 });
-                AlertDialog a=builder.create();
+                AlertDialog a = builder.create();
                 a.show();
                 Button bq = a.getButton(DialogInterface.BUTTON_NEGATIVE);
                 Button bq2 = a.getButton(DialogInterface.BUTTON_POSITIVE);

@@ -4,8 +4,8 @@ package com.wayfoo.wayfoo;
  * Created by Axle on 25/03/2016.
  */
 public class OrderListModel {
-    private String id,oid;
-    private String title,total,table,pay,dispName,addr;
+    private String id, oid;
+    private String title, total, table, pay, dispName, addr;
 
     public String getTitle() {
         return title;
@@ -55,7 +55,7 @@ public class OrderListModel {
         this.pay = pay;
     }
 
-    
+
     public void setAddr(String addr) {
         this.addr = addr;
     }

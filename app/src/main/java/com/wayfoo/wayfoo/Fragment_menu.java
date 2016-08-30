@@ -3,7 +3,6 @@ package com.wayfoo.wayfoo;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -29,16 +28,17 @@ public class Fragment_menu extends Fragment {
 
     @Override
     public void onResume() {
-      //  initializeData();
         super.onResume();
         initializeData();
+        adapter = new MyRecyclerAdapterHotel(getActivity(), persons);
+        rv_start.setAdapter(adapter);
+        db.close();
         adapter.notifyDataSetChanged();
-        //adapter.notifyDataSetChanged();
     }
 
     @Override
     public void onDestroy() {
-        Log.d("destroyed",key);
+        Log.d("destroyed", key);
         super.onDestroy();
     }
 
@@ -49,7 +49,7 @@ public class Fragment_menu extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_card_view_hotel,
                 container, false);
         key = getArguments().getString("key");
-        Log.d("created",key);
+        Log.d("created", key);
         rv_start = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         rv_start.setHasFixedSize(true);
 //        rv_start.setItemAnimator(new DefaultItemAnimator());

@@ -59,7 +59,7 @@ public class Fragment_start extends Fragment {
         FeedItemHotel feed = new FeedItemHotel();
         List<FeedItemHotel> contacts = db.getAllContacts();
 
-        int i=0;
+        int i = 0;
         for (FeedItemHotel cn : contacts) {
             i++;
             if (cn.getType().equals("Snacks")) {

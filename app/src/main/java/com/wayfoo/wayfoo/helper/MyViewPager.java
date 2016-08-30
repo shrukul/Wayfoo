@@ -3,6 +3,7 @@ package com.wayfoo.wayfoo.helper;
 /**
  * Created by Axle on 19/03/2016.
  */
+
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;

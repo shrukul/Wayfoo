@@ -48,7 +48,7 @@ public class Intro extends IntroActivity {
                 .image(R.drawable.one)
                 .background(R.color.color_material_bold)
                 .backgroundDark(R.color.color_dark_material_bold)
-                .permissions(new String[]{android.Manifest.permission.SEND_SMS,android.Manifest.permission.GET_ACCOUNTS})
+                .permissions(new String[]{android.Manifest.permission.SEND_SMS, android.Manifest.permission.GET_ACCOUNTS})
                 .build());
     }
 

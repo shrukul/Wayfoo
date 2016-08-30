@@ -63,7 +63,7 @@
                     android:text="@string/lbl_next"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:textSize="14dp"
-                    android:padding="5dp"/>
+                    android:padding="5dp" />
             </LinearLayout>
 
 
@@ -170,7 +170,7 @@
             android:background="@null"
             android:src="@drawable/smartphone"
             android:scaleType="fitXY"
-            android:id="@+id/btn_edit_mobile"/>
+            android:id="@+id/btn_edit_mobile" />
     </LinearLayout>
 
 </RelativeLayout>

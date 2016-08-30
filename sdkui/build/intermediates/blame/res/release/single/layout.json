@@ -248,12 +248,12 @@
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/Wayfoo/CustomBrowser-release/unspecified/res/layout/cb_progressdialog.xml"
     },
     {
-        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/layout/emi_list_item.xml",
-        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/emi_list_item.xml"
-    },
-    {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/layout/netbanking_list_item.xml",
         "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/netbanking_list_item.xml"
+    },
+    {
+        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/layout/emi_list_item.xml",
+        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/src/main/res/layout/emi_list_item.xml"
     },
     {
         "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/layout/activity_cash_card.xml",

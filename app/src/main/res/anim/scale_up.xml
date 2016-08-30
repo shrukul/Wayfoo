@@ -10,6 +10,5 @@
         android:pivotY="105%"
 
         android:startOffset="100"
-        android:duration="160">
-    </scale>
+        android:duration="160"></scale>
 </set>

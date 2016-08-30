@@ -54,14 +54,15 @@ public class Rate_Hotel extends Activity implements
         rate = (Button) findViewById(R.id.rate);
         face = (ImageView) findViewById(R.id.face);
         hotel = getIntent().getExtras().getString("hotel");
-        System.out.println("As soon - "+hotel);
+        System.out.println("As soon - " + hotel);
         getRatingBar.setOnRatingBarChangeListener(this);
         rate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(curRate!=0)
+                if (curRate != 0)
                     insertToDatabase();
-                else Toast.makeText(getApplicationContext(),"Rate first!",Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getApplicationContext(), "Rate first!", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -73,30 +74,30 @@ public class Rate_Hotel extends Activity implements
     public void onRatingChanged(RatingBar rateBar, float rating,
                                 boolean fromUser) {
         DecimalFormat decimalFormat = new DecimalFormat("#.#");
-        curRate = (int)rating;
-        if(curRate<=1 && curRate>=0){
+        curRate = (int) rating;
+        if (curRate <= 1 && curRate >= 0) {
             face.setImageDrawable(getResources().getDrawable(R.drawable.one));
-        } else if(curRate<=2 && curRate>1){
+        } else if (curRate <= 2 && curRate > 1) {
             face.setImageDrawable(getResources().getDrawable(R.drawable.two));
-        } else if(curRate<=3 && curRate>2){
+        } else if (curRate <= 3 && curRate > 2) {
             face.setImageDrawable(getResources().getDrawable(R.drawable.three));
-        } else if(curRate<=4 && curRate>3){
+        } else if (curRate <= 4 && curRate > 3) {
             face.setImageDrawable(getResources().getDrawable(R.drawable.four));
-        } else if(curRate<=5 && curRate>4){
+        } else if (curRate <= 5 && curRate > 4) {
             face.setImageDrawable(getResources().getDrawable(R.drawable.five));
         }
         Toast.makeText(Rate_Hotel.this,
                 "New Rating: " + curRate, Toast.LENGTH_SHORT).show();
     }
 
-    private void insertToDatabase(){
+    private void insertToDatabase() {
         class SendPostReqAsyncTask extends AsyncTask<String, Void, String> {
 
             @Override
             protected String doInBackground(String... params) {
-                System.out.println("Hotel "+hotel);
+                System.out.println("Hotel " + hotel);
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-                nameValuePairs.add(new BasicNameValuePair("rate", ""+curRate));
+                nameValuePairs.add(new BasicNameValuePair("rate", "" + curRate));
                 nameValuePairs.add(new BasicNameValuePair("hotel", hotel));
                 String jsonResult = "";
 
@@ -112,7 +113,6 @@ public class Rate_Hotel extends Activity implements
 
                     HttpEntity entity = response.getEntity();
                     jsonResult = inputStreamToString(response.getEntity().getContent()).toString();
-
 
 
                 } catch (ClientProtocolException e) {
@@ -142,7 +142,7 @@ public class Rate_Hotel extends Activity implements
             @Override
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
-                startActivity(new Intent(Rate_Hotel.this,MainActivity.class));
+                startActivity(new Intent(Rate_Hotel.this, MainActivity.class));
                 Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
             }
         }

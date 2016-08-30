@@ -27,7 +27,7 @@
             app:tabTextColor="@color/black_light"
             app:tabGravity="center"
             app:tabMode="scrollable" />
-<!--        app:tabGravity="fill"-->
+        <!--        app:tabGravity="fill"-->
 
     </android.support.design.widget.AppBarLayout>
 
@@ -37,7 +37,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/drawer_list_selector"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-<!--    android:layout_weight="20"-->
+    <!--    android:layout_weight="20"-->
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"

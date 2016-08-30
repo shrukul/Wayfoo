@@ -27,25 +27,25 @@ public class GcmMessageHandler extends GcmListenerService {
         String message = data.getString("message");
         String balance = data.getString("balance");
         hotel = data.getString("hotel");
-        System.out.println("Name of hotel is "+hotel);
-        String typ="yay";
+        System.out.println("Name of hotel is " + hotel);
+        String typ = "yay";
         String type = data.getString("type");
         int typeInt = Integer.parseInt(type);
         Intent myIntent = new Intent(this, Rate_Hotel.class);
-        myIntent.putExtra("hotel",hotel);
+        myIntent.putExtra("hotel", hotel);
         pendingIntent = PendingIntent.getActivity(
                 this,
                 0,
                 myIntent,
                 PendingIntent.FLAG_CANCEL_CURRENT);
-        System.out.println("Type"+typeInt);
+        System.out.println("Type" + typeInt);
         if (typeInt == 2) {
-            message = "Your Order will be delivered. The amount payable is ₹"+message+" Click here to rate your experience";
+            message = "Your Order will be delivered. The amount payable is ₹" + message + " Click here to rate your experience";
             typ = "Done";
-        } else if(typeInt == 1){
-            message = "Your Order has been confirmed. The amount payable is ₹"+message;
+        } else if (typeInt == 1) {
+            message = "Your Order has been confirmed. The amount payable is ₹" + message;
             typ = "Confirmed";
-        } else if(typeInt == 0){
+        } else if (typeInt == -1) {
             message = "Oops! your Order has been cancelled. Thanks for using our services";
             typ = "Cancelled";
         }
@@ -72,7 +72,7 @@ public class GcmMessageHandler extends GcmListenerService {
                 .setLargeIcon(BitmapFactory.decodeResource(this.getResources(), R.drawable.app_icon))
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(body));
 
-        if(!hotel.isEmpty())
+        if (!hotel.isEmpty())
             mBuilder.setContentIntent(pendingIntent);
         ;
         notificationManager.notify(1, mBuilder.build());

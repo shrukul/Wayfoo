@@ -15,7 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -164,7 +163,7 @@ public class MyRecyclerAdapter extends
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 k = feedItem.getID();
-                if(isChecked)
+                if (isChecked)
                     insertToDatabase();
                 else
                     insertToDatabase2();
@@ -320,8 +319,8 @@ public class MyRecyclerAdapter extends
                 super.onPostExecute(result);
                 progressDialog.dismiss();
                 int i = 0;
-                for(String x:favList){
-                    if(x.equals(k)){
+                for (String x : favList) {
+                    if (x.equals(k)) {
                         break;
                     }
                     i++;

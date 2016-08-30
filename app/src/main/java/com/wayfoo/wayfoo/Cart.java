@@ -47,15 +47,15 @@ public class Cart extends AppCompatActivity {
     private RecyclerView rv;
 
     private static final String TAG = "RecyclerViewExample";
-    private List<FeedItemHotel> persons,mm,finalItems;
+    private List<FeedItemHotel> persons, mm, finalItems;
     private DatabaseHandler db;
     private Cursor c;
     private CartAdapter adapter;
     Button checkout;
     private PrefManager pref;
-    private float amt=0;
-    String json,phone;
-    String hotel,table,addr;
+    private float amt = 0;
+    String json, phone;
+    String hotel, table, addr;
     TextView amount;
 
     @Override
@@ -78,12 +78,12 @@ public class Cart extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
-        hotel=prefs.getTitle();
+        hotel = prefs.getTitle();
         addr = getIntent().getExtras().getString("addr");
         amount = (TextView) findViewById(R.id.amount);
-        amount.setText("₹ "+prefs.getPriceSum());
-        System.out.println("Addr is "+addr);
-        table=prefs.getTable();
+        amount.setText("₹ " + prefs.getPriceSum());
+        System.out.println("Addr is " + addr);
+        table = prefs.getTable();
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         checkout = (Button) findViewById(R.id.checkout);
         setSupportActionBar(mToolbar);
@@ -94,15 +94,15 @@ public class Cart extends AppCompatActivity {
 
         pref = new PrefManager(this);
         phone = pref.getMobileNumber();
-        rv = (RecyclerView)findViewById(R.id.my_recycler_view);
+        rv = (RecyclerView) findViewById(R.id.my_recycler_view);
         rv.setHasFixedSize(true);
         rv.setItemAnimator(new DefaultItemAnimator());
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-        finalItems= new ArrayList<FeedItemHotel>();
-        db=new DatabaseHandler(this);
+        finalItems = new ArrayList<FeedItemHotel>();
+        db = new DatabaseHandler(this);
         initializeData();
-        adapter = new CartAdapter(this,persons,amount);
+        adapter = new CartAdapter(this, persons, amount);
         rv.setAdapter(adapter);
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,9 +112,9 @@ public class Cart extends AppCompatActivity {
                 finalItems.clear();
                 amt = 0;
                 for (FeedItemHotel cn : contacts) {
-                    FeedItemHotel item=new FeedItemHotel();
-                    if(cn.getAmt().toString().equals("0"))
-                    {}else {
+                    FeedItemHotel item = new FeedItemHotel();
+                    if (cn.getAmt().toString().equals("0")) {
+                    } else {
                         Log.d("carti", String.valueOf(ij));
                         item.setTitle(cn.getTitle());
                         item.setType(cn.getType());
@@ -122,7 +122,7 @@ public class Cart extends AppCompatActivity {
                         item.setVeg(cn.getVeg());
                         item.setAmt(cn.getAmt());
                         item.setItemID(cn.getItemID());
-                        Log.d("id",cn.getItemID());
+                        Log.d("id", cn.getItemID());
                         finalItems.add(item);
                         //amt += (Float.parseFloat(cn.getAmt())*Float.parseFloat(cn.getPrice()));
                     }
@@ -132,29 +132,30 @@ public class Cart extends AppCompatActivity {
                 int k = 1;
                 mm = new ArrayList<FeedItemHotel>();
 
-                for(k = 0 ; k < finalItems.size() ; k++){
+                for (k = 0; k < finalItems.size(); k++) {
                     //if(k<persons.size()/2){
-                        mm.add(finalItems.get(k));
-                        amt += (Float.parseFloat(finalItems.get(k).getAmt())*Float.parseFloat(finalItems.get(k).getPrice()));
+                    mm.add(finalItems.get(k));
+                    amt += (Float.parseFloat(finalItems.get(k).getAmt()) * Float.parseFloat(finalItems.get(k).getPrice()));
                     //}
                 }
                 String text = String.format("%.2f", amt);
-                Toast.makeText(Cart.this,"Total " + text, Toast.LENGTH_LONG).show();
+                Toast.makeText(Cart.this, "Total " + text, Toast.LENGTH_LONG).show();
                 Gson gson = new Gson();
-                Type type = new TypeToken<List<FeedItemHotel>>() {}.getType();
+                Type type = new TypeToken<List<FeedItemHotel>>() {
+                }.getType();
                 json = gson.toJson(mm, type);
-                Log.d("Json",json);
-                if(amt > 0)
+                Log.d("Json", json);
+                if (amt > 0)
                     insertToDatabase();
                 else
-                    Toast.makeText(getApplicationContext(),"Select at least one item",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Select at least one item", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(Cart.this,AdditionalInfo.class));
+        startActivity(new Intent(Cart.this, AdditionalInfo.class));
         finish();
     }
 
@@ -162,13 +163,13 @@ public class Cart extends AppCompatActivity {
 
         persons = new ArrayList<FeedItemHotel>();
 
-        FeedItemHotel feed=new FeedItemHotel();
+        FeedItemHotel feed = new FeedItemHotel();
         List<FeedItemHotel> contacts = db.getAllContacts();
 
         for (FeedItemHotel cn : contacts) {
-            FeedItemHotel item=new FeedItemHotel();
-            if(cn.getAmt().toString().equals("0"))
-            {}else {
+            FeedItemHotel item = new FeedItemHotel();
+            if (cn.getAmt().toString().equals("0")) {
+            } else {
                 item.setTitle(cn.getTitle());
                 item.setType(cn.getType());
                 item.setPrice(cn.getPrice());
@@ -180,7 +181,7 @@ public class Cart extends AppCompatActivity {
         }
     }
 
-    private void insertToDatabase(){
+    private void insertToDatabase() {
         class SendPostReqAsyncTask extends AsyncTask<String, Void, String> {
 
 
@@ -193,16 +194,16 @@ public class Cart extends AppCompatActivity {
                 progressDialog.setIndeterminate(true);
                 progressDialog.setMessage("Placing your order...");
                 progressDialog.show();
-                System.out.println("jsondata"+json);
+                System.out.println("jsondata" + json);
             }
 
             @Override
             protected String doInBackground(String... params) {
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
                 PrefManager pref = new PrefManager(getApplicationContext());
-                String email=pref.getEmail();
-                String regid=pref.getRegId();
-                String dispName=pref.getHotelName();
+                String email = pref.getEmail();
+                String regid = pref.getRegId();
+                String dispName = pref.getHotelName();
                 nameValuePairs.add(new BasicNameValuePair("data", json));
                 nameValuePairs.add(new BasicNameValuePair("email", email));
                 nameValuePairs.add(new BasicNameValuePair("amt", String.valueOf(amt)));
@@ -227,7 +228,6 @@ public class Cart extends AppCompatActivity {
 
                     HttpEntity entity = response.getEntity();
                     jsonResult = inputStreamToString(response.getEntity().getContent()).toString();
-
 
 
                 } catch (ClientProtocolException e) {
@@ -258,7 +258,7 @@ public class Cart extends AppCompatActivity {
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
                 progressDialog.dismiss();
-                startActivity(new Intent(Cart.this,MainActivity.class));
+                startActivity(new Intent(Cart.this, MainActivity.class));
                 Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
             }
         }

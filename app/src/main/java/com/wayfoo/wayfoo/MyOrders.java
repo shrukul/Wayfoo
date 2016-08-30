@@ -38,6 +38,7 @@ public class MyOrders extends Fragment {
     private ProgressBar progressBar;
     AsyncHttpTask a;
     ImageView b;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class MyOrders extends Fragment {
         progressBar = (ProgressBar) rootView.findViewById(R.id.progress_bar);
         PrefManager pref = new PrefManager(getContext());
         String email = pref.getEmail();
-        final String url = "http://wayfoo.com/orderHistory.php?email="+email;
+        final String url = "http://wayfoo.com/orderHistory.php?email=" + email;
         a = new AsyncHttpTask();
         a.execute(url);
         return rootView;

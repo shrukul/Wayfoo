@@ -3,6 +3,7 @@ package com.wayfoo.wayfoo.receiver;
 /**
  * Created by Axle on 19/03/2016.
  */
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;

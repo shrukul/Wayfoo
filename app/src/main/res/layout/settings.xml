@@ -16,13 +16,13 @@
         android:id="@+id/privacy"
         android:text="@string/privacy"
         android:clickable="true"
-        style="@style/MyMaterialTheme.SettingsButton"/>
+        style="@style/MyMaterialTheme.SettingsButton" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/terms"
         android:text="@string/terms"
-        style="@style/MyMaterialTheme.SettingsButton"/>
+        style="@style/MyMaterialTheme.SettingsButton" />
 
 </LinearLayout>
