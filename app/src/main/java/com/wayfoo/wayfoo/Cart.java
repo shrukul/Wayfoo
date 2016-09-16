@@ -258,7 +258,10 @@ public class Cart extends AppCompatActivity {
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
                 progressDialog.dismiss();
-                startActivity(new Intent(Cart.this, MainActivity.class));
+                Intent it = new Intent(Cart.this, MainActivity.class);
+                it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(it);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
             }
         }

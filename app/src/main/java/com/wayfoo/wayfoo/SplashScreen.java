@@ -24,6 +24,7 @@ public class SplashScreen extends Activity {
 
                 if (prefs.loggedInAndVerfified()) {
                     startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                 } else if (prefs.loggedInNotVerfified()) {
                     Intent i = new Intent(SplashScreen.this, SmsActivity.class);

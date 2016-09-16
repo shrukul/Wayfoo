@@ -21,7 +21,7 @@ public class Intro extends IntroActivity {
         addSlide(new SimpleSlide.Builder()
                 .title("Wayfoo 1")
                 .description("Write a Description")
-                .image(R.drawable.one)
+                .image(R.drawable.tuta)
                 .background(R.color.color_material_metaphor)
                 .backgroundDark(R.color.color_dark_material_metaphor)
                 .build());
@@ -29,7 +29,7 @@ public class Intro extends IntroActivity {
         addSlide(new SimpleSlide.Builder()
                 .title("Wayfoo 2")
                 .description("Write a Description")
-                .image(R.drawable.one)
+                .image(R.drawable.tutb)
                 .background(R.color.color_material_shadow)
                 .backgroundDark(R.color.color_material_shadow)
                 .build());
@@ -37,7 +37,7 @@ public class Intro extends IntroActivity {
         addSlide(new SimpleSlide.Builder()
                 .title("Wayfoo 3")
                 .description("Write a Description")
-                .image(R.drawable.one)
+                .image(R.drawable.tutc)
                 .background(R.color.color_material_motion)
                 .backgroundDark(R.color.color_dark_material_motion)
                 .build());
@@ -45,9 +45,18 @@ public class Intro extends IntroActivity {
         addSlide(new SimpleSlide.Builder()
                 .title("Wayfoo 4")
                 .description("Write a Description")
-                .image(R.drawable.one)
+                .image(R.drawable.tutd)
                 .background(R.color.color_material_bold)
                 .backgroundDark(R.color.color_dark_material_bold)
+//                .permissions(new String[]{android.Manifest.permission.SEND_SMS, android.Manifest.permission.GET_ACCOUNTS})
+                .build());
+
+        addSlide(new SimpleSlide.Builder()
+                .title("Wayfoo 5")
+                .description("Write a Description")
+                .image(R.drawable.tute)
+                .background(R.color.color_material_metaphor)
+                .backgroundDark(R.color.color_dark_material_metaphor)
                 .permissions(new String[]{android.Manifest.permission.SEND_SMS, android.Manifest.permission.GET_ACCOUNTS})
                 .build());
     }

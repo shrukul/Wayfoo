@@ -179,9 +179,8 @@ public class MyRecyclerAdapter extends
     private void insertToDatabase() {
         class SendPostReqAsyncTask extends AsyncTask<String, Void, String> {
 
-
             final ProgressDialog progressDialog = new ProgressDialog(mc,
-                    R.style.AppTheme_Dark_Dialog);
+                    R.style.MyMaterialTheme_AlertDialogTheme);
 
             @Override
             protected void onPreExecute() {
@@ -256,7 +255,7 @@ public class MyRecyclerAdapter extends
 
 
             final ProgressDialog progressDialog = new ProgressDialog(mc,
-                    R.style.AppTheme_Dark_Dialog);
+                    R.style.MyMaterialTheme_AlertDialogTheme);
 
             @Override
             protected void onPreExecute() {
