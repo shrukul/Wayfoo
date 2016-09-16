@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/release/values-w500dp-v13/values-w500dp-v13.xml",
+        "outputFile": "D:\\StuDy\\workplace_studio\\Startup\\Wayfoo\\sdkui\\build\\intermediates\\res\\merged\\release\\values-w500dp-v13\\values-w500dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,31 @@
                     "endOffset": 105
                 },
                 "from": {
-                    "file": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values-w500dp/values-w500dp.xml",
+                    "file": "D:\\StuDy\\workplace_studio\\Startup\\Wayfoo\\sdkui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-w500dp\\values-w500dp.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 279,
+                        "endColumn": 54,
+                        "endOffset": 329
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "D:\\home\\shrukul\\Android\\AndroidStudioProjects\\Wayfoo\\sdkui\\build\\intermediates\\res\\merged\\release\\values-w500dp-v13\\values-w500dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 54,
+                    "endOffset": 105
+                },
+                "from": {
+                    "file": "D:\\home\\shrukul\\Android\\AndroidStudioProjects\\Wayfoo\\sdkui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\values-w500dp\\values-w500dp.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

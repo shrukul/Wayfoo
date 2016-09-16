@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
-        "source": "/home/shrukul/Android/AndroidStudioProjects/Wayfoo/sdkui/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/color-v23/abc_color_highlight_material.xml"
+        "merged": "D:\\StuDy\\workplace_studio\\Startup\\Wayfoo\\sdkui\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
+        "source": "D:\\StuDy\\workplace_studio\\Startup\\Wayfoo\\sdkui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\color-v23\\abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "D:\\home\\shrukul\\Android\\AndroidStudioProjects\\Wayfoo\\sdkui\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
+        "source": "D:\\home\\shrukul\\Android\\AndroidStudioProjects\\Wayfoo\\sdkui\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.0\\res\\color-v23\\abc_color_highlight_material.xml"
     }
 ]
