@@ -260,6 +260,8 @@ public class Cart extends AppCompatActivity {
                 progressDialog.dismiss();
                 Intent it = new Intent(Cart.this, MainActivity.class);
                 it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                it.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(it);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
