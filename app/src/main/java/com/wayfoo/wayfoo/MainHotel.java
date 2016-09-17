@@ -88,7 +88,6 @@ public class MainHotel extends AppCompatActivity {
         switch (id) {
             case R.id.search:
                 startActivity(new Intent(MainHotel.this, Search.class));
-                this.finish();
                 break;
             case android.R.id.home:
                 this.onBackPressed();
