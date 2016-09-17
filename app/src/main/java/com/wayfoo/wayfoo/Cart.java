@@ -115,14 +115,13 @@ public class Cart extends AppCompatActivity {
                     FeedItemHotel item = new FeedItemHotel();
                     if (cn.getAmt().toString().equals("0")) {
                     } else {
-                        Log.d("carti", String.valueOf(ij));
                         item.setTitle(cn.getTitle());
                         item.setType(cn.getType());
                         item.setPrice(cn.getPrice());
                         item.setVeg(cn.getVeg());
                         item.setAmt(cn.getAmt());
                         item.setItemID(cn.getItemID());
-                        Log.d("id", cn.getItemID());
+//                        Log.d("id", cn.getItemID());
                         finalItems.add(item);
                         //amt += (Float.parseFloat(cn.getAmt())*Float.parseFloat(cn.getPrice()));
                     }
