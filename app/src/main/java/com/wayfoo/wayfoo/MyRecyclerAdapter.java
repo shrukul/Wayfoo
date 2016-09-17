@@ -102,6 +102,7 @@ public class MyRecyclerAdapter extends
     public MyRecyclerAdapter(Context context, List<FeedItem> feedItemList, List<String> fav) {
         MyRecyclerAdapter.feedItemList = feedItemList;
         this.mContext = context;
+        favList = new ArrayList<>();
         favList = fav;
     }
 
@@ -242,6 +243,7 @@ public class MyRecyclerAdapter extends
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
                 progressDialog.dismiss();
+                System.out.println(k);
                 favList.add(k);
             }
         }

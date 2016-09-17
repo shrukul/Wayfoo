@@ -54,6 +54,17 @@
                     android:textCursorDrawable="@null"
                     android:textSize="18dp" />
 
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:indeterminateTint="@color/colorAccent"
+                    android:indeterminateTintMode="src_atop"
+                    android:visibility="gone" />
+
                 <Button
                     android:id="@+id/btn_request_sms"
                     android:layout_width="fill_parent"
@@ -157,25 +168,12 @@
 
     </com.wayfoo.wayfoo.helper.MyViewPager>
 
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginBottom="60dp"
-        android:indeterminateTint="@color/colorAccent"
-        android:indeterminateTintMode="src_atop"
-        android:visibility="gone" />
-
     <LinearLayout
         android:id="@+id/layout_edit_mobile"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="30dp"
         android:gravity="center"
         android:orientation="horizontal">
 

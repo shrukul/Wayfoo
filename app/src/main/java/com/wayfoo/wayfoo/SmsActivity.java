@@ -97,7 +97,6 @@ public class SmsActivity extends Activity implements View.OnClickListener {
             Intent intent = new Intent(SmsActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-
             finish();
         }
 
