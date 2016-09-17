@@ -130,6 +130,29 @@
                 android:text="@string/lbl_submit"
                 style="@style/MyMaterialTheme.Button" />
 
+            <ProgressBar
+                android:id="@+id/progressbar"
+                android:indeterminate="false"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:indeterminateTint="@color/colorAccent"
+                android:indeterminateTintMode="src_atop"
+                android:max="120"
+                android:progress="0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <Button
+                android:id="@+id/tryagain"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:text="Edit Number"
+                android:visibility="visible"
+                android:textSize="14dp"
+                android:padding="5dp" />
+
         </LinearLayout>
 
     </com.wayfoo.wayfoo.helper.MyViewPager>

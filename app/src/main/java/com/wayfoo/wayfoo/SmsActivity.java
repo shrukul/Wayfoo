@@ -4,10 +4,12 @@ package com.wayfoo.wayfoo;
  * Created by Axle on 19/03/2016.
  */
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -41,16 +43,18 @@ public class SmsActivity extends Activity implements View.OnClickListener {
 
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
-    private Button btnRequestSms, btnVerifyOtp;
+    private Button btnRequestSms, btnVerifyOtp, tryAgain;
     private EditText inputName, inputEmail, inputMobile, inputOtp;
     private ProgressBar progressBar;
     private PrefManager pref;
     private ImageButton btnEditMobile;
     private TextView txtEditMobile;
     private LinearLayout layoutEditMobile;
+    CountDownTimer mCountDownTimer;
+    ProgressBar mProgressBar;
 
     int cnt = 0;
-
+    int time=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,7 @@ public class SmsActivity extends Activity implements View.OnClickListener {
         inputOtp = (EditText) findViewById(R.id.inputOtp);
         btnRequestSms = (Button) findViewById(R.id.btn_request_sms);
         btnVerifyOtp = (Button) findViewById(R.id.btn_verify_otp);
+        tryAgain = (Button) findViewById(R.id.tryagain);
         btnEditMobile = (ImageButton) findViewById(R.id.btn_edit_mobile);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         txtEditMobile = (TextView) findViewById(R.id.txt_edit_mobile);
@@ -71,6 +76,7 @@ public class SmsActivity extends Activity implements View.OnClickListener {
         btnEditMobile.setOnClickListener(this);
         btnRequestSms.setOnClickListener(this);
         btnVerifyOtp.setOnClickListener(this);
+        tryAgain.setOnClickListener(this);
 
 /*        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(SmsActivity.this, Manifest.permission.SEND_SMS)) {
@@ -144,6 +150,9 @@ public class SmsActivity extends Activity implements View.OnClickListener {
 
             case R.id.btn_verify_otp:
                 verifyOtp();
+                break;
+            case R.id.tryagain:
+                tryagainutil();
                 break;
         }
     }
@@ -265,6 +274,33 @@ public class SmsActivity extends Activity implements View.OnClickListener {
 
         // Adding request to request queue
         MyApplication.getInstance().addToRequestQueue(strReq);
+
+        mProgressBar=(ProgressBar)findViewById(R.id.progressbar);
+        mProgressBar.setProgress(0);
+        initTimer();
+        mCountDownTimer.start();
+    }
+
+    public void initTimer() {
+
+        time = 0;
+
+        mCountDownTimer=new CountDownTimer(120000,1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                time++;
+                mProgressBar.setProgress(time);
+            }
+
+            @Override
+            public void onFinish() {
+                //Do what you want
+                time++;
+                pref.setIsWaitingForSms(false);
+                mProgressBar.setProgress(time);
+            }
+        };
     }
 
     /**
@@ -280,6 +316,12 @@ public class SmsActivity extends Activity implements View.OnClickListener {
         } else {
             Toast.makeText(getApplicationContext(), "Please enter the OTP", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void tryagainutil() {
+        viewPager.setCurrentItem(0);
+        pref.setIsWaitingForSms(false);
+        SmsActivity.this.recreate();
     }
 
     /**

@@ -71,6 +71,7 @@ public class MainHotel extends AppCompatActivity {
         pref.setTable(getIntent().getExtras().getString("table"));
         pref.setHotelName(getIntent().getExtras().getString("hotelName"));
         startActivity(it);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     @Override

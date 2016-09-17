@@ -104,6 +104,7 @@ public class AdditionalInfo extends AppCompatActivity implements AdapterView.OnI
         it.putExtra("addr", hotel);
         System.out.println("Hotel name - " + hotel);
         startActivity(it);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
     }
 
