@@ -108,7 +108,7 @@
                 android:textSize="15sp" />
 
             <ToggleButton
-                android:layout_width="wrap_content"
+                android:layout_width="25dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/fav"
                 android:background="@drawable/fav"
@@ -117,8 +117,6 @@
                 android:layout_alignBottom="@id/thumbnail"
                 android:layout_below="@id/rel2"
                 android:padding="5dp"
-                android:scaleType="fitXY"
-                android:adjustViewBounds="true"
                 android:gravity="center"
                 android:layout_marginLeft="31dp"
                 android:layout_marginRight="5dp"

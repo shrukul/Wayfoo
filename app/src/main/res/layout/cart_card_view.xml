@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/bg_color">
+    android:background="@color/bg_color"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/container_toolbar"
@@ -18,9 +18,9 @@
             android:id="@+id/amount"
             android:layout_width="wrap_content"
             android:layout_height="30.0dip"
+            android:layout_alignParentRight="true"
             android:layout_marginRight="20.0dip"
             android:layout_marginTop="16.0dip"
-            android:layout_alignParentRight="true"
             android:background="@drawable/green_roundrect"
             android:gravity="center"
             android:text="₹ 0"
@@ -33,29 +33,41 @@
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:visibility="gone"
-        android:layout_centerInParent="true" />
+        android:visibility="gone" />
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_below="@+id/container_toolbar"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:weightSum="10"
+        android:layout_below="@+id/container_toolbar">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/my_recycler_view"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_height="match_parent"
+            android:layout_weight="9"
             android:scrollbars="vertical" />
 
+        <TextView
+            android:id="@+id/con"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@id/my_recycler_view"
+            android:gravity="center"
+            android:text="*Extra Container Charges may be applicable" />
+
         <Button
+            android:id="@+id/checkout"
+            style="@style/MyMaterialTheme.Button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:text="CheckOut"
-            android:id="@+id/checkout"
-            style="@style/MyMaterialTheme.Button" />
-    </RelativeLayout>
+            android:layout_weight="1"
+            android:text="CheckOut" />
+
+    </LinearLayout>
 
 </RelativeLayout>
