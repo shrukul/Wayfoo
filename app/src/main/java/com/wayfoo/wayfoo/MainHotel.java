@@ -66,6 +66,9 @@ public class MainHotel extends AppCompatActivity {
     public void func(View v) {
         Intent it = new Intent(MainHotel.this, AdditionalInfo.class);
 
+        Boolean flag = false;
+
+
         PrefManager pref = new PrefManager(getApplicationContext());
         pref.setTitle(getIntent().getExtras().getString("title"));
         pref.setTable(getIntent().getExtras().getString("table"));

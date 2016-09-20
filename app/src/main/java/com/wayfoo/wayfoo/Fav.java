@@ -24,6 +24,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.wayfoo.wayfoo.helper.PrefManager;
 
@@ -60,6 +62,8 @@ public class Fav extends Fragment {
     ImageView b;
     List<String> favList;
     Button retry;
+    TextView errText;
+    RelativeLayout favourites;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,6 +71,11 @@ public class Fav extends Fragment {
 
         rootView = inflater.inflate(R.layout.activity_card_view,
                 container, false);
+
+        lyt = (LinearLayout) rootView.findViewById(R.id.errLayout);
+        favourites = (RelativeLayout) rootView.findViewById(R.id.favourites);
+        errText = (TextView) rootView.findViewById(R.id.errText);
+
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
@@ -101,29 +110,37 @@ public class Fav extends Fragment {
 
         @Override
         protected Integer doInBackground(String... params) {
-            Integer result = 0;
+            Integer result = -1;
             HttpURLConnection urlConnection;
             try {
                 URL url = new URL(params[0]);
                 urlConnection = (HttpURLConnection) url.openConnection();
                 int statusCode = urlConnection.getResponseCode();
 
+                Log.d(TAG, "respone: "+statusCode);
+
                 if (statusCode == 200) {
-                    BufferedReader r = new BufferedReader(
-                            new InputStreamReader(
-                                    urlConnection.getInputStream()));
-                    StringBuilder response = new StringBuilder();
-                    String line;
-                    while ((line = r.readLine()) != null) {
-                        response.append(line);
+                    try {
+                        BufferedReader r = new BufferedReader(
+                                new InputStreamReader(
+                                        urlConnection.getInputStream()));
+                        StringBuilder response = new StringBuilder();
+                        String line;
+                        while ((line = r.readLine()) != null) {
+                            response.append(line);
+                        }
+                        System.out.println("response here" + response);
+                        parseResult(response.toString());
+                        result = 1;
+                    } catch (Exception E) {
+                        result = 0;
                     }
-                    parseResult(response.toString());
-                    result = 1;
                 } else {
                     result = 0;
                 }
             } catch (Exception e) {
                 Log.d(TAG, "error" + String.valueOf(e));
+                result = -1;
             }
             return result;
         }
@@ -131,6 +148,8 @@ public class Fav extends Fragment {
         @Override
         protected void onPostExecute(Integer result) {
             progressBar.setVisibility(View.GONE);
+
+            Log.d(TAG,"result: "+result);
 
             if (result == 1) {
                 if (fav != null) {
@@ -144,13 +163,12 @@ public class Fav extends Fragment {
                 }
                 adapter = new MyRecyclerAdapterFav(getActivity(), feedsListFinal, favList);
                 mRecyclerView.setAdapter(adapter);
-                Log.d("fav", "ff" + fav);
-            } else {
-                lyt = (LinearLayout) rootView.findViewById(R.id.errLayout);
+                lyt.setVisibility(View.GONE);
+            } else if (result == 0) {
+                errText.setText("No Orders for the given day.");
                 lyt.setVisibility(View.VISIBLE);
-
                 snackbar = Snackbar
-                        .make(rootView, "No Internet Connection", Snackbar.LENGTH_INDEFINITE)
+                        .make(favourites, "No Orders for the given day.", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Dismiss", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -158,10 +176,22 @@ public class Fav extends Fragment {
                             }
                         })
                         .setActionTextColor(Color.YELLOW);
-
                 snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
                 snackbar.show();
-                return;
+            } else {
+                errText.setText("No Internet Connection.");
+                lyt.setVisibility(View.VISIBLE);
+                snackbar = Snackbar
+                        .make(favourites, "No Internet Connection.", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Dismiss", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                snackbar.dismiss();
+                            }
+                        })
+                        .setActionTextColor(Color.YELLOW);
+                snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                snackbar.show();
             }
         }
     }

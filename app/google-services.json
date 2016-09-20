@@ -13,11 +13,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "912963731072-6hoier5kiiigt8dsf5g8i02q2ij6ol1h.apps.googleusercontent.com",
+          "client_id": "912963731072-4vo9hvak7joa4fnmngdkbb3uk7dm1l91.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.wayfoo.wayfoo",
-            "certificate_hash": "333265BB536CE5BB3352B1160C490A9D85BE53C8"
+            "certificate_hash": "DC0CAE2EB44B70E48324C50EEB9BD3633055E5BE"
           }
         },
         {
@@ -33,7 +33,7 @@
           "client_type": 1,
           "android_info": {
             "package_name": "com.wayfoo.wayfoo",
-            "certificate_hash": "67422B6562927F46835CA3029FA7D9FF1C18D125"
+            "certificate_hash": "7EEF1D74ECF378AC511CC5E2475BA36D6449A2C7"
           }
         },
         {

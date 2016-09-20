@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                         PrefManager prefs = new PrefManager(MainActivity.this);
 
                         prefs.clearSession();
+                        prefs.setFirstTime();
                         AccessToken accessToken = AccessToken.getCurrentAccessToken();
                         if (accessToken != null)
                             LoginManager.getInstance().logOut();

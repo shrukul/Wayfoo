@@ -3,8 +3,10 @@ package com.wayfoo.wayfoo;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -59,6 +61,7 @@ public class MyRecyclerAdapter extends
         protected TextView textView, place, rating, time;
         protected ToggleButton fav;
         CardView card;
+        protected Snackbar snackbar;
 
         public CustomViewHolder(View view) {
             super(view);
@@ -83,7 +86,18 @@ public class MyRecyclerAdapter extends
             int i = getAdapterPosition();
             FeedItem feedItem = feedItemList.get(i);
             if (feedItem.getAvail() == 0) {
-                Toast.makeText(mc, "Restaurant closed", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mc, "Restaurant closed", Toast.LENGTH_SHORT).show();
+                snackbar = Snackbar
+                        .make(v, feedItem.getDisName()+" is closed.", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Dismiss", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                snackbar.dismiss();
+                            }
+                        })
+                        .setActionTextColor(Color.YELLOW);
+                snackbar.getView().setBackgroundColor(mc.getResources().getColor(R.color.colorAccent));
+                snackbar.show();
             } else {
                 String pagenext;
                 pagenext = Html.fromHtml(feedItem.getTitle()).toString();

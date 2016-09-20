@@ -3,8 +3,10 @@ package com.wayfoo.wayfoo;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,7 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.wayfoo.wayfoo.helper.PrefManager;
 
@@ -43,6 +48,12 @@ public class Location extends AppCompatActivity {
     AsyncHttpTask a;
     ImageView b;
 
+    Button retry;
+    TextView errText;
+    RelativeLayout location;
+    Snackbar snackbar;
+    LinearLayout lyt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,11 +65,28 @@ public class Location extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Location");
 
+        lyt = (LinearLayout) findViewById(R.id.errLayout);
+        location = (RelativeLayout) findViewById(R.id.location);
+        errText = (TextView) findViewById(R.id.errText);
+
+        PrefManager pref = new PrefManager(getApplicationContext());
+        final String url = "http://wayfoo.com/location.php";
+
+        retry = (Button) findViewById(R.id.retry);
+        retry.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                lyt.setVisibility(View.INVISIBLE);
+                snackbar.dismiss();
+                a = new AsyncHttpTask();
+                a.execute(url);
+            }
+        });
+
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        PrefManager pref = new PrefManager(getApplicationContext());
-        final String url = "http://wayfoo.com/location.php";
         a = new AsyncHttpTask();
         a.execute(url);
 
@@ -83,7 +111,7 @@ public class Location extends AppCompatActivity {
 
         @Override
         protected Integer doInBackground(String... params) {
-            Integer result = 0;
+            Integer result = -1;
             HttpURLConnection urlConnection;
             try {
                 URL url = new URL(params[0]);
@@ -91,21 +119,26 @@ public class Location extends AppCompatActivity {
                 int statusCode = urlConnection.getResponseCode();
 
                 if (statusCode == 200) {
-                    BufferedReader r = new BufferedReader(
-                            new InputStreamReader(
-                                    urlConnection.getInputStream()));
-                    StringBuilder response = new StringBuilder();
-                    String line;
-                    while ((line = r.readLine()) != null) {
-                        response.append(line);
+                    try {
+                        BufferedReader r = new BufferedReader(
+                                new InputStreamReader(
+                                        urlConnection.getInputStream()));
+                        StringBuilder response = new StringBuilder();
+                        String line;
+                        while ((line = r.readLine()) != null) {
+                            response.append(line);
+                        }
+                        parseResult(response.toString());
+                        result = 1;
+                    } catch (Exception E) {
+                        result = 0;
                     }
-                    parseResult(response.toString());
-                    result = 1;
                 } else {
                     result = 0;
                 }
             } catch (Exception e) {
                 Log.d(TAG, e.getLocalizedMessage());
+                result = -1;
             }
             return result;
         }
@@ -117,36 +150,35 @@ public class Location extends AppCompatActivity {
             if (result == 1) {
                 adapter = new LocationAdapter(Location.this, feedsList);
                 mRecyclerView.setAdapter(adapter);
+                lyt.setVisibility(View.GONE);
+            } else if (result == 0) {
+                errText.setText("No Locations available.");
+                lyt.setVisibility(View.VISIBLE);
+                snackbar = Snackbar
+                        .make(location, "No Locations available.", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Dismiss", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                snackbar.dismiss();
+                            }
+                        })
+                        .setActionTextColor(Color.YELLOW);
+                snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                snackbar.show();
             } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Location.this);
-                builder.setCancelable(true);
-                builder.setMessage("Something seems to be wrong with the internet.");
-                builder.setTitle("Oops!!");
-                builder.setPositiveButton("Try Again", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = getIntent();
-                        finish();
-                        startActivity(intent);
-                    }
-                });
-
-                builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                });
-
-                builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    public void onCancel(DialogInterface dialog) {
-                        finish();
-                    }
-                });
-                AlertDialog a = builder.create();
-                a.show();
-                Button bq = a.getButton(DialogInterface.BUTTON_NEGATIVE);
-                Button bq2 = a.getButton(DialogInterface.BUTTON_POSITIVE);
-                bq.setTextColor(ContextCompat.getColor(Location.this, R.color.colorPrimary));
-                bq2.setTextColor(ContextCompat.getColor(Location.this, R.color.colorPrimary));
+                errText.setText("No Internet Connection.");
+                lyt.setVisibility(View.VISIBLE);
+                snackbar = Snackbar
+                        .make(location, "No Internet Connection.", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Dismiss", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                snackbar.dismiss();
+                            }
+                        })
+                        .setActionTextColor(Color.YELLOW);
+                snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                snackbar.show();
             }
         }
     }

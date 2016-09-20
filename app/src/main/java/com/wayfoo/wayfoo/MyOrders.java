@@ -1,5 +1,6 @@
 package com.wayfoo.wayfoo;
 
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -7,11 +8,16 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.wayfoo.wayfoo.helper.PrefManager;
 
@@ -38,6 +44,11 @@ public class MyOrders extends Fragment {
     private ProgressBar progressBar;
     AsyncHttpTask a;
     ImageView b;
+    Button retry;
+    TextView errText;
+    RelativeLayout myorders;
+    Snackbar snackbar;
+    LinearLayout lyt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,14 +59,30 @@ public class MyOrders extends Fragment {
 
         getActivity().setTitle("Order History");
 
+        lyt = (LinearLayout) rootView.findViewById(R.id.errLayout);
+        myorders = (RelativeLayout) rootView.findViewById(R.id.myorders);
+        errText = (TextView) rootView.findViewById(R.id.errText);
+
+        PrefManager pref = new PrefManager(getContext());
+        String email = pref.getEmail();
+        final String url = "http://wayfoo.com/orderHistory.php?email=" + email;
+
+        retry = (Button) rootView.findViewById(R.id.retry);
+        retry.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                lyt.setVisibility(View.INVISIBLE);
+                snackbar.dismiss();
+                a = new AsyncHttpTask();
+                a.execute(url);
+            }
+        });
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
         progressBar = (ProgressBar) rootView.findViewById(R.id.progress_bar);
-        PrefManager pref = new PrefManager(getContext());
-        String email = pref.getEmail();
-        final String url = "http://wayfoo.com/orderHistory.php?email=" + email;
         a = new AsyncHttpTask();
         a.execute(url);
         return rootView;
@@ -78,21 +105,26 @@ public class MyOrders extends Fragment {
                 int statusCode = urlConnection.getResponseCode();
 
                 if (statusCode == 200) {
-                    BufferedReader r = new BufferedReader(
-                            new InputStreamReader(
-                                    urlConnection.getInputStream()));
-                    StringBuilder response = new StringBuilder();
-                    String line;
-                    while ((line = r.readLine()) != null) {
-                        response.append(line);
+                    try {
+                        BufferedReader r = new BufferedReader(
+                                new InputStreamReader(
+                                        urlConnection.getInputStream()));
+                        StringBuilder response = new StringBuilder();
+                        String line;
+                        while ((line = r.readLine()) != null) {
+                            response.append(line);
+                        }
+                        parseResult(response.toString());
+                        result = 1;
+                    } catch (Exception E) {
+                        result = 0;
                     }
-                    parseResult(response.toString());
-                    result = 1;
                 } else {
                     result = 0;
                 }
             } catch (Exception e) {
-//                Log.d(TAG, e.getLocalizedMessage());
+                Log.d(TAG, e.getLocalizedMessage());
+                result = -1;
             }
             return result;
         }
@@ -102,41 +134,36 @@ public class MyOrders extends Fragment {
             progressBar.setVisibility(View.GONE);
 
             if (result == 1) {
+                lyt.setVisibility(View.GONE);
                 adapter = new OrderListAdapter(getActivity(), feedsList);
                 mRecyclerView.setAdapter(adapter);
-            } else {/*
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setCancelable(true);
-                builder.setMessage("Something seems to be wrong with the internet.");
-                builder.setTitle("Oops!!");
-                builder.setPositiveButton("Try Again", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = getActivity().getIntent();
-                        getActivity().finish();
-                        startActivity(intent);
-                    }
-                });
-
-                builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        getActivity().finish();
-                    }
-                });
-
-                builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    public void onCancel(DialogInterface dialog) {
-                        getActivity().finish();
-                    }
-                });
-                AlertDialog a=builder.create();
-                a.show();
-                Button bq = a.getButton(DialogInterface.BUTTON_NEGATIVE);
-                Button bq2 = a.getButton(DialogInterface.BUTTON_POSITIVE);
-                bq.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
-                bq2.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));*/
-
-                View parentLayout = getActivity().findViewById(android.R.id.content);
-                Snackbar snackbar = Snackbar.make(parentLayout, "No order History!", Snackbar.LENGTH_LONG);
+            } else if (result == 0) {
+                errText.setText("You haven't placed any orders yet.");
+                lyt.setVisibility(View.VISIBLE);
+                snackbar = Snackbar
+                        .make(myorders, "You haven't placed any orders yet.", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Dismiss", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                snackbar.dismiss();
+                            }
+                        })
+                        .setActionTextColor(Color.YELLOW);
+                snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                snackbar.show();
+            } else {
+                errText.setText("No Internet Connection.");
+                lyt.setVisibility(View.VISIBLE);
+                snackbar = Snackbar
+                        .make(myorders, "No Internet Connection.", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Dismiss", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                snackbar.dismiss();
+                            }
+                        })
+                        .setActionTextColor(Color.YELLOW);
+                snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
                 snackbar.show();
             }
         }

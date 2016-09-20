@@ -181,7 +181,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
                                                 PrefManager prefs = new PrefManager(getApplicationContext());
                                                 prefs.putProfImage(encodeTobase64(bitmap));
                                                 Log.d("img", String.valueOf(bitmap));
-                                                Toast.makeText(getApplicationContext(), "User is connected!", Toast.LENGTH_LONG).show();
+//                                                Toast.makeText(getApplicationContext(), "User is connected!", Toast.LENGTH_LONG).show();
                                                 Intent i = new Intent(Login.this, SmsActivity.class);
 
                                                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -348,7 +348,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
 
         if (result.isSuccess()) {
             getProfileInformation(result);
-            Toast.makeText(this, "User is connected!", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "User is connected!", Toast.LENGTH_LONG).show();
             Intent i = new Intent(Login.this, SmsActivity.class);
 
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

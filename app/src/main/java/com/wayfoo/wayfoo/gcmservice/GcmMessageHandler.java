@@ -39,13 +39,13 @@ public class GcmMessageHandler extends GcmListenerService {
                 myIntent,
                 PendingIntent.FLAG_CANCEL_CURRENT);
         System.out.println("Type" + typeInt);
-        if (typeInt == 2) {
-            message = "Your Order will be delivered. The amount payable is ₹" + message + " Click here to rate your experience";
+        if (typeInt == 0) {
+            message = "Your Order has been confirmed. You will receive a call shortly. The amount payable is ₹" + message + " Click here to rate your experience";
             typ = "Done";
         } else if (typeInt == 1) {
             message = "Your Order has been confirmed. The amount payable is ₹" + message;
             typ = "Confirmed";
-        } else if (typeInt == -1) {
+        } else if (typeInt == 2) {
             message = "Oops! your Order has been cancelled. Thanks for using our services";
             typ = "Cancelled";
         }
@@ -69,7 +69,7 @@ public class GcmMessageHandler extends GcmListenerService {
                 .setContentText(typ)
                 .setAutoCancel(true)
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
-                .setLargeIcon(BitmapFactory.decodeResource(this.getResources(), R.drawable.app_icon))
+                .setLargeIcon(BitmapFactory.decodeResource(this.getResources(), R.drawable.logo))
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(body));
 
         if (!hotel.isEmpty())

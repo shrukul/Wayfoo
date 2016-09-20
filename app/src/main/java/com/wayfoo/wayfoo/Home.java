@@ -122,6 +122,7 @@ public class Home extends Fragment {
 
         rootView = inflater.inflate(R.layout.activity_card_view,
                 container, false);
+        lyt = (LinearLayout) rootView.findViewById(R.id.errLayout);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
@@ -200,7 +201,7 @@ public class Home extends Fragment {
                 }
                 adapter = new MyRecyclerAdapter(getActivity(), feedsList, favList);
                 mRecyclerView.setAdapter(adapter);
-                Log.d("fav", "ff" + fav);
+                lyt.setVisibility(View.GONE);
             } else {
                 lyt = (LinearLayout) rootView.findViewById(R.id.errLayout);
                 lyt.setVisibility(View.VISIBLE);

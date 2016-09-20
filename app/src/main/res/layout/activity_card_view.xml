@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/favourites"
     android:orientation="vertical">
 
     <ProgressBar
@@ -38,8 +39,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:lines="2"
+            android:id="@+id/errText"
             android:maxLines="3"
-            android:text="Something seems wrong. '\n' Please try again later." />
+            android:text="Something seems wrong. \n Please try again later." />
 
         <Button
             android:layout_width="wrap_content"

@@ -3,15 +3,20 @@ package com.wayfoo.wayfoo;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +37,11 @@ public class Intermediate extends AppCompatActivity {
     String name, table, hotelName, tabs;
     protected ProgressBar progressBar;
     Toolbar mToolbar;
+    Snackbar snackbar;
+    RelativeLayout intermediate;
+    LinearLayout lyt;
+    Button retry;
+    TextView errText;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -47,6 +57,11 @@ public class Intermediate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intermediate);
+
+        intermediate = (RelativeLayout) findViewById(R.id.intermediate);
+        lyt = (LinearLayout) findViewById(R.id.errLayout);
+        errText = (TextView) findViewById(R.id.errText);
+
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         progressBar.setVisibility(View.VISIBLE);
         name = getIntent().getExtras().getString("title");
@@ -62,8 +77,21 @@ public class Intermediate extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Loading ...");
 
-        System.out.println(name + " " + table);
+//        System.out.println(name + " " + table);
         final String url = "http://wayfoo.com/hotel.php?name=" + name;
+
+        retry = (Button) findViewById(R.id.retry);
+        retry.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                lyt.setVisibility(View.INVISIBLE);
+                snackbar.dismiss();
+                a = new AsyncHttpTask();
+                a.execute(url);
+            }
+        });
+
         a = new AsyncHttpTask();
         a.execute(url);
     }
@@ -118,33 +146,19 @@ public class Intermediate extends AppCompatActivity {
                 startActivity(i);
                 finish();
             } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Intermediate.this);
-                builder.setCancelable(true);
-                builder.setMessage("Something seems to be wrong with the internet.");
-                builder.setTitle("Oops!!");
-                builder.setPositiveButton("Try Again", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = getIntent();
-                        finish();
-                        startActivity(intent);
-                    }
-                });
-
-                builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                });
-
-                builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    public void onCancel(DialogInterface dialog) {
-                        finish();
-                    }
-                });
-                AlertDialog a = builder.create();
-                a.show();
-                Button bq = a.getButton(DialogInterface.BUTTON_NEGATIVE);
-                Button bq2 = a.getButton(DialogInterface.BUTTON_POSITIVE);
+                errText.setText("Oops.. Something went wrong!");
+                lyt.setVisibility(View.VISIBLE);
+                snackbar = Snackbar
+                        .make(intermediate, "Try again later.", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Dismiss", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                snackbar.dismiss();
+                            }
+                        })
+                        .setActionTextColor(Color.YELLOW);
+                snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                snackbar.show();
             }
         }
     }

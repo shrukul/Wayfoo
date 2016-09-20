@@ -13,7 +13,10 @@ import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,7 +40,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SmsActivity extends Activity implements View.OnClickListener {
+public class SmsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static String TAG = SmsActivity.class.getSimpleName();
 
@@ -52,6 +55,7 @@ public class SmsActivity extends Activity implements View.OnClickListener {
     private LinearLayout layoutEditMobile;
     CountDownTimer mCountDownTimer;
     ProgressBar mProgressBar;
+    private Toolbar toolbar;
 
     int cnt = 0;
     int time=0;
@@ -60,6 +64,14 @@ public class SmsActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sms);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setTitle("SMS Verification");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewPagerVertical);
         inputMobile = (EditText) findViewById(R.id.inputMobile);
@@ -138,6 +150,22 @@ public class SmsActivity extends Activity implements View.OnClickListener {
                 } else {
                 }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                pref = new PrefManager(this);
+                pref.clearSession();
+                pref.setFirstTime();
+                Intent intent = new Intent(SmsActivity.this, Login.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
