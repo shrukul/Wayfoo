@@ -6,7 +6,10 @@ package com.wayfoo.wayfoo;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -64,6 +67,8 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sms);
+
+        registerReceiver(broad, new IntentFilter("smsActivity"));
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -138,8 +143,19 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
             viewPager.setCurrentItem(1);
             layoutEditMobile.setVisibility(View.VISIBLE);
         }
+    }
 
+    private final BroadcastReceiver broad = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            finish();
+        }
+    };
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(broad);
     }
 
     @Override

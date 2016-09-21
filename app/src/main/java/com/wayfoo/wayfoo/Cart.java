@@ -1,6 +1,8 @@
 package com.wayfoo.wayfoo;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -107,49 +109,76 @@ public class Cart extends AppCompatActivity {
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<FeedItemHotel> contacts = db.getAllContacts();
-                int ij = 0;
-                finalItems.clear();
-                amt = 0;
-                for (FeedItemHotel cn : contacts) {
-                    FeedItemHotel item = new FeedItemHotel();
-                    if (cn.getAmt().toString().equals("0")) {
-                    } else {
-                        item.setTitle(cn.getTitle());
-                        item.setType(cn.getType());
-                        item.setPrice(cn.getPrice());
-                        item.setVeg(cn.getVeg());
-                        item.setAmt(cn.getAmt());
-                        item.setItemID(cn.getItemID());
-//                        Log.d("id", cn.getItemID());
-                        finalItems.add(item);
-                        //amt += (Float.parseFloat(cn.getAmt())*Float.parseFloat(cn.getPrice()));
-                    }
-                    ij++;
-                }
-                Log.d("cart", String.valueOf(ij));
-                int k = 1;
-                mm = new ArrayList<FeedItemHotel>();
 
-                for (k = 0; k < finalItems.size(); k++) {
-                    //if(k<persons.size()/2){
-                    mm.add(finalItems.get(k));
-                    amt += (Float.parseFloat(finalItems.get(k).getAmt()) * Float.parseFloat(finalItems.get(k).getPrice()));
-                    //}
-                }
-                String text = String.format("%.2f", amt);
-                Toast.makeText(Cart.this, "Total " + text, Toast.LENGTH_LONG).show();
-                Gson gson = new Gson();
-                Type type = new TypeToken<List<FeedItemHotel>>() {
-                }.getType();
-                json = gson.toJson(mm, type);
-                Log.d("Json", json);
-                if (amt > 0)
-                    insertToDatabase();
-                else
-                    Toast.makeText(getApplicationContext(), "Select at least one item", Toast.LENGTH_SHORT).show();
+                final AlertDialog.Builder builder = new AlertDialog.Builder(Cart.this);
+                builder.setCancelable(true);
+                builder.setMessage("Your order will be placed. Are you sure?");
+                builder.setTitle("Place Order");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        placeOrder();
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    public void onCancel(DialogInterface dialog) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog a = builder.create();
+                a.show();
             }
         });
+    }
+
+    public void placeOrder() {
+        List<FeedItemHotel> contacts = db.getAllContacts();
+        int ij = 0;
+        finalItems.clear();
+        amt = 0;
+        for (FeedItemHotel cn : contacts) {
+            FeedItemHotel item = new FeedItemHotel();
+            if (cn.getAmt().toString().equals("0")) {
+            } else {
+                item.setTitle(cn.getTitle());
+                item.setType(cn.getType());
+                item.setPrice(cn.getPrice());
+                item.setVeg(cn.getVeg());
+                item.setAmt(cn.getAmt());
+                item.setItemID(cn.getItemID());
+//                        Log.d("id", cn.getItemID());
+                finalItems.add(item);
+                //amt += (Float.parseFloat(cn.getAmt())*Float.parseFloat(cn.getPrice()));
+            }
+            ij++;
+        }
+        Log.d("cart", String.valueOf(ij));
+        int k = 1;
+        mm = new ArrayList<FeedItemHotel>();
+
+        for (k = 0; k < finalItems.size(); k++) {
+            //if(k<persons.size()/2){
+            mm.add(finalItems.get(k));
+            amt += (Float.parseFloat(finalItems.get(k).getAmt()) * Float.parseFloat(finalItems.get(k).getPrice()));
+            //}
+        }
+        String text = String.format("%.2f", amt);
+        Toast.makeText(Cart.this, "Total " + text, Toast.LENGTH_LONG).show();
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<FeedItemHotel>>() {
+        }.getType();
+        json = gson.toJson(mm, type);
+        Log.d("Json", json);
+        if (amt > 0)
+            insertToDatabase();
+        else
+            Toast.makeText(getApplicationContext(), "Select at least one item", Toast.LENGTH_SHORT).show();
     }
 
     @Override

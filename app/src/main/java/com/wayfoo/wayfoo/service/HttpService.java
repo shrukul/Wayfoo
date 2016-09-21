@@ -79,11 +79,11 @@ public class HttpService extends IntentService {
                         Intent intent = new Intent(HttpService.this, MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
-
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                        sendBroadcast(new Intent("smsActivity"));
+//                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
 
                     } else {
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                     }
 
                 } catch (JSONException e) {

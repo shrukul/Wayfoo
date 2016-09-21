@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
 
     private static final int RC_SIGN_IN = 0, REQUEST_CODE = 0;
     private static final int PROFILE_PIC_SIZE = 400;
-    private static final String L_TAG = "Login";
+    private static final String TAG = "Login";
 
     private GoogleSignInOptions gso;
     private GoogleApiClient mGoogleApiClient;
@@ -76,7 +76,6 @@ public class Login extends AppCompatActivity implements OnClickListener,
         setContentView(R.layout.login);
 
         callbackManager = CallbackManager.Factory.create();
-//        loginButton = (LoginButton) findViewById(R.id.login_button);
 
         prefs = new PrefManager(getApplicationContext());
 
@@ -113,19 +112,13 @@ public class Login extends AppCompatActivity implements OnClickListener,
                 .build();
 
         fb_btn = (LinearLayout) findViewById(R.id.fb_btn);
-
         fb_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LoginManager.getInstance().logInWithReadPermissions(Login.this, Arrays.asList("public_profile"));
+                LoginManager.getInstance().logInWithReadPermissions(Login.this, Arrays.asList("public_profile", "email"));
             }
         });
 
-//        loginButton.setBackgroundResource(R.drawable.fb_btn);
-//        loginButton.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
-//        loginButton.setCompoundDrawablePadding(0);
-//        loginButton.setPadding(0, 0, 0, 0);
-//        loginButton.setText("");
 
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -139,19 +132,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
                                     prefs.createUnverifiedLogin(object.getString("name"), object.getString("email"));
                                     prefs = new PrefManager(getApplicationContext());
                                     prefs.putLocation("Mangalore");
-//                                    URL image_value= null;
-//                                    try {
-//                                        image_value = new URL("https://graph.facebook.com/"
-//                                                + object.getString("id") + "/picture?type=large");
-//                                    } catch (MalformedURLException e) {
-//                                        e.printStackTrace();
-//                                    }
-//                                    Bitmap bmp = null;
-//                                    try {
-//                                        bmp = BitmapFactory.decodeStream(image_value.openConnection().getInputStream());
-//                                    } catch (IOException e) {
-//                                        e.printStackTrace();
-//                                    }
+
                                     final String userFacebookId = object.getString("id");
                                     new AsyncTask<Void, Void, Bitmap>() {
                                         @Override
@@ -212,110 +193,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
             public void onError(FacebookException e) {
             }
         });
-
-/*        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(),
-                        new GraphRequest.GraphJSONObjectCallback() {
-                            @Override
-                            public void onCompleted(JSONObject object, GraphResponse response) {
-                                try {
-                                    PrefManager prefs = new PrefManager(getApplicationContext());
-                                    prefs.createUnverifiedLogin(object.getString("name"), object.getString("email"));
-                                    prefs = new PrefManager(getApplicationContext());
-                                    prefs.putLocation("Mangalore");
-//                                    URL image_value= null;
-//                                    try {
-//                                        image_value = new URL("https://graph.facebook.com/"
-//                                                + object.getString("id") + "/picture?type=large");
-//                                    } catch (MalformedURLException e) {
-//                                        e.printStackTrace();
-//                                    }
-//                                    Bitmap bmp = null;
-//                                    try {
-//                                        bmp = BitmapFactory.decodeStream(image_value.openConnection().getInputStream());
-//                                    } catch (IOException e) {
-//                                        e.printStackTrace();
-//                                    }
-                                    final String userFacebookId = object.getString("id");
-                                    new AsyncTask<Void, Void, Bitmap>()
-                                    {
-                                        @Override
-                                        protected Bitmap doInBackground(Void... params)
-                                        {
-                                            if (userFacebookId == null)
-                                                return null;
-
-                                            String url = String.format(
-                                                    "https://graph.facebook.com/%s/picture",
-                                                    userFacebookId);
-                                            InputStream inputStream = null;
-                                            try {
-                                                inputStream = new URL(url).openStream();
-                                            } catch (IOException e) {
-                                                e.printStackTrace();
-                                            }
-                                            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-
-                                            return bitmap;
-                                        }
-
-                                        @Override
-                                        protected void onPostExecute(Bitmap bitmap)
-                                        {
-                                            if (bitmap != null
-                                                    && !isChangingConfigurations()
-                                                    && !isFinishing()){
-                                                PrefManager prefs = new PrefManager(getApplicationContext());
-                                                prefs.putProfImage(encodeTobase64(bitmap));
-                                                Log.d("img", String.valueOf(bitmap));
-                                                Toast.makeText(getApplicationContext(), "User is connected!", Toast.LENGTH_LONG).show();
-                                                Intent i = new Intent(Login.this, SmsActivity.class);
-
-                                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                                                startActivity(i);
-                                                finish();
-                                            }
-                                        }
-                                    }.execute();
-                                    Looper.loop();
-                                } catch (JSONException ex) {
-                                    ex.printStackTrace();
-                                }
-                            }
-                        });
-                Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name,email,gender, birthday");
-                request.setParameters(parameters);
-                request.executeAsync();
-            }
-
-            @Override
-            public void onCancel() {
-            }
-
-            @Override
-            public void onError(FacebookException e) {
-            }
-        }); */
-
-
     }
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        mGoogleApiClient.connect();
-//    }
-//
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        mGoogleApiClient.disconnect();
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int responseCode,
@@ -343,8 +221,8 @@ public class Login extends AppCompatActivity implements OnClickListener,
 
     private void handleSignInResult(GoogleSignInResult result) {
 
-        Log.d(L_TAG, "Handling Part");
-        Log.d(L_TAG, "Sign-in Result : " + result.getStatus());
+        Log.d(TAG, "Handling Part");
+        Log.d(TAG, "Sign-in Result : " + result.getStatus());
 
         if (result.isSuccess()) {
             getProfileInformation(result);
@@ -425,7 +303,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_sign_in:
-                Log.d(L_TAG, "gsignin");
+                Log.d(TAG, "gsignin");
                 Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
                 startActivityForResult(signInIntent, RC_SIGN_IN);
                 break;
@@ -481,7 +359,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
         byte[] b = baos.toByteArray();
         String imageEncoded = Base64.encodeToString(b, Base64.DEFAULT);
 
-        Log.d(L_TAG, "Image : " + imageEncoded);
+        Log.d(TAG, "Image : " + imageEncoded);
         return imageEncoded;
     }
 
