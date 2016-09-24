@@ -162,6 +162,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
                                                 PrefManager prefs = new PrefManager(getApplicationContext());
                                                 prefs.putProfImage(encodeTobase64(bitmap));
                                                 Log.d("img", String.valueOf(bitmap));
+                                                RegGCM();
 //                                                Toast.makeText(getApplicationContext(), "User is connected!", Toast.LENGTH_LONG).show();
                                                 Intent i = new Intent(Login.this, SmsActivity.class);
 
