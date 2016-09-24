@@ -87,7 +87,7 @@ public class OrderListAdapter extends
         Typeface font1 = Typeface.createFromAsset(mContext.getAssets(),
                 "fonts/pt-sans.regular.ttf");
         SpannableStringBuilder SS = new SpannableStringBuilder(
-                Html.fromHtml(feedItem.getTitle()));
+                Html.fromHtml(feedItem.getDispName()));
         SS.setSpan(new CustomTypeFace("", font1), 0, SS.length(),
                 Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
         customViewHolder.textView.setText(SS);
