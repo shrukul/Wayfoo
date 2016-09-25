@@ -66,16 +66,18 @@ public class Home extends Fragment {
         menu.clear();
         inflater.inflate(R.menu.menu_hotel, menu);
         final MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
         SearchManager searchManager = (SearchManager) getActivity().getSystemService(getActivity().SEARCH_SERVICE);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
         searchView.setQueryHint("Search...");
-
+        searchView.setFocusable(true);
+        searchView.requestFocusFromTouch();
         searchView.setOnSearchClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 setItemsVisibility(menu, searchItem, false);
+                searchView.requestFocus();
             }
         });
 
@@ -99,18 +101,20 @@ public class Home extends Fragment {
 
                 final List<FeedItem> filteredList = new ArrayList<>();
 
-                for (int i = 0; i < feedsList.size(); i++) {
+                if(feedsList!=null) {
+                    for (int i = 0; i < feedsList.size(); i++) {
 
-                    final String text = feedsList.get(i).getTitle().toLowerCase();
-                    if (text.contains(query)) {
-                        filteredList.add(feedsList.get(i));
+                        final String text = feedsList.get(i).getDisName().toLowerCase();
+                        if (text.contains(query)) {
+                            filteredList.add(feedsList.get(i));
+                        }
                     }
-                }
 
-                mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-                adapter = new MyRecyclerAdapter(getActivity().getApplicationContext(), filteredList, favList);
-                mRecyclerView.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
+                    mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+                    adapter = new MyRecyclerAdapter(getActivity().getApplicationContext(), filteredList, favList);
+                    mRecyclerView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                }
                 return true;
             }
         });
