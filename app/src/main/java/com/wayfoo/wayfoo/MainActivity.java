@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                         it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(it);
+                        finish();
                         return true;
                     default:
                         Toast.makeText(getApplicationContext(), "Somethings Wrong", Toast.LENGTH_SHORT).show();

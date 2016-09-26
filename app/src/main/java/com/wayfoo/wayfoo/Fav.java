@@ -156,10 +156,14 @@ public class Fav extends Fragment {
                     favList = new LinkedList(Arrays.asList(fav.split(",")));
                 }
                 feedsListFinal = new ArrayList<FeedItem>();
-                for(FeedItem f:feedsList){
-                    if(favList.contains(f.getID())){
-                        feedsListFinal.add(f);
+                try {
+                    for (FeedItem f : feedsList) {
+                        if (favList.contains(f.getID())) {
+                            feedsListFinal.add(f);
+                        }
                     }
+                }catch(NullPointerException e){
+
                 }
                 adapter = new MyRecyclerAdapterFav(getActivity(), feedsListFinal, favList);
                 mRecyclerView.setAdapter(adapter);
@@ -205,7 +209,6 @@ public class Fav extends Fragment {
             try {
                 JSONObject obj2 = response.optJSONObject("fav");
                 JSONArray posts2 = obj2.optJSONArray("fav");
-                Log.d("le", String.valueOf(posts2.length()));
                 for (int i = 0; i < posts2.length(); i++) {
                     JSONObject post = posts2.optJSONObject(i);
                     fav = post.optString("CID");

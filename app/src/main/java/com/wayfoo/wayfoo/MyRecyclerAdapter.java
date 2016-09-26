@@ -258,7 +258,11 @@ public class MyRecyclerAdapter extends
                 super.onPostExecute(result);
                 progressDialog.dismiss();
                 System.out.println(k);
-                favList.add(k);
+                try {
+                    favList.add(k);
+                }catch(NullPointerException e){
+
+                }
             }
         }
         SendPostReqAsyncTask sendPostReqAsyncTask = new SendPostReqAsyncTask();
