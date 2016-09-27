@@ -1,23 +1,14 @@
 package com.wayfoo.wayfoo;
 
-import android.app.SearchManager;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -149,8 +140,7 @@ public class Fav extends Fragment {
         protected void onPostExecute(Integer result) {
             progressBar.setVisibility(View.GONE);
 
-            Log.d(TAG,"result: "+result);
-
+            Log.d(TAG,"result: "+fav);
             if (result == 1) {
                 if (fav != null) {
                     favList = new LinkedList(Arrays.asList(fav.split(",")));
@@ -168,23 +158,27 @@ public class Fav extends Fragment {
                 adapter = new MyRecyclerAdapterFav(getActivity(), feedsListFinal, favList);
                 mRecyclerView.setAdapter(adapter);
                 lyt.setVisibility(View.GONE);
-            } else if (result == 0) {
-                errText.setText("No Orders for the given day.");
-                lyt.setVisibility(View.VISIBLE);
-                snackbar = Snackbar
-                        .make(favourites, "No Orders for the given day.", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("Dismiss", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                snackbar.dismiss();
-                            }
-                        })
-                        .setActionTextColor(Color.YELLOW);
-                snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                snackbar.show();
+
+                if ((fav.equals("") || fav.equals(null) || fav.equals(" "))) {
+                    errText.setText("No Favourites.");
+                    lyt.setVisibility(View.VISIBLE);
+                    retry.setVisibility(View.GONE);
+                    snackbar = Snackbar
+                            .make(rootView, "No Favourites.", Snackbar.LENGTH_INDEFINITE)
+                            .setAction("Dismiss", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    snackbar.dismiss();
+                                }
+                            })
+                            .setActionTextColor(Color.YELLOW);
+                    snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                    snackbar.show();
+                }
             } else {
                 errText.setText("No Internet Connection.");
                 lyt.setVisibility(View.VISIBLE);
+                retry.setVisibility(View.VISIBLE);
                 snackbar = Snackbar
                         .make(favourites, "No Internet Connection.", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Dismiss", new View.OnClickListener() {
@@ -197,6 +191,7 @@ public class Fav extends Fragment {
                 snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
                 snackbar.show();
             }
+
         }
     }
 
