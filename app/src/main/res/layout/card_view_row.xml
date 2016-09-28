@@ -108,9 +108,10 @@
                 android:textSize="15sp" />
 
             <ToggleButton
-                android:layout_width="25dp"
+                android:layout_width="28dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/fav"
+                android:scaleType="fitXY"
                 android:background="@drawable/fav"
                 android:textOn=""
                 android:textOff=""
@@ -120,7 +121,6 @@
                 android:gravity="center"
                 android:layout_marginLeft="31dp"
                 android:layout_marginRight="5dp"
-                android:layout_toRightOf="@id/time"
                 android:layout_toLeftOf="@id/rating"
                 android:checked="false" />
 

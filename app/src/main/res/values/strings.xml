@@ -36,4 +36,9 @@
     <string name="facebook_app_id">1033702933344549</string>
     <string name="privacy">Privacy</string>
     <string name="terms">Terms and Conditions</string>
+
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
 </resources>

@@ -80,7 +80,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
         prefs = new PrefManager(getApplicationContext());
 
         if (prefs.isFirstTime()) {
-            Intent i = new Intent(Login.this, Intro.class);
+            Intent i = new Intent(Login.this, WelcomeActivity.class);
 
             Log.d("Splash", "Splash screen");
 
