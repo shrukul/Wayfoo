@@ -275,8 +275,8 @@ public class Login extends AppCompatActivity implements OnClickListener,
 
 
         } else {
-            Toast.makeText(getApplicationContext(),
-                    "Person information is null", Toast.LENGTH_LONG).show();
+//            Toast.makeText(getApplicationContext(),
+//                    "Person information is null", Toast.LENGTH_LONG).show();
         }
     }
 

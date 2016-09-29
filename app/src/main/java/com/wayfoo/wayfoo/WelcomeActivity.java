@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,7 +29,8 @@ public class WelcomeActivity extends AppCompatActivity {
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private int[] layouts;
-    private Button btnSkip, btnNext;
+    private Button btnSkip;
+    private ImageButton btnNext;
     private PrefManager prefManager;
 
     @Override
@@ -45,7 +48,7 @@ public class WelcomeActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         btnSkip = (Button) findViewById(R.id.btn_skip);
-        btnNext = (Button) findViewById(R.id.btn_next);
+        btnNext = (ImageButton) findViewById(R.id.btn_next);
 
         layouts = new int[]{
                 R.layout.welcome_side1,
@@ -106,7 +109,13 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
+        String[] PERMISSIONS = {android.Manifest.permission.SEND_SMS, android.Manifest.permission.GET_ACCOUNTS};
+        ActivityCompat.requestPermissions(this, PERMISSIONS, 1);
         prefManager.setFirstTime();
+    }
+
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
         startActivity(new Intent(WelcomeActivity.this, Login.class));
         finish();
     }
@@ -118,10 +127,10 @@ public class WelcomeActivity extends AppCompatActivity {
             addBottomDots(position);
 
             if (position == layouts.length - 1) {
-                btnNext.setText(getString(R.string.start));
+//                btnNext.setText(getString(R.string.start));
                 btnSkip.setVisibility(View.GONE);
             } else {
-                btnNext.setText(getString(R.string.next));
+//                btnNext.setText(getString(R.string.next));
                 btnSkip.setVisibility(View.VISIBLE);
             }
         }

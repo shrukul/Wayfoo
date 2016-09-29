@@ -38,6 +38,10 @@
         <item name="android:background">@android:color/white</item>
     </style>
 
+    <style name="MyMaterialTheme.AppIntroButtonStyleCompat" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
     <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>

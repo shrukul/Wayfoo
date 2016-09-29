@@ -260,12 +260,12 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
                         txtEditMobile.setText(pref.getMobileNumber());
                         layoutEditMobile.setVisibility(View.VISIBLE);
 
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 
                     } else {
-                        Toast.makeText(getApplicationContext(),
+/*                        Toast.makeText(getApplicationContext(),
                                 "Error: " + message,
-                                Toast.LENGTH_LONG).show();
+                                Toast.LENGTH_LONG).show();*/
                     }
 
                     // hiding the progress bar
