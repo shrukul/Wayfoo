@@ -146,7 +146,6 @@ public class Home extends Fragment {
         PrefManager pref = new PrefManager(getContext());
         String loc = pref.getLocation();
         url = "http://wayfoo.com/hotellist.php?Location=" + loc + "&email=" + pref.getEmail();
-        Log.d("fav", pref.getEmail());
         a = new AsyncHttpTask();
         a.execute(url);
         return rootView;

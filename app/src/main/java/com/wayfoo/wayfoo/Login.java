@@ -8,10 +8,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
@@ -60,13 +62,14 @@ public class Login extends AppCompatActivity implements OnClickListener,
 
     private GoogleSignInOptions gso;
     private GoogleApiClient mGoogleApiClient;
+    Snackbar snackbar;
 
     private SignInButton btnSignIn;
     private ImageView imgProfilePic;
     PrefManager prefs;
     private LoginButton loginButton;
     private CallbackManager callbackManager;
-    LinearLayout fb_btn;
+    LinearLayout fb_btn, loginView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +79,7 @@ public class Login extends AppCompatActivity implements OnClickListener,
         setContentView(R.layout.login);
 
         callbackManager = CallbackManager.Factory.create();
-
+        loginView = (LinearLayout)findViewById(R.id.loginView);
         prefs = new PrefManager(getApplicationContext());
 
         if (prefs.isFirstTime()) {
@@ -192,6 +195,8 @@ public class Login extends AppCompatActivity implements OnClickListener,
 
             @Override
             public void onError(FacebookException e) {
+                Log.d(TAG,"error fb");
+                getSnackbar("Something went wrong.");
             }
         });
     }
@@ -235,9 +240,25 @@ public class Login extends AppCompatActivity implements OnClickListener,
 
             startActivity(i);
             finish();
+        } else {
+            getSnackbar("Something went wrong.").show();
         }
     }
 
+    public Snackbar getSnackbar(String text) {
+        snackbar = Snackbar
+                .make(loginView, text, Snackbar.LENGTH_INDEFINITE)
+                .setAction("Dismiss", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        snackbar.dismiss();
+                    }
+                })
+                .setActionTextColor(Color.YELLOW);
+        snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        snackbar.show();
+        return snackbar;
+    }
 
     private void getProfileInformation(GoogleSignInResult result) {
         if (result.isSuccess()) {

@@ -51,6 +51,16 @@
         <item name="colorButtonNormal">@color/colorAccent</item>
     </style>
 
+    <style name="MyMaterialTheme.Intro" parent="Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
+
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">#ffffff</item>
         <item name="android:textColorPrimary">#ffffff</item>

@@ -11,9 +11,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +28,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +62,8 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
     CountDownTimer mCountDownTimer;
     ProgressBar mProgressBar;
     private Toolbar toolbar;
+    Snackbar snackbar;
+    RelativeLayout viewContainer;
 
     int cnt = 0;
     int time=0;
@@ -69,6 +74,7 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_sms);
 
         registerReceiver(broad, new IntentFilter("smsActivity"));
+        viewContainer = (RelativeLayout) findViewById(R.id.viewContainer);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -145,6 +151,22 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+    public Snackbar getSnackbar(String text) {
+        snackbar = Snackbar
+                .make(viewContainer, text, Snackbar.LENGTH_INDEFINITE)
+                .setAction("Dismiss", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        snackbar.dismiss();
+                    }
+                })
+                .setDuration(2000)
+                .setActionTextColor(Color.YELLOW);
+        snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        snackbar.show();
+        return snackbar;
+    }
+
     private final BroadcastReceiver broad = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -211,7 +233,7 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
 
         // validating empty name and email
         if (name.length() == 0 || email.length() == 0) {
-            Toast.makeText(getApplicationContext(), "Please enter your details", Toast.LENGTH_SHORT).show();
+            getSnackbar("Please enter your details").show();
             return;
         }
 
@@ -229,7 +251,7 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
             requestForSMS(name, email, mobile);
 
         } else {
-            Toast.makeText(getApplicationContext(), "Please enter valid mobile number", Toast.LENGTH_SHORT).show();
+            getSnackbar("Please enter valid mobile number").show();
         }
     }
 
@@ -260,22 +282,22 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
                         txtEditMobile.setText(pref.getMobileNumber());
                         layoutEditMobile.setVisibility(View.VISIBLE);
 
+                        getSnackbar("Waiting for OTP.").show();
+
 //                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 
                     } else {
 /*                        Toast.makeText(getApplicationContext(),
                                 "Error: " + message,
                                 Toast.LENGTH_LONG).show();*/
+                        getSnackbar("Something went wrong").show();
                     }
 
                     // hiding the progress bar
                     progressBar.setVisibility(View.GONE);
 
                 } catch (JSONException e) {
-                    Toast.makeText(getApplicationContext(),
-                            "Error: " + e.getMessage(),
-                            Toast.LENGTH_LONG).show();
-
+                    getSnackbar("Something went wrong").show();
                     progressBar.setVisibility(View.GONE);
                 }
 
@@ -285,8 +307,7 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();
+                getSnackbar("No Internet Connection.").show();
                 progressBar.setVisibility(View.GONE);
             }
         }) {
@@ -357,7 +378,7 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
             grapprIntent.putExtra("otp", otp);
             startService(grapprIntent);
         } else {
-            Toast.makeText(getApplicationContext(), "Please enter the OTP", Toast.LENGTH_SHORT).show();
+            getSnackbar("Please enter the OTP").show();
         }
     }
 

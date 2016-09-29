@@ -195,6 +195,7 @@
             android:name=".WelcomeActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name"
+            android:theme="@style/MyMaterialTheme.Intro"
             android:screenOrientation="portrait">
 
         </activity>
