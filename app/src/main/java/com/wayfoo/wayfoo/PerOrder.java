@@ -41,8 +41,8 @@ public class PerOrder extends AppCompatActivity {
     AsyncHttpTask a;
     private Toolbar mToolbar;
     ListView listView;
-    TextView phone, addr, price;
-
+    TextView phone, addr, price,time;
+    String timex = "Not Available";
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -66,6 +66,7 @@ public class PerOrder extends AppCompatActivity {
         String a1 = b.getString("disp");
         String a2 = b.getString("addr");
         String a3 = b.getString("total");
+        time = (TextView) findViewById(R.id.time);
         phone.setText(a1);
         addr.setText(a2);
         price.setText("₹" + a3 + "/-");
@@ -124,6 +125,8 @@ public class PerOrder extends AppCompatActivity {
             progressBar.setVisibility(View.GONE);
 
             if (result == 1) {
+                if(!timex.equals(null))
+                    time.setText(timex);
                 PerOrderAdapter adapter = new PerOrderAdapter(PerOrder.this, list);
                 listView.setAdapter(adapter);
             } else {
@@ -171,6 +174,7 @@ public class PerOrder extends AppCompatActivity {
                 HashMap<String, String> temp = new HashMap<String, String>();
                 temp.put(FIRST_COLUMN, post.optString("Name"));
                 temp.put(SECOND_COLUMN, post.optString("Quantity"));
+                timex = (post.optString("Time"));
                 temp.put(THIRD_COLUMN, String.valueOf(Float.parseFloat(post.optString("Amount")) * Float.parseFloat(post.optString("Quantity"))));
                 list.add(temp);
             }

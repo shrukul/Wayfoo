@@ -14,7 +14,7 @@ import android.widget.Button;
 public class Settings extends AppCompatActivity implements View.OnClickListener {
 
     Toolbar mToolbar;
-    Button privacy;
+    Button privacy,terms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,9 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
 
         privacy = (Button) findViewById(R.id.privacy);
         privacy.setOnClickListener(this);
+
+        terms = (Button) findViewById(R.id.terms);
+        terms.setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +57,8 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
                 startActivity(it);
                 return;
             case R.id.terms:
+                it.putExtra("url", "http://www.wayfoo.com/terms.html");
+                startActivity(it);
                 return;
         }
     }
