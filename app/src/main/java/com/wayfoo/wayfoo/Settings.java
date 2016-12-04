@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * Created by mi0184 on 10/06/16.
@@ -19,6 +20,8 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Toast.makeText(getApplicationContext(),""+MainActivity.getOauth(),Toast.LENGTH_SHORT).show();
 
         setContentView(R.layout.settings);
 

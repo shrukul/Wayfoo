@@ -17,6 +17,10 @@ out/
 .gradle/
 build/
 
+# Backup files
+projectFilesBackup/
+
+
 # Local configuration file (sdk path, etc)
 local.properties
 

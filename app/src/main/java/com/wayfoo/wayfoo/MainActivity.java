@@ -41,12 +41,19 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     View parentLayout;
 
+    // Used to load the 'native-lib' library on application startup.
+    static {
+        System.loadLibrary("oauth-lib");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.base_activity);
+
+        Toast.makeText(getApplicationContext(),""+getOauth(),Toast.LENGTH_SHORT).show();
 
         parentLayout = findViewById(android.R.id.content);
 
@@ -204,4 +211,11 @@ public class MainActivity extends AppCompatActivity {
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
+
+    /**
+     * A native method that is implemented by the 'native-lib' native library,
+     * which is packaged with this application.
+     */
+    public static native String getOauth();
+
 }
