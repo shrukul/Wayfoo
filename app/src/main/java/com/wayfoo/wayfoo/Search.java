@@ -37,7 +37,8 @@ public class Search extends AppCompatActivity {
 
         db = new DatabaseHandler(this);
         initializeData();
-        adapter = new MyRecyclerAdapterHotel(this, persons);
+        adapter = new MyRecyclerAdapterHotel(this, persons,(MyApplication) getApplication()
+                ,getIntent().getExtras().getString("hotelName"));
         rv.setAdapter(adapter);
         search1.setIconifiedByDefault(false);
         search1.setOnQueryTextListener(listener);
@@ -75,7 +76,8 @@ public class Search extends AppCompatActivity {
             }
 
             rv.setLayoutManager(new LinearLayoutManager(Search.this));
-            adapter = new MyRecyclerAdapterHotel(Search.this, filteredList);
+            adapter = new MyRecyclerAdapterHotel(Search.this, filteredList,(MyApplication) getApplication()
+                    ,getIntent().getExtras().getString("hotelName"));
             rv.setAdapter(adapter);
             adapter.notifyDataSetChanged();
             return true;

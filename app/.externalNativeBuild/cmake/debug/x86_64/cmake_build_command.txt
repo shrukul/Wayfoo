@@ -1,14 +1,14 @@
-Executable : /home/shrukul/android/Sdk/cmake/3.6.3155560/bin/cmake
+Executable : C:\Users\Axle\AppData\Local\Android\sdk1\cmake\3.6.3155560\bin\cmake.exe
 arguments : 
--H/home/shrukul/android/AndroidStudioProjects/Wayfoo/app
--B/home/shrukul/android/AndroidStudioProjects/Wayfoo/app/.externalNativeBuild/cmake/debug/x86_64
+-HD:\Study\Android\Startup\Wayfoo\app
+-BD:\Study\Android\Startup\Wayfoo\app\.externalNativeBuild\cmake\debug\x86_64
 -GAndroid Gradle - Ninja
 -DANDROID_ABI=x86_64
--DANDROID_NDK=/home/shrukul/android/Sdk/ndk-bundle
--DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/shrukul/android/AndroidStudioProjects/Wayfoo/app/.externalNativeBuild/cmake/debug/obj/x86_64
+-DANDROID_NDK=C:\Users\Axle\AppData\Local\Android\sdk1\ndk-bundle
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=D:\Study\Android\Startup\Wayfoo\app\build\intermediates\cmake\debug\obj\x86_64
 -DCMAKE_BUILD_TYPE=Debug
--DCMAKE_MAKE_PROGRAM=/home/shrukul/android/Sdk/cmake/3.6.3155560/bin/ninja
--DCMAKE_TOOLCHAIN_FILE=/home/shrukul/android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=C:\Users\Axle\AppData\Local\Android\sdk1\cmake\3.6.3155560\bin\ninja.exe
+-DCMAKE_TOOLCHAIN_FILE=C:\Users\Axle\AppData\Local\Android\sdk1\ndk-bundle\build\cmake\android.toolchain.cmake
 -DANDROID_NATIVE_API_LEVEL=21
 -DCMAKE_CXX_FLAGS=
 jvmArgs : 

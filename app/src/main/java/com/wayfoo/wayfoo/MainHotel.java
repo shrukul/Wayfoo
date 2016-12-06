@@ -90,7 +90,9 @@ public class MainHotel extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.search:
-                startActivity(new Intent(MainHotel.this, Search.class));
+                Intent i = new Intent(MainHotel.this, Search.class);
+                i.putExtra("hotelName", getIntent().getExtras().getString("hotelName"));
+                startActivity(i);
                 break;
             case android.R.id.home:
                 this.onBackPressed();

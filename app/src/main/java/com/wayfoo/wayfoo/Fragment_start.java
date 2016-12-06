@@ -46,7 +46,8 @@ public class Fragment_start extends Fragment {
 
         db = new DatabaseHandler(getActivity());
         initializeData();
-        adapter = new MyRecyclerAdapterHotel(getActivity(), persons);
+        adapter = new MyRecyclerAdapterHotel(getActivity(), persons,(MyApplication) getActivity().getApplication()
+                ,getActivity().getIntent().getExtras().getString("hotelName"));
         adapter.notifyDataSetChanged();
         rv_start.setAdapter(adapter);
         db.close();

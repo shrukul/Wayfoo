@@ -22,6 +22,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.analytics.ecommerce.Product;
+import com.google.android.gms.analytics.ecommerce.ProductAction;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
 import java.util.List;
@@ -32,6 +36,8 @@ public class CartAdapter extends
     private final Context mContext;
     private static Context mc;
     static String tag = "Menu";
+    static MyApplication app;
+    String hotel;
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
 
@@ -56,10 +62,12 @@ public class CartAdapter extends
     private static List<FeedItemHotel> feedItemList;
     private static TextView amo;
 
-    public CartAdapter(Context context, List<FeedItemHotel> feedItemList, TextView amount) {
+    public CartAdapter(Context context, List<FeedItemHotel> feedItemList, TextView amount,MyApplication app,String Hotel) {
         CartAdapter.feedItemList = feedItemList;
         CartAdapter.amo = amount;
         this.mContext = context;
+        this.app = app;
+        this.hotel = Hotel;
     }
 
     @Override
@@ -126,6 +134,22 @@ public class CartAdapter extends
 
                 }
 
+                Product product = new Product()
+                        .setName(hotel)
+                        .setPrice(Double.parseDouble(feedItem.getPrice()))
+                        .setVariant(feedItem.getTitle())
+                        .setId(String.valueOf(hotel + "-" + feedItem.getID()))
+                        .setQuantity(Integer.parseInt(feedItem.getAmt()));
+
+                ProductAction productAction = new ProductAction(ProductAction.ACTION_REMOVE);
+                Tracker tracker = ((MyApplication) app).getTracker();
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Shopping steps")
+                        .setAction("Remove from cart")
+                        .setLabel(hotel + "-" + feedItem.getTitle())
+                        .addProduct(product)
+                        .setProductAction(productAction)
+                        .build());
                 feedItem.setAmt("" + c);
 //                notifyDataSetChanged();
                 db.close();
