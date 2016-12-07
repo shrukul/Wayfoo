@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <string name="ga_trackingId">UA-88498739-1</string>
+    <bool name="ga_autoActivityTracking">true</bool>
+    <bool name="ga_reportUncaughtExceptions">true</bool>
+
+
+    <screenName name="com.wayfoo.wayfoo.MainActivity">
+        Main Activity
+    </screenName>
+
+    <screenName name="com.wayfoo.wayfoo.Fav">
+        Favourites
+    </screenName>
+
+    <screenName name="com.wayfoo.wayfoo.Settings">
+        Settings
+    </screenName>
+
+    <screenName name="com.wayfoo.wayfoo.Home">
+        Hotel List (Main Activity)
+    </screenName>
+
+    <screenName name="com.wayfoo.wayfoo.MainHotel">
+        Hotel Menu
+    </screenName>
+
+    <screenName name="com.wayfoo.wayfoo.Location">
+        Location
+    </screenName>
+
+    <screenName name="com.wayfoo.wayfoo.Login">
+        Login
+    </screenName>
+
+    <screenName name="com.wayfoo.wayfoo.MyOrders">
+        My Orders
+    </screenName>
+
+    <screenName name="com.wayfoo.wayfoo.PerOrder">
+        Per Order
+    </screenName>
+
+    <screenName name="com.wayfoo.wayfoo.Rate_Hotel">
+        Rate Hotel
+    </screenName>
+
+    <screenName name="com.wayfoo.wayfoo.Search">
+        Search menu item
+    </screenName>
+
+</resources>
