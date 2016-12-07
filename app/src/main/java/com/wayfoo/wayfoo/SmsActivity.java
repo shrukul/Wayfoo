@@ -37,6 +37,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.wayfoo.wayfoo.helper.MCrypt;
 import com.wayfoo.wayfoo.helper.PrefManager;
 import com.wayfoo.wayfoo.service.HttpService;
 
@@ -319,9 +320,14 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("name", name);
-                params.put("email", email);
-                params.put("mobile", mobile);
+                MCrypt mcrypt = new MCrypt();
+                try {
+                    params.put("name", MCrypt.bytesToHex(mcrypt.encrypt(name)));
+                    params.put("email", MCrypt.bytesToHex(mcrypt.encrypt(email)));
+                    params.put("mobile", MCrypt.bytesToHex(mcrypt.encrypt(mobile)));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 Log.e(TAG, "Posting params: " + params.toString() + cnt);
                 cnt++;

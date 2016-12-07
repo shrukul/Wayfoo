@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.wayfoo.wayfoo.helper.MCrypt;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
 import org.json.JSONArray;
@@ -71,6 +72,13 @@ public class Fav extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
         progressBar = (ProgressBar) rootView.findViewById(R.id.progress_bar);
+        MCrypt mcrypt = new MCrypt();
+        PrefManager pref = new PrefManager(getContext());
+        try {
+            url = "http://www.wayfoo.com/php/hotellistfav.php?email=" + MCrypt.bytesToHex(mcrypt.encrypt(pref.getEmail()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         retry = (Button) rootView.findViewById(R.id.retry);
         retry.setOnClickListener(new View.OnClickListener() {
 
@@ -83,9 +91,7 @@ public class Fav extends Fragment {
             }
         });
         getActivity().setTitle("Favourites");
-        PrefManager pref = new PrefManager(getContext());
         String loc = pref.getLocation();
-        url = "http://wayfoo.com/hotellistfav.php?email=" + pref.getEmail();
         Log.d("fav", pref.getEmail());
         a = new AsyncHttpTask();
         a.execute(url);

@@ -22,6 +22,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+
+import com.wayfoo.wayfoo.helper.MCrypt;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
 import org.json.JSONArray;
@@ -145,7 +147,12 @@ public class Home extends Fragment {
         getActivity().setTitle("Wayfoo");
         PrefManager pref = new PrefManager(getContext());
         String loc = pref.getLocation();
-        url = "http://wayfoo.com/hotellist.php?Location=" + loc + "&email=" + pref.getEmail();
+        MCrypt mcrypt = new MCrypt();
+        try {
+            url = "http://www.wayfoo.com/php/hotellist.php?Location=" + MCrypt.bytesToHex(mcrypt.encrypt(loc)) + "&email=" + MCrypt.bytesToHex(mcrypt.encrypt(pref.getEmail()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         a = new AsyncHttpTask();
         a.execute(url);
         return rootView;
@@ -257,6 +264,7 @@ public class Home extends Fragment {
 
     private void parseResult(String result) {
         try {
+            Log.d(TAG, ""+result);
             JSONObject response = new JSONObject(result);
             JSONObject obj = response.optJSONObject("output");
             JSONArray posts = obj.optJSONArray("output");

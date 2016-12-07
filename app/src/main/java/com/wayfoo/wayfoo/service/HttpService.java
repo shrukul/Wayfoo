@@ -16,6 +16,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.wayfoo.wayfoo.Config;
 import com.wayfoo.wayfoo.MainActivity;
 import com.wayfoo.wayfoo.MyApplication;
+import com.wayfoo.wayfoo.helper.MCrypt;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
 import org.json.JSONException;
@@ -106,7 +107,12 @@ public class HttpService extends IntentService {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("otp", otp);
+                MCrypt mcrypt = new MCrypt();
+                try {
+                    params.put("otp", MCrypt.bytesToHex(mcrypt.encrypt(otp)));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 Log.e(TAG, "Posting params: " + params.toString());
                 return params;

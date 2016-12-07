@@ -71,11 +71,11 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
 
         switch (view.getId()) {
             case R.id.privacy:
-                it.putExtra("url", "http://www.wayfoo.com/privacy.html");
+                it.putExtra("url", "http://www.wayfoo.com/php/privacy.html");
                 startActivity(it);
                 return;
             case R.id.terms:
-                it.putExtra("url", "http://www.wayfoo.com/terms.html");
+                it.putExtra("url", "http://www.wayfoo.com/php/terms.html");
                 startActivity(it);
                 return;
         }

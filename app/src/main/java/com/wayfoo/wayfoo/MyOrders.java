@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.wayfoo.wayfoo.helper.MCrypt;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
 import org.json.JSONArray;
@@ -65,26 +66,30 @@ public class MyOrders extends Fragment {
 
         PrefManager pref = new PrefManager(getContext());
         String email = pref.getEmail();
-        final String url = "http://wayfoo.com/orderHistory.php?email=" + email;
+        MCrypt mcrypt = new MCrypt();
+        final String url;
+        try {
+            url = "http://www.wayfoo.com/php/orderHistory.php?email=" +  MCrypt.bytesToHex(mcrypt.encrypt(email));
+            retry = (Button) rootView.findViewById(R.id.retry);
+            retry.setOnClickListener(new View.OnClickListener() {
 
-        retry = (Button) rootView.findViewById(R.id.retry);
-        retry.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                lyt.setVisibility(View.INVISIBLE);
-                snackbar.dismiss();
-                a = new AsyncHttpTask();
-                a.execute(url);
-            }
-        });
-
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setHasFixedSize(true);
-        progressBar = (ProgressBar) rootView.findViewById(R.id.progress_bar);
-        a = new AsyncHttpTask();
-        a.execute(url);
+                @Override
+                public void onClick(View v) {
+                    lyt.setVisibility(View.INVISIBLE);
+                    snackbar.dismiss();
+                    a = new AsyncHttpTask();
+                    a.execute(url);
+                }
+            });
+            mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            mRecyclerView.setHasFixedSize(true);
+            progressBar = (ProgressBar) rootView.findViewById(R.id.progress_bar);
+            a = new AsyncHttpTask();
+            a.execute(url);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return rootView;
     }
 
@@ -103,6 +108,8 @@ public class MyOrders extends Fragment {
                 URL url = new URL(params[0]);
                 urlConnection = (HttpURLConnection) url.openConnection();
                 int statusCode = urlConnection.getResponseCode();
+
+                Log.d(TAG, "statusCode "+statusCode);
 
                 if (statusCode == 200) {
                     try {

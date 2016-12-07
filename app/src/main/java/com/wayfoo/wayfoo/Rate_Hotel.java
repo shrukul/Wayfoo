@@ -11,6 +11,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wayfoo.wayfoo.helper.MCrypt;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -97,14 +99,19 @@ public class Rate_Hotel extends Activity implements
             protected String doInBackground(String... params) {
                 System.out.println("Hotel " + hotel);
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-                nameValuePairs.add(new BasicNameValuePair("rate", "" + curRate));
-                nameValuePairs.add(new BasicNameValuePair("hotel", hotel));
+                MCrypt mcrypt = new MCrypt();
+                try {
+                    nameValuePairs.add(new BasicNameValuePair("rate",  MCrypt.bytesToHex(mcrypt.encrypt(""+curRate))));
+                    nameValuePairs.add(new BasicNameValuePair("hotel", MCrypt.bytesToHex(mcrypt.encrypt(hotel))));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 String jsonResult = "";
 
                 try {
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(
-                            "http://www.wayfoo.com/rating.php");
+                            "http://www.wayfoo.com/php/rating.php");
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                     HttpResponse response = httpClient.execute(httpPost);

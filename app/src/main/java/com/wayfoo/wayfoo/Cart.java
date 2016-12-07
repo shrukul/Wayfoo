@@ -23,6 +23,7 @@ import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.wayfoo.wayfoo.helper.MCrypt;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
 import org.apache.http.HttpEntity;
@@ -235,22 +236,27 @@ public class Cart extends AppCompatActivity {
                 String email = pref.getEmail();
                 String regid = pref.getRegId();
                 String dispName = pref.getHotelName();
-                nameValuePairs.add(new BasicNameValuePair("data", json));
-                nameValuePairs.add(new BasicNameValuePair("email", email));
-                nameValuePairs.add(new BasicNameValuePair("amt", String.valueOf(amt)));
-                nameValuePairs.add(new BasicNameValuePair("hotel", hotel));
-                nameValuePairs.add(new BasicNameValuePair("hotelName", dispName));
-                nameValuePairs.add(new BasicNameValuePair("table", table));
-                nameValuePairs.add(new BasicNameValuePair("phone", phone));
-                nameValuePairs.add(new BasicNameValuePair("regid", regid));
-                nameValuePairs.add(new BasicNameValuePair("addr", addr));
+                MCrypt mcrypt = new MCrypt();
+                try {
+                nameValuePairs.add(new BasicNameValuePair("data",  MCrypt.bytesToHex(mcrypt.encrypt(json))));
+                nameValuePairs.add(new BasicNameValuePair("email", MCrypt.bytesToHex(mcrypt.encrypt(email))));
+                nameValuePairs.add(new BasicNameValuePair("amt", MCrypt.bytesToHex(mcrypt.encrypt(String.valueOf(amt)))));
+                nameValuePairs.add(new BasicNameValuePair("hotel", MCrypt.bytesToHex(mcrypt.encrypt(hotel))));
+                nameValuePairs.add(new BasicNameValuePair("hotelName", MCrypt.bytesToHex(mcrypt.encrypt(dispName))));
+                nameValuePairs.add(new BasicNameValuePair("table", MCrypt.bytesToHex(mcrypt.encrypt(table))));
+                nameValuePairs.add(new BasicNameValuePair("phone", MCrypt.bytesToHex(mcrypt.encrypt(phone))));
+                nameValuePairs.add(new BasicNameValuePair("regid", MCrypt.bytesToHex(mcrypt.encrypt(regid))));
+                nameValuePairs.add(new BasicNameValuePair("addr", MCrypt.bytesToHex(mcrypt.encrypt(addr))));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 String jsonResult = "";
 
                 try {
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(
-                            "http://www.wayfoo.com/orderList.php");
+                            "http://www.wayfoo.com/php/orderList.php");
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                     HttpResponse response = httpClient.execute(httpPost);

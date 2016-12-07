@@ -70,7 +70,7 @@ public class Location extends AppCompatActivity {
         errText = (TextView) findViewById(R.id.errText);
 
         PrefManager pref = new PrefManager(getApplicationContext());
-        final String url = "http://wayfoo.com/location.php";
+        final String url = "http://www.wayfoo.com/php/location.php";
 
         retry = (Button) findViewById(R.id.retry);
         retry.setOnClickListener(new View.OnClickListener() {

@@ -18,6 +18,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.wayfoo.wayfoo.helper.MCrypt;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -78,22 +80,26 @@ public class Intermediate extends AppCompatActivity {
         getSupportActionBar().setTitle("Loading ...");
 
 //        System.out.println(name + " " + table);
-        final String url = "http://wayfoo.com/hotel.php?name=" + name;
+        MCrypt mcrypt = new MCrypt();
+        try {
+            final String url = "http://www.wayfoo.com/php/hotel.php?name=" + MCrypt.bytesToHex(mcrypt.encrypt(name));
+            retry = (Button) findViewById(R.id.retry);
+            retry.setOnClickListener(new View.OnClickListener() {
 
-        retry = (Button) findViewById(R.id.retry);
-        retry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    lyt.setVisibility(View.INVISIBLE);
+                    snackbar.dismiss();
+                    a = new AsyncHttpTask();
+                    a.execute(url);
+                }
+            });
 
-            @Override
-            public void onClick(View v) {
-                lyt.setVisibility(View.INVISIBLE);
-                snackbar.dismiss();
-                a = new AsyncHttpTask();
-                a.execute(url);
-            }
-        });
-
-        a = new AsyncHttpTask();
-        a.execute(url);
+            a = new AsyncHttpTask();
+            a.execute(url);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public class AsyncHttpTask extends AsyncTask<String, Void, Integer> {

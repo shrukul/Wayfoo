@@ -1,3 +1,5 @@
 # ninja log v5
-0	566	0	CMakeFiles/oauth-lib.dir/src/main/cpp/file.cpp.o	b91244f9b5f9a16
-567	2320	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/liboauth-lib.so	4606ed55ea151839
+0	689	0	CMakeFiles/oauth-lib.dir/src/main/cpp/file.cpp.o	4e082645c19a035e
+689	1720	0	../obj/arm64-v8a/liboauth-lib.so	6acf975e36fce912
+71	589	0	CMakeFiles/oauth-lib.dir/src/main/cpp/file.cpp.o	4e082645c19a035e
+589	1465	0	../obj/arm64-v8a/liboauth-lib.so	6acf975e36fce912

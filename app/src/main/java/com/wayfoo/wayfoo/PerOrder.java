@@ -19,6 +19,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.wayfoo.wayfoo.helper.MCrypt;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -80,9 +82,15 @@ public class PerOrder extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         listView = (ListView) findViewById(R.id.listView1);
         String oid = b.getString("oid");
-        final String url = "http://wayfoo.com/perOrder.php?OID=" + oid;
-        a = new AsyncHttpTask();
-        a.execute(url);
+        MCrypt mcrypt = new MCrypt();
+        final String url;
+        try {
+            url = "http://www.wayfoo.com/php/perOrder.php?OID=" + MCrypt.bytesToHex(mcrypt.encrypt(oid));
+            a = new AsyncHttpTask();
+            a.execute(url);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public class AsyncHttpTask extends AsyncTask<String, Void, Integer> {

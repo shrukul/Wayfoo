@@ -1,9 +1,12 @@
 
 {
-	"buildFiles" : [ "D:/Study/Android/Startup/Wayfoo/app/CMakeLists.txt" ],
+	"buildFiles" : 
+	[
+		"/home/shrukul/android/AndroidStudioProjects/Wayfoo/app/CMakeLists.txt"
+	],
 	"cleanCommands" : 
 	[
-		"C:\\Users\\Axle\\AppData\\Local\\Android\\sdk1\\cmake\\3.6.3155560\\bin\\cmake.exe --build D:\\Study\\Android\\Startup\\Wayfoo\\app\\.externalNativeBuild\\cmake\\release\\mips --target clean"
+		"/home/shrukul/android/Sdk/cmake/3.6.3155560/bin/cmake --build /home/shrukul/android/AndroidStudioProjects/Wayfoo/app/.externalNativeBuild/cmake/release/mips --target clean"
 	],
 	"cppFileExtensions" : [ "cpp" ],
 	"libraries" : 
@@ -12,27 +15,27 @@
 		{
 			"abi" : "mips",
 			"artifactName" : "oauth-lib",
-			"buildCommand" : "C:\\Users\\Axle\\AppData\\Local\\Android\\sdk1\\cmake\\3.6.3155560\\bin\\cmake.exe --build D:\\Study\\Android\\Startup\\Wayfoo\\app\\.externalNativeBuild\\cmake\\release\\mips --target oauth-lib",
+			"buildCommand" : "/home/shrukul/android/Sdk/cmake/3.6.3155560/bin/cmake --build /home/shrukul/android/AndroidStudioProjects/Wayfoo/app/.externalNativeBuild/cmake/release/mips --target oauth-lib",
 			"buildType" : "release",
 			"files" : 
 			[
 				
 				{
-					"flags" : "  -target mipsel-none-linux-android -gcc-toolchain C:/Users/Axle/AppData/Local/Android/sdk1/ndk-bundle/toolchains/mipsel-linux-android-4.9/prebuilt/windows-x86_64 --sysroot=C:/Users/Axle/AppData/Local/Android/sdk1/ndk-bundle/platforms/android-16/arch-mips  -Doauth_lib_EXPORTS -isystem C:\\Users\\Axle\\AppData\\Local\\Android\\sdk1\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include -isystem C:\\Users\\Axle\\AppData\\Local\\Android\\sdk1\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\libs\\mips\\include -isystem C:\\Users\\Axle\\AppData\\Local\\Android\\sdk1\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include\\backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti  -O2 -DNDEBUG -O2 -DNDEBUG  -fPIC    -c ",
-					"src" : "D:/Study/Android/Startup/Wayfoo/app/src/main/cpp/file.cpp",
-					"workingDirectory" : "D:/Study/Android/Startup/Wayfoo/app/.externalNativeBuild/cmake/release/mips"
+					"flags" : "  -target mipsel-none-linux-android -gcc-toolchain /home/shrukul/android/Sdk/ndk-bundle/toolchains/mipsel-linux-android-4.9/prebuilt/linux-x86_64 --sysroot=/home/shrukul/android/Sdk/ndk-bundle/platforms/android-16/arch-mips  -Doauth_lib_EXPORTS -isystem /home/shrukul/android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/shrukul/android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/mips/include -isystem /home/shrukul/android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti  -O2 -DNDEBUG -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "/home/shrukul/android/AndroidStudioProjects/Wayfoo/app/src/main/cpp/file.cpp",
+					"workingDirectory" : "/home/shrukul/android/AndroidStudioProjects/Wayfoo/app/.externalNativeBuild/cmake/release/mips"
 				}
 			],
-			"output" : "D:/Study/Android/Startup/Wayfoo/app/build/intermediates/cmake/release/obj/mips/liboauth-lib.so",
-			"toolchain" : "1514328557"
+			"output" : "/home/shrukul/android/AndroidStudioProjects/Wayfoo/app/.externalNativeBuild/cmake/release/obj/mips/liboauth-lib.so",
+			"toolchain" : "2874579915835913833"
 		}
 	},
 	"toolchains" : 
 	{
-		"1514328557" : 
+		"2874579915835913833" : 
 		{
-			"cCompilerExecutable" : "C:/Users/Axle/AppData/Local/Android/sdk1/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
-			"cppCompilerExecutable" : "C:/Users/Axle/AppData/Local/Android/sdk1/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+			"cCompilerExecutable" : "/home/shrukul/android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/home/shrukul/android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
 		}
 	}
 }

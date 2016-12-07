@@ -28,6 +28,7 @@ import android.widget.ToggleButton;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.squareup.picasso.Picasso;
+import com.wayfoo.wayfoo.helper.MCrypt;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
 import org.apache.http.HttpEntity;
@@ -220,15 +221,20 @@ public class MyRecyclerAdapter extends
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
                 PrefManager pref = new PrefManager(mc);
                 String email = pref.getEmail();
-                nameValuePairs.add(new BasicNameValuePair("data", k));
-                nameValuePairs.add(new BasicNameValuePair("email", email));
+                MCrypt mcrypt = new MCrypt();
+                try {
+                    nameValuePairs.add(new BasicNameValuePair("data", MCrypt.bytesToHex(mcrypt.encrypt(k))));
+                    nameValuePairs.add(new BasicNameValuePair("email", MCrypt.bytesToHex(mcrypt.encrypt(email))));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 String jsonResult = "";
 
                 try {
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(
-                            "http://www.wayfoo.com/fav.php");
+                            "http://www.wayfoo.com/php/fav.php");
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                     HttpResponse response = httpClient.execute(httpPost);
@@ -308,7 +314,7 @@ public class MyRecyclerAdapter extends
                 try {
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(
-                            "http://www.wayfoo.com/favrem.php");
+                            "http://www.wayfoo.com/php/favrem.php");
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                     HttpResponse response = httpClient.execute(httpPost);

@@ -41,5 +41,8 @@ captures/
 .idea/workspace.xml
 .idea/libraries
 
+#ExternalNativeBuild
+app/.externalNativeBuild
+
 # Keystore files
 #*.jks
