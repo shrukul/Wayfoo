@@ -4,16 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.wayfoo.wayfoo.helper.MCrypt;
 
 /**
  * Created by mi0184 on 10/06/16.
  */
 public class Settings extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "Settings";
     Toolbar mToolbar;
     Button privacy,terms;
 
@@ -21,7 +25,18 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Toast.makeText(getApplicationContext(),""+MainActivity.getOauth(),Toast.LENGTH_SHORT).show();
+        Log.d(TAG, ""+MainActivity.getOauth().substring(0,16));
+        Log.d(TAG, ""+MainActivity.getOauth().substring(16,32));
+
+        MCrypt mcrypt = new MCrypt();
+        try {
+            String encrypted = MCrypt.bytesToHex(mcrypt.encrypt("Shrukul"));
+            Log.d(TAG, encrypted);
+            String decrypted = new String( mcrypt.decrypt(encrypted));
+            Log.d(TAG, decrypted);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         setContentView(R.layout.settings);
 
