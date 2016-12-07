@@ -1,5 +1,0 @@
-# ninja log v5
-0	278	0	CMakeFiles/oauth-lib.dir/src/main/cpp/file.cpp.o	35e8008e45da0aa4
-278	699	0	../obj/armeabi/liboauth-lib.so	e1e568a09999b199
-13	298	0	CMakeFiles/oauth-lib.dir/src/main/cpp/file.cpp.o	35e8008e45da0aa4
-298	670	0	../obj/armeabi/liboauth-lib.so	e1e568a09999b199

@@ -1,3 +1,0 @@
-/home/shrukul/android/AndroidStudioProjects/Wayfoo/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/edit_cache.dir
-/home/shrukul/android/AndroidStudioProjects/Wayfoo/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/rebuild_cache.dir
-/home/shrukul/android/AndroidStudioProjects/Wayfoo/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/oauth-lib.dir
