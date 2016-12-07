@@ -19,6 +19,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.wayfoo.wayfoo.helper.PrefManager;
@@ -57,7 +59,7 @@ public class Cart extends AppCompatActivity {
     private PrefManager pref;
     private float amt = 0;
     String json, phone;
-    String hotel, table, addr;
+    String hotel,hotel2, table, addr;
     TextView amount;
 
     @Override
@@ -81,6 +83,7 @@ public class Cart extends AppCompatActivity {
         setSupportActionBar(mToolbar);
 
         hotel = prefs.getTitle();
+        hotel2 = prefs.getHotelName();
         addr = getIntent().getExtras().getString("addr");
         amount = (TextView) findViewById(R.id.amount);
         amount.setText("₹ " + prefs.getPriceSum());
@@ -104,7 +107,7 @@ public class Cart extends AppCompatActivity {
         finalItems = new ArrayList<FeedItemHotel>();
         db = new DatabaseHandler(this);
         initializeData();
-        adapter = new CartAdapter(this, persons, amount);
+        adapter = new CartAdapter(this, persons, amount,(MyApplication) getApplication(),hotel2);
         rv.setAdapter(adapter);
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -286,6 +289,12 @@ public class Cart extends AppCompatActivity {
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
                 progressDialog.dismiss();
+                Tracker tracker = ((MyApplication) getApplication()).getTracker();
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("In Cart Page")
+                        .setAction("Checkout done")
+                        .setLabel("Clicked Checkout button")
+                        .build());
                 Intent it = new Intent(Cart.this, MainActivity.class);
                 it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 it.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);

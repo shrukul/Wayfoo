@@ -10,6 +10,9 @@ import android.text.TextUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Logger;
+import com.google.android.gms.analytics.Tracker;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -18,6 +21,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
  */
 
 public class MyApplication extends Application {
+
+    public Tracker mTracker;
 
     public static final String TAG = MyApplication.class
             .getSimpleName();
@@ -62,5 +67,21 @@ public class MyApplication extends Application {
         if (mRequestQueue != null) {
             mRequestQueue.cancelAll(tag);
         }
+    }
+
+    public void startTracking() {
+
+        if (mTracker == null) {
+            GoogleAnalytics ga = GoogleAnalytics.getInstance(this);
+            mTracker = ga.newTracker(R.xml.track_app);
+            ga.enableAutoActivityReports(this);
+            ga.getLogger()
+                    .setLogLevel(Logger.LogLevel.VERBOSE);
+        }
+    }
+
+    public Tracker getTracker() {
+        startTracking();
+        return mTracker;
     }
 }

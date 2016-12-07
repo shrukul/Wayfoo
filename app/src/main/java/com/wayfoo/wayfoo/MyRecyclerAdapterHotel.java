@@ -22,6 +22,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.analytics.ecommerce.Product;
+import com.google.android.gms.analytics.ecommerce.ProductAction;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
 import java.util.List;
@@ -32,7 +36,8 @@ public class MyRecyclerAdapterHotel extends
     private final Context mContext;
     private static Context mc;
     static String tag = "Menu";
-
+    static MyApplication app;
+    String hotel;
     public class CustomViewHolder extends RecyclerView.ViewHolder {
 
         protected ImageView imageView;
@@ -60,9 +65,11 @@ public class MyRecyclerAdapterHotel extends
 
     private List<FeedItemHotel> feedItemList;
 
-    public MyRecyclerAdapterHotel(Context context, List<FeedItemHotel> feedItemList) {
+    public MyRecyclerAdapterHotel(Context context, List<FeedItemHotel> feedItemList,MyApplication app,String Hotel) {
         this.feedItemList = feedItemList;
         this.mContext = context;
+        this.app = app;
+        this.hotel = Hotel;
     }
 
     @Override
@@ -114,9 +121,26 @@ public class MyRecyclerAdapterHotel extends
                         x = cn.getID();
                     }
                 }
-                if (x != -1)
+                if (x != -1) {
                     db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),
                             String.valueOf(c), feedItem.getType(), feedItem.getItemID()));
+                    Product product = new Product()
+                            .setName(hotel)
+                            .setPrice(Double.parseDouble(feedItem.getPrice()))
+                            .setVariant(feedItem.getTitle())
+                            .setId(String.valueOf(hotel + "-" + feedItem.getID()))
+                            .setQuantity(Integer.parseInt(feedItem.getAmt()));
+
+                    ProductAction productAction = new ProductAction(ProductAction.ACTION_ADD);
+                    Tracker tracker = ((MyApplication) app).getTracker();
+                    tracker.send(new HitBuilders.EventBuilder()
+                            .setCategory("Shopping steps")
+                            .setAction("Add to cart")
+                            .setLabel(hotel + "-" + feedItem.getTitle())
+                            .addProduct(product)
+                            .setProductAction(productAction)
+                            .build());
+                }
                 db.close();
                 notifyDataSetChanged();
                 PrefManager prefs = new PrefManager(mContext);
@@ -142,9 +166,26 @@ public class MyRecyclerAdapterHotel extends
                             x = cn.getID();
                         }
                     }
-                    if (x != -1)
+                    if (x != -1) {
                         db.updateContact(new FeedItemHotel(x, feedItem.getTitle(), feedItem.getPrice(), feedItem.getVeg(),
                                 String.valueOf(c), feedItem.getType(), feedItem.getItemID()));
+                        Product product = new Product()
+                                .setName(hotel)
+                                .setPrice(Double.parseDouble(feedItem.getPrice()))
+                                .setVariant(feedItem.getTitle())
+                                .setId(String.valueOf(hotel + "-" + feedItem.getID()))
+                                .setQuantity(Integer.parseInt(feedItem.getAmt()));
+
+                        ProductAction productAction = new ProductAction(ProductAction.ACTION_REMOVE);
+                        Tracker tracker = ((MyApplication) app).getTracker();
+                        tracker.send(new HitBuilders.EventBuilder()
+                                .setCategory("Shopping steps")
+                                .setAction("Remove from cart")
+                                .setLabel(hotel + "-" + feedItem.getTitle())
+                                .addProduct(product)
+                                .setProductAction(productAction)
+                                .build());
+                    }
                     db.close();
                     PrefManager prefs = new PrefManager(mContext);
                     int temp = prefs.getPriceSum();

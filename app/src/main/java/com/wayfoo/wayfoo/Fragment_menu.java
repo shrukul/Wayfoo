@@ -30,7 +30,8 @@ public class Fragment_menu extends Fragment {
     public void onResume() {
         super.onResume();
         initializeData();
-        adapter = new MyRecyclerAdapterHotel(getActivity(), persons);
+        adapter = new MyRecyclerAdapterHotel(getActivity(), persons,(MyApplication) getActivity().getApplication()
+                ,getActivity().getIntent().getExtras().getString("hotelName"));
         rv_start.setAdapter(adapter);
         db.close();
         adapter.notifyDataSetChanged();
@@ -58,7 +59,8 @@ public class Fragment_menu extends Fragment {
         db = new DatabaseHandler(getActivity());
         rv_start.clearOnScrollListeners();
         initializeData();
-        adapter = new MyRecyclerAdapterHotel(getActivity(), persons);
+        adapter = new MyRecyclerAdapterHotel(getActivity(), persons,(MyApplication) getActivity().getApplication()
+                ,getActivity().getIntent().getExtras().getString("hotelName"));
 //        adapter.notifyDataSetChanged();
         rv_start.setAdapter(adapter);
         db.close();

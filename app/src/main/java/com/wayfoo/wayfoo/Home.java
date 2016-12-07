@@ -111,7 +111,7 @@ public class Home extends Fragment {
                     }
 
                     mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-                    adapter = new MyRecyclerAdapter(getActivity().getApplicationContext(), filteredList, favList);
+                    adapter = new MyRecyclerAdapter(getActivity().getApplicationContext(), filteredList, favList,(MyApplication) getActivity().getApplication());
                     mRecyclerView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
                 }
@@ -202,7 +202,7 @@ public class Home extends Fragment {
                 if (fav != null) {
                     favList = new LinkedList(Arrays.asList(fav.split(",")));
                 }
-                adapter = new MyRecyclerAdapter(getActivity(), feedsList, favList);
+                adapter = new MyRecyclerAdapter(getActivity(), feedsList, favList,(MyApplication) getActivity().getApplication());
                 mRecyclerView.setAdapter(adapter);
                 lyt.setVisibility(View.GONE);
             } else {

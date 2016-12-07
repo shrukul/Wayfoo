@@ -25,6 +25,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.squareup.picasso.Picasso;
 import com.wayfoo.wayfoo.helper.PrefManager;
 
@@ -53,6 +55,7 @@ public class MyRecyclerAdapter extends
     static String tag = "Hotel List";
     List<String> favList;
     String k = null;
+    static MyApplication app;
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder
             implements OnClickListener {
@@ -101,6 +104,12 @@ public class MyRecyclerAdapter extends
             } else {
                 String pagenext;
                 pagenext = Html.fromHtml(feedItem.getTitle()).toString();
+                Tracker tracker = ((MyApplication) app).getTracker();
+                tracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Hotel Clicked")
+                        .setAction("Entered a hotel")
+                        .setLabel(Html.fromHtml(feedItem.getDisName()).toString())
+                        .build());
                 Intent intent = new Intent(mc, Intermediate.class);
                 intent.putExtra("title", pagenext);
                 intent.putExtra("hotelName", feedItem.getDisName().toString());
@@ -113,10 +122,11 @@ public class MyRecyclerAdapter extends
 
     private static List<FeedItem> feedItemList;
 
-    public MyRecyclerAdapter(Context context, List<FeedItem> feedItemList, List<String> fav) {
+    public MyRecyclerAdapter(Context context, List<FeedItem> feedItemList, List<String> fav,MyApplication app) {
         MyRecyclerAdapter.feedItemList = feedItemList;
         this.mContext = context;
         favList = new ArrayList<>();
+        this.app = app;
         favList = fav;
     }
 

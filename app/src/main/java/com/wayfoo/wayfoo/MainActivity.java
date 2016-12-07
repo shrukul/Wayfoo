@@ -13,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Base64;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -24,6 +25,8 @@ import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.wayfoo.wayfoo.helper.PrefManager;
 import com.wayfoo.wayfoo.payu.PayuInterface;
 
@@ -52,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.base_activity);
+
+        //start tracking
+        ((MyApplication)getApplication()).startTracking();
 
         Toast.makeText(getApplicationContext(),""+getOauth(),Toast.LENGTH_SHORT).show();
 
@@ -93,12 +99,24 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.orderHistory:
                         MyOrders fragment_orders = new MyOrders();
+                        Tracker tracker = ((MyApplication) getApplication()).getTracker();
+                        tracker.send(new HitBuilders.EventBuilder()
+                                .setCategory("Order History")
+                                .setAction("My Orders")
+                                .setLabel("MyOrders clicked")
+                                .build());
                         fragmentTransaction.replace(R.id.frame, fragment_orders);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
                         return true;
                     case R.id.fav:
                         Fav f = new Fav();
+                        Tracker tracker1 = ((MyApplication) getApplication()).getTracker();
+                        tracker1.send(new HitBuilders.EventBuilder()
+                                .setCategory("Fav")
+                                .setAction("Fav tab clicked")
+                                .setLabel("Fav tab clicked")
+                                .build());
                         fragmentTransaction.replace(R.id.frame, f);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
@@ -107,6 +125,12 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, Settings.class));
                         return true;
                     case R.id.signout:
+                        Tracker tracker2 = ((MyApplication) getApplication()).getTracker();
+                        tracker2.send(new HitBuilders.EventBuilder()
+                                .setCategory("Signout")
+                                .setAction("Signed out")
+                                .setLabel("signed out")
+                                .build());
                         Intent it = new Intent(MainActivity.this, Login.class);
                         PrefManager prefs = new PrefManager(MainActivity.this);
 

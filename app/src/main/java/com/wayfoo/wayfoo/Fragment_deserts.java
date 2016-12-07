@@ -45,7 +45,8 @@ public class Fragment_deserts extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         db = new DatabaseHandler(getActivity());
         initializeData();
-        adapter = new MyRecyclerAdapterHotel(getActivity(), persons);
+        adapter = new MyRecyclerAdapterHotel(getActivity(), persons,(MyApplication) getActivity().getApplication()
+                ,getActivity().getIntent().getExtras().getString("hotelName"));
         adapter.notifyDataSetChanged();
         rv.setAdapter(adapter);
         db.close();
