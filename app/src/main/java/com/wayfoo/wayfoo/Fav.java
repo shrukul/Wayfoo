@@ -165,12 +165,12 @@ public class Fav extends Fragment {
                 mRecyclerView.setAdapter(adapter);
                 lyt.setVisibility(View.GONE);
 
-                if ((fav.equals("") || fav.equals(null) || fav.equals(" "))) {
+                if ((fav.equals("") || fav.equals(null) || fav.equals(" ")) || feedsListFinal.isEmpty()) {
                     errText.setText("No Favourites.");
                     lyt.setVisibility(View.VISIBLE);
                     retry.setVisibility(View.GONE);
                     snackbar = Snackbar
-                            .make(rootView, "No Favourites.", Snackbar.LENGTH_INDEFINITE)
+                            .make(rootView, "No Favourites.", Snackbar.LENGTH_SHORT)
                             .setAction("Dismiss", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
