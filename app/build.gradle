@@ -61,6 +61,7 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.0'
     compile 'com.heinrichreimersoftware:material-intro:1.5.3'
     compile 'com.facebook.android:facebook-android-sdk:4.5.0'
+    compile 'com.roughike:bottom-bar:1.2.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

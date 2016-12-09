@@ -17,8 +17,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wayfoo.wayfoo.helper.MCrypt;
+import com.wayfoo.wayfoo.helper.PrefManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,6 +30,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -44,6 +48,7 @@ public class Intermediate extends AppCompatActivity {
     LinearLayout lyt;
     Button retry;
     TextView errText;
+    String fav=null;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -82,7 +87,10 @@ public class Intermediate extends AppCompatActivity {
 //        System.out.println(name + " " + table);
         MCrypt mcrypt = new MCrypt();
         try {
-            final String url = "http://www.wayfoo.com/php/hotel.php?name=" + MCrypt.bytesToHex(mcrypt.encrypt(name));
+            PrefManager pref = new PrefManager(this);
+            String email = pref.getEmail();
+            final String url = "http://www.wayfoo.com/php/hotel.php?name=" + MCrypt.bytesToHex(mcrypt.encrypt(name.trim())) +
+                    "&email=" + MCrypt.bytesToHex(mcrypt.encrypt(email));
             retry = (Button) findViewById(R.id.retry);
             retry.setOnClickListener(new View.OnClickListener() {
 
@@ -143,7 +151,8 @@ public class Intermediate extends AppCompatActivity {
 
             if (result == 1) {
                 //startActivity(new Intent(Intermediate.this,Main.class));
-
+                PrefManager pref = new PrefManager(getApplicationContext());
+                pref.setFavMenu(fav);
                 Intent i = new Intent(Intermediate.this, MainHotel.class);
                 i.putExtra("title", name);
                 i.putExtra("table", table);
@@ -172,7 +181,8 @@ public class Intermediate extends AppCompatActivity {
     private void parseResult(String result) {
         try {
             JSONObject response = new JSONObject(result);
-            JSONArray posts = response.optJSONArray("output");
+            JSONObject obj = response.optJSONObject("output");
+            JSONArray posts = obj.optJSONArray("output");
             System.out.println(posts);
             DatabaseHandler db = new DatabaseHandler(Intermediate.this);
             List<FeedItemHotel> c = db.getAllContacts();
@@ -186,9 +196,27 @@ public class Intermediate extends AppCompatActivity {
             }
             Log.d("intermediate", String.valueOf(posts.length()));
             db.close();
+
+            try {
+                JSONObject obj2 = response.optJSONObject("fav");
+                Log.e("fav","wwwe"+obj2);
+                JSONArray posts2 = obj2.optJSONArray("fav");
+                Log.d("le", String.valueOf(posts2.length()));
+                for (int i = 0; i < posts2.length(); i++) {
+                    JSONObject post = posts2.optJSONObject(i);
+                    fav = post.optString("CID");
+                    Log.d("fav","ss"+fav);
+                }
+            } catch (NullPointerException e) {
+
+            }
+            Log.e("fav","www"+fav);
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
     }
 
     public void onDestroy() {

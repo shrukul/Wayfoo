@@ -133,6 +133,10 @@ public class PrefManager {
         return pref.getString(KEY_EMAIL, null);
     }
 
+    public String getFavMenu() {
+        return pref.getString("fav", null);
+    }
+
     public String getLocation() {
         return pref.getString(KEY_LOC, null);
     }
@@ -173,6 +177,11 @@ public class PrefManager {
 
     public void setTitle(String title) {
         editor.putString(KEY_TITLE, title);
+        editor.commit();
+    }
+
+    public void setFavMenu(String fav) {
+        editor.putString("fav", fav);
         editor.commit();
     }
 

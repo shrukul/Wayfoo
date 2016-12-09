@@ -6,10 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
 
+import com.wayfoo.wayfoo.helper.PrefManager;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -23,6 +28,7 @@ public class Search extends AppCompatActivity {
     private List<FeedItemHotel> persons;
     private DatabaseHandler db;
     private Cursor c;
+    List<String> favList;
     private MyRecyclerAdapterHotel adapter;
     private static final String SELECT_SQL = "SELECT * FROM contacts";
 
@@ -37,8 +43,14 @@ public class Search extends AppCompatActivity {
 
         db = new DatabaseHandler(this);
         initializeData();
+        PrefManager pref = new PrefManager(this);
+        String fav = pref.getFavMenu();
+        Log.e("fav","dd"+fav);
+        if (fav != null) {
+            favList = new LinkedList(Arrays.asList(fav.split(",")));
+        }
         adapter = new MyRecyclerAdapterHotel(this, persons,(MyApplication) getApplication()
-                ,getIntent().getExtras().getString("hotelName"));
+                ,getIntent().getExtras().getString("hotelName"),favList);
         rv.setAdapter(adapter);
         search1.setIconifiedByDefault(false);
         search1.setOnQueryTextListener(listener);
@@ -76,8 +88,13 @@ public class Search extends AppCompatActivity {
             }
 
             rv.setLayoutManager(new LinearLayoutManager(Search.this));
+            String fav = getIntent().getExtras().getString("favmenu");
+            Log.e("fav","dd"+fav);
+            if (fav != null) {
+                favList = new LinkedList(Arrays.asList(fav.split(",")));
+            }
             adapter = new MyRecyclerAdapterHotel(Search.this, filteredList,(MyApplication) getApplication()
-                    ,getIntent().getExtras().getString("hotelName"));
+                    ,getIntent().getExtras().getString("hotelName"),favList);
             rv.setAdapter(adapter);
             adapter.notifyDataSetChanged();
             return true;

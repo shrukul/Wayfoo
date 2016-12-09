@@ -306,8 +306,13 @@ public class MyRecyclerAdapter extends
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
                 PrefManager pref = new PrefManager(mc);
                 String email = pref.getEmail();
-                nameValuePairs.add(new BasicNameValuePair("data", k));
-                nameValuePairs.add(new BasicNameValuePair("email", email));
+                MCrypt mcrypt = new MCrypt();
+                try {
+                    nameValuePairs.add(new BasicNameValuePair("data", MCrypt.bytesToHex(mcrypt.encrypt(k))));
+                    nameValuePairs.add(new BasicNameValuePair("email", MCrypt.bytesToHex(mcrypt.encrypt(email))));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 String jsonResult = "";
 
