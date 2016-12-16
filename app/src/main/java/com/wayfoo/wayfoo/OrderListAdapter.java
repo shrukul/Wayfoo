@@ -6,6 +6,8 @@ package com.wayfoo.wayfoo;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -26,17 +28,20 @@ public class OrderListAdapter extends
     private final Context mContext;
     private static Context mc;
     static String tag = "OrdersList";
+    static CardView card;
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
 
         protected TextView textView, price, id;
-        CardView card;
+        View sC;
+
 
         public CustomViewHolder(View view) {
             super(view);
             this.textView = (TextView) view.findViewById(R.id.title1);
             this.price = (TextView) view.findViewById(R.id.price);
             this.id = (TextView) view.findViewById(R.id.id);
+            this.sC = view.findViewById(R.id.statusC);
             mc = view.getContext();
             card = (CardView) view.findViewById(R.id.YogaCard);
             card.setOnClickListener(new View.OnClickListener() {
@@ -49,11 +54,13 @@ public class OrderListAdapter extends
                     String dispName = Html.fromHtml(feedItem.getDispName()).toString();
                     String price = Html.fromHtml(feedItem.getTotal()).toString();
                     String Address = Html.fromHtml(feedItem.getAddr()).toString();
+                    String status = Html.fromHtml(feedItem.getDone()).toString();
                     Intent intent = new Intent(mc, PerOrder.class);
                     intent.putExtra("oid", pagenext);
                     intent.putExtra("disp", dispName);
                     intent.putExtra("addr", Address);
                     intent.putExtra("total", price);
+                    intent.putExtra("status", status);
                     mc.startActivity(intent);
                 }
             });
@@ -91,6 +98,13 @@ public class OrderListAdapter extends
         SS.setSpan(new CustomTypeFace("", font1), 0, SS.length(),
                 Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
         customViewHolder.textView.setText(SS);
+        if (Html.fromHtml(feedItem.getDone()).toString().equals("0")) {
+            customViewHolder.sC.setBackgroundColor(Color.YELLOW);
+        } else if (Html.fromHtml(feedItem.getDone()).toString().equals("-1")) {
+            customViewHolder.sC.setBackgroundColor(Color.RED);
+        } else {
+            customViewHolder.sC.setBackgroundColor(mc.getResources().getColor(R.color.colorAccent));
+        }
         SS = new SpannableStringBuilder(
                 Html.fromHtml(feedItem.getTotal()));
         SS.setSpan(new CustomTypeFace("", font1), 0, SS.length(),

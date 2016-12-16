@@ -31,7 +31,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal"
-                android:weightSum="4">
+                android:weightSum="4.1">
+
+                <View
+                    android:id="@+id/statusC"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                     />
 
                 <TextView
                     android:id="@+id/id"

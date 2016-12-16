@@ -43,7 +43,7 @@ public class PerOrder extends AppCompatActivity {
     AsyncHttpTask a;
     private Toolbar mToolbar;
     ListView listView;
-    TextView phone, addr, price,time;
+    TextView phone, addr, price,time,status;
     String timex = "Not Available";
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -64,14 +64,23 @@ public class PerOrder extends AppCompatActivity {
         phone = (TextView) findViewById(R.id.phone);
         addr = (TextView) findViewById(R.id.addr);
         price = (TextView) findViewById(R.id.price);
+        status = (TextView) findViewById(R.id.status);
         Bundle b = getIntent().getExtras();
         String a1 = b.getString("disp");
         String a2 = b.getString("addr");
         String a3 = b.getString("total");
+        String a4 = b.getString("status");
         time = (TextView) findViewById(R.id.time);
         phone.setText(a1);
         addr.setText(a2);
         price.setText("₹" + a3 + "/-");
+        if(a4.equals("1")) {
+            status.setText("Status: Confirmed");
+        } else if(a4.equals("-1")){
+            status.setText("Status: Cancelled");
+        } else {
+            status.setText("Status: Pending");
+        }
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);

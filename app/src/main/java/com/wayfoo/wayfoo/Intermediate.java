@@ -48,7 +48,7 @@ public class Intermediate extends AppCompatActivity {
     LinearLayout lyt;
     Button retry;
     TextView errText;
-    String fav=null;
+    String fav="";
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -153,6 +153,8 @@ public class Intermediate extends AppCompatActivity {
                 //startActivity(new Intent(Intermediate.this,Main.class));
                 PrefManager pref = new PrefManager(getApplicationContext());
                 pref.setFavMenu(fav);
+                pref.setHotelName(hotelName);
+                pref.setTitle(name);
                 Intent i = new Intent(Intermediate.this, MainHotel.class);
                 i.putExtra("title", name);
                 i.putExtra("table", table);

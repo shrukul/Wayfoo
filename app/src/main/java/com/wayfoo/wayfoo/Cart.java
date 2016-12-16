@@ -273,6 +273,7 @@ public class Cart extends AppCompatActivity {
 
                 }
                 System.out.println("jsonResult" + jsonResult);
+                Log.e("json",jsonResult);
                 return "success";
             }
 

@@ -55,11 +55,12 @@ public class MainActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.base_activity);
-
+        PrefManager pref = new PrefManager(getApplicationContext());
+        pref.setFavMenu(null);
         //start tracking
         ((MyApplication)getApplication()).startTracking();
 
-        Toast.makeText(getApplicationContext(),""+getOauth(),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),""+getOauth(),Toast.LENGTH_SHORT).show();
 
         parentLayout = findViewById(android.R.id.content);
 

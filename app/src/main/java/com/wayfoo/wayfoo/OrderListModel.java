@@ -5,7 +5,7 @@ package com.wayfoo.wayfoo;
  */
 public class OrderListModel {
     private String id, oid;
-    private String title, total, table, pay, dispName, addr;
+    private String title, total, table, pay, dispName, addr,done;
 
     public String getTitle() {
         return title;
@@ -70,5 +70,13 @@ public class OrderListModel {
 
     public String getDispName() {
         return dispName;
+    }
+
+    public String getDone() {
+        return done;
+    }
+
+    public void setDone(String done) {
+        this.done = done;
     }
 }

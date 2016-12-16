@@ -191,6 +191,7 @@ public class MyOrders extends Fragment {
                 item.setTable(post.optString("TableName"));
                 item.setPay(post.optString("Payment"));
                 item.setOID(post.optString("OID"));
+                item.setDone(post.optString("Done"));
                 item.setDispName(post.optString("DispName"));
                 item.setAddr(post.optString("Addr"));
                 feedsList.add(item);
